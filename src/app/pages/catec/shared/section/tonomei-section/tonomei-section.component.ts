@@ -106,10 +106,5 @@ export class TonomeiSectionComponent {
     }
   }
 
-  openTonoMei(): void {
-    window.open(
-      'https://api.whatsapp.com/send/?phone=5585996157126&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20TônoMEI',
-      '_blank',
-    );
-  }
+  openTonoMei(): void {}
 }
