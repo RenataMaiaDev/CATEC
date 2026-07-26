@@ -1,18 +1,26 @@
 .about-section {
   width: 100%;
   background: #fffefe;
-  margin-bottom: 40px 40px 5px;
+  padding: 60px 0; // Usar padding vertical em vez de margin-bottom com sintaxe errada
   position: relative;
+  overflow: hidden; // Evita scroll horizontal por conta da badge flutuante
 }
 
 .about-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 64px;
 
+  // Ajuste intermediário para telas médias (tablets grandes / notebooks)
+  @media (max-width: 1024px) {
+    gap: 40px;
+  }
+
+  // Breakpoint principal para empilhamento em telas menores
   @media (max-width: 968px) {
     flex-direction: column;
     gap: 48px;
@@ -23,6 +31,7 @@
 .about-content {
   flex: 1;
   max-width: 580px;
+  width: 100%;
 
   @media (max-width: 968px) {
     max-width: 100%;
@@ -33,10 +42,15 @@
     color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 32px;
-    text-align: justify;
+    text-align: left; // 'justify' cria buracos grandes no texto em telas menores
 
     strong {
       color: var(--secondary-catec);
+    }
+
+    @media (max-width: 576px) {
+      font-size: 1rem;
+      margin-bottom: 24px;
     }
   }
 }
@@ -48,19 +62,22 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  text-align: justify;
 
   li {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    font-size: 1.125rem;
+    font-size: 1.05rem;
     color: var(--text-muted);
-    line-height: 1.6;
+    line-height: 1.5;
 
     strong {
       color: var(--secondary-catec);
       font-weight: 700;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 0.95rem;
     }
   }
 
@@ -68,6 +85,7 @@
     color: var(--primary-catec);
     font-size: 1.35rem;
     margin-top: 2px;
+    flex-shrink: 0; // Impede o ícone de encolher caso o texto ocupe muitas linhas
   }
 }
 
@@ -79,13 +97,14 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding-bottom: 20px; // Espaço reservado para a badge não cortar embaixo
 
   .about-img {
     width: 100%;
     max-width: 540px;
     height: auto;
     object-fit: cover;
-    border-radius: var(--radius-lg); // Mantém o arredondamento característico
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
   }
 }
@@ -93,11 +112,9 @@
 /* BADGE DE MÉTRICA FLUTUANTE */
 .metric-badge {
   position: absolute;
-  bottom: -20px;
+  bottom: 0; // Ajustado junto ao padding-bottom da imagem para evitar vazamentos
   left: 20px;
-  background-color: var(
-    --secondary-catec
-  ); // Azul escuro corporativo para alto contraste
+  background-color: var(--secondary-catec);
   color: var(--white);
   padding: 16px 24px;
   border-radius: var(--radius-md);
@@ -110,13 +127,20 @@
   @media (max-width: 576px) {
     left: 50%;
     transform: translateX(-50%);
-    width: 85%;
-    bottom: -30px;
+    width: calc(100% - 32px); // Garante margem lateral sem estourar a tela
+    max-width: 360px;
+    padding: 12px 18px;
+    gap: 12px;
   }
 
   .badge-icon {
     font-size: 2.5rem;
-    color: var(--primary-catec); // Estrela dourada/laranja em destaque
+    color: var(--primary-catec);
+    flex-shrink: 0;
+
+    @media (max-width: 576px) {
+      font-size: 2rem;
+    }
   }
 
   .metric-text {
@@ -128,12 +152,20 @@
       font-weight: 800;
       letter-spacing: -0.5px;
       line-height: 1.2;
+
+      @media (max-width: 576px) {
+        font-size: 1.1rem;
+      }
     }
 
     .label {
       font-size: 0.85rem;
-      color: #94a3b8; // Cinza claro para leitura secundária sobre fundo escuro
+      color: #94a3b8;
       font-weight: 500;
+
+      @media (max-width: 576px) {
+        font-size: 0.8rem;
+      }
     }
   }
 }

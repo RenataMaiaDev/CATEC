@@ -11,7 +11,7 @@ interface Slide {
   badge: string;
   icon: string;
   image: string;
-  logo: string; // <-- Propriedade adicionada
+  logo: string;
 }
 
 @Component({
@@ -45,7 +45,7 @@ export class TonomeiSectionComponent {
       badge: 'Divulgação & Vendas Online',
       icon: 'storefront',
       image: 'img/hero.png',
-      logo: 'img/logo-sisamb.png', // <-- Ajuste para o caminho real
+      logo: 'img/logo-sisamb.png',
     },
     {
       id: 'gestao',
@@ -57,11 +57,15 @@ export class TonomeiSectionComponent {
       badge: 'Tranquilidade para o Empreendedor',
       icon: 'assignment_turned_in',
       image: 'img/hero.png',
-      logo: 'img/logo-gestao-una.png', // <-- Ajuste para o caminho real
+      logo: 'img/logo-gestao-una.png',
     },
   ];
 
   activeSlideIndex = signal<number>(0);
+
+  // Variáveis para controle do Touch / Swipe
+  private touchStartX = 0;
+  private touchEndX = 0;
 
   setActiveSlide(index: number): void {
     this.activeSlideIndex.set(index);
@@ -75,6 +79,31 @@ export class TonomeiSectionComponent {
     this.activeSlideIndex.update(
       (idx) => (idx - 1 + this.slides.length) % this.slides.length,
     );
+  }
+
+  // Métodos do Touch Event
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.changedTouches[0].screenX;
+  }
+
+  onTouchEnd(event: TouchEvent): void {
+    this.touchEndX = event.changedTouches[0].screenX;
+    this.handleSwipe();
+  }
+
+  private handleSwipe(): void {
+    const swipeThreshold = 50; // Distância mínima em pixels para detectar o deslize
+    const diff = this.touchStartX - this.touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Deslizou para a esquerda -> Próximo Slide
+        this.nextSlide();
+      } else {
+        // Deslizou para a direita -> Slide Anterior
+        this.prevSlide();
+      }
+    }
   }
 
   openTonoMei(): void {

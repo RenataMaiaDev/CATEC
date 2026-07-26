@@ -1,13 +1,19 @@
 .tonomei-section {
   width: 100%;
   background: #fffefe;
-  margin-top: 60px;
+  padding: 60px 0;
   position: relative;
+  overflow: hidden; // Previne estouro lateral por conta das setas flutuantes
 }
 
 .tonomei-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 24px;
+
+  @media (max-width: 576px) {
+    padding: 0 16px;
+  }
 }
 
 .tonomei-header {
@@ -31,46 +37,75 @@
     .highlight {
       color: var(--primary-catec);
     }
+
+    @media (max-width: 768px) {
+      font-size: 1.85rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
   }
 
   .section-subtitle {
     font-size: 1.125rem;
     color: var(--text-muted);
     line-height: 1.6;
-    margin-bottom: 32px;
+
+    @media (max-width: 768px) {
+      font-size: 0.95rem;
+    }
   }
 }
 
-/* NAVEGAÇÃO POR ABAS (TABS) */
+/* NAVEGAÇÃO POR ABAS (TABS) COM ROLAGEM TOUCH NO MOBILE */
+.carousel-tabs-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none; // Esconde scrollbar no Firefox
+  -ms-overflow-style: none; // Esconde scrollbar no IE/Edge
+  margin-bottom: 32px;
+  padding: 4px 0;
+
+  &::-webkit-scrollbar {
+    display: none; // Esconde scrollbar no Chrome/Safari
+  }
+}
+
 .carousel-tabs {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
+  gap: 12px;
+  min-width: max-content; // Garante que as abas não amassem no mobile
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+    padding: 0 8px;
+  }
 
   .tab-btn {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 24px;
+    padding: 10px 20px;
     background-color: var(--white);
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 50px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--text-muted);
     cursor: pointer;
+    white-space: nowrap;
     transition: all 0.25s ease;
 
     .tab-icon {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     &:hover {
       border-color: var(--primary-catec);
       color: var(--primary-catec);
-      transform: translateY(-2px);
     }
 
     &.active {
@@ -102,11 +137,12 @@
   display: flex;
   align-items: center;
   gap: 48px;
+  user-select: none; // Evita seleção acidental de texto durante o swipe
 
   @media (max-width: 968px) {
     flex-direction: column;
-    padding: 24px;
-    gap: 32px;
+    padding: 24px 20px;
+    gap: 28px;
   }
 }
 
@@ -119,7 +155,7 @@
     background: #0f172a;
     border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
     border: 1px solid #334155;
 
     .frame-bar {
@@ -133,11 +169,11 @@
       .dots-container {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
 
         .dot {
-          width: 10px;
-          height: 10px;
+          width: 9px;
+          height: 9px;
           border-radius: 50%;
 
           &.red {
@@ -164,6 +200,7 @@
       height: auto;
       display: block;
       object-fit: cover;
+      pointer-events: none; // Evita arrastar a imagem ao fazer o gesto de swipe
     }
   }
 }
@@ -171,6 +208,7 @@
 /* INFO DO SLIDE */
 .showcase-info {
   flex: 1;
+  width: 100%;
 
   .feature-badge {
     display: inline-flex;
@@ -192,17 +230,34 @@
   }
 
   h3 {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: var(--secondary-catec);
     margin-bottom: 12px;
+
+    @media (max-width: 576px) {
+      font-size: 1.15rem;
+    }
   }
 
   p {
     font-size: 0.95rem;
     color: var(--text-muted);
-    line-height: 1.5;
-    margin-bottom: 28px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+
+    @media (max-width: 576px) {
+      font-size: 0.9rem;
+    }
+  }
+
+  .showcase-actions {
+    @media (max-width: 576px) {
+      app-button {
+        display: block;
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -211,8 +266,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background-color: var(--white);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -232,14 +287,14 @@
   }
 
   &.prev {
-    left: -24px;
+    left: -22px;
   }
   &.next {
-    right: -24px;
+    right: -22px;
   }
 
-  @media (max-width: 1024px) {
-    display: none;
+  @media (max-width: 1140px) {
+    display: none; // Esconde as setas flutuantes em telas menores para evitar sobreposição
   }
 }
 
@@ -247,7 +302,7 @@
 .carousel-dots {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   margin-top: 24px;
 
   .dot-indicator {
