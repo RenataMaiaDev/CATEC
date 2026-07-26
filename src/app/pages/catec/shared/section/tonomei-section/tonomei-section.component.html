@@ -1,0 +1,102 @@
+<section class="tonomei-section" id="produto">
+  <div class="tonomei-container">
+    <!-- CABEÇALHO CENTRALIZADO DE IMPACTO -->
+    <div class="tonomei-header">
+      <span class="section-badge">Soluções em Destaque</span>
+      <h2 class="section-title">
+        A plataforma que impulsiona o futuro da
+        <span class="highlight">Sua Empresa</span>
+      </h2>
+      <p class="section-subtitle">
+        As melhores soluções em tecnologia e gestão reunidas para acelerar o
+        crescimento do seu negócio. Oferecemos ferramentas inteligentes e
+        suporte especializado em um só lugar para otimizar seus processos e
+        gerar novas oportunidades no mercado.
+      </p>
+    </div>
+
+    <!-- ABAS NAVEGÁVEIS (TABS DO CARROSSEL) -->
+    <div class="carousel-tabs">
+      @for (slide of slides; track slide.id; let i = $index) {
+        <button
+          class="tab-btn"
+          [class.active]="activeSlideIndex() === i"
+          (click)="setActiveSlide(i)"
+        >
+          <span class="material-icons tab-icon">{{ slide.icon }}</span>
+          <span>{{ slide.button }}</span>
+        </button>
+      }
+    </div>
+
+    <!-- CARROSSEL SHOWCASE -->
+    <div class="carousel-showcase">
+      @for (slide of slides; track slide.id; let i = $index) {
+        @if (activeSlideIndex() === i) {
+          <div class="showcase-card animated-fade-in">
+            <!-- LADO DIREITO DA TELA DE DEMONSTRAÇÃO (MOCKUP/IMAGEM) -->
+            <div class="showcase-media">
+              <div class="mockup-frame">
+                <div class="frame-bar">
+                  <div class="dots-container">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+
+                  <!-- LOGO DO PRODUTO EM SUBSTITUIÇÃO AO TEXTO FIXO -->
+                  <img
+                    [src]="slide.logo"
+                    [alt]="slide.button + ' Logo'"
+                    class="frame-logo"
+                  />
+                </div>
+                <img
+                  [src]="slide.image"
+                  [alt]="slide.title"
+                  class="showcase-img"
+                />
+              </div>
+            </div>
+
+            <!-- INFO DO RECURSO -->
+            <div class="showcase-info">
+              <span class="feature-badge">
+                <span class="material-icons">star</span> {{ slide.badge }}
+              </span>
+              <h3>{{ slide.title }}</h3>
+              <p>{{ slide.description }}</p>
+
+              <div class="showcase-actions">
+                <app-button variant="primary" (click)="openTonoMei()">
+                  Experimente o {{ slide.button }}
+                  <i class="fa-solid fa-arrow-right"></i>
+                </app-button>
+              </div>
+            </div>
+          </div>
+        }
+      }
+
+      <!-- CONTROLES NAVEGADORAS (SETA ESQUERDA/DIREITA) -->
+      <button class="nav-btn prev" (click)="prevSlide()" aria-label="Anterior">
+        <span class="material-icons">chevron_left</span>
+      </button>
+      <button class="nav-btn next" (click)="nextSlide()" aria-label="Próximo">
+        <span class="material-icons">chevron_right</span>
+      </button>
+
+      <!-- INDICADORES (DOTS) -->
+      <div class="carousel-dots">
+        @for (slide of slides; track slide.id; let i = $index) {
+          <span
+            class="dot-indicator"
+            [class.active]="activeSlideIndex() === i"
+            (click)="setActiveSlide(i)"
+          >
+          </span>
+        }
+      </div>
+    </div>
+  </div>
+</section>

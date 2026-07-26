@@ -1,0 +1,55 @@
+<section class="hero-section">
+  <div class="hero-container">
+    
+    <!-- Lado Esquerdo: Textos e CTAs -->
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Soluções Inteligentes <br>
+        <span class="highlight">para uma Gestão mais Eficiente</span>
+      </h1>
+      <p class="hero-subtitle">
+        Desenvolvemos soluções integradas e acessíveis para modernizar a gestão pública e acelerar o crescimento de micro, pequenas e médias empresas.
+      </p>
+      
+      <div class="hero-actions">
+        <app-button variant="primary" (click)="openWhatsApp()">
+          Fale Conosco <i class="fa-solid fa-arrow-right"></i>
+        </app-button>
+      </div>
+    </div>
+
+    <!-- Lado Direito: Imagem Principal -->
+    <div class="hero-image-wrapper">
+      <img src="img/hero.png" alt="CATEC Soluções Tecnológicas" class="hero-img">
+    </div>
+
+  </div>
+
+  <!-- Card Flutuante de Diferenciais Baseado nos seus Componentes Reutilizáveis -->
+  <div class="hero-features-container">
+    <div class="hero-features-card">
+      
+<!-- Card 1: Foco em Eficiência e Produtividade real -->
+<app-card 
+  icon="auto_mode" 
+  title="Gestão Automatizada" 
+  description="Elimine tarefas manuais lentas com ferramentas inteligentes desenhadas para dar velocidade ao seu dia a dia.">
+</app-card>
+
+<!-- Card 2: Foco em Retorno Financeiro e Competitividade -->
+<app-card 
+  icon="trending_up" 
+  title="Alta Performance" 
+  description="Acesse o mesmo nível de tecnologia das grandes corporações por um investimento proporcional à sua realidade.">
+</app-card>
+
+<!-- Card 3: Foco em Confiança e Suporte Premium -->
+<app-card 
+  icon="handshake" 
+  title="Suporte Humanizado" 
+  description="Esqueça robôs e respostas prontas. Tenha um time de especialistas pronto para resolver seus problemas de ponta a ponta.">
+</app-card>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+<div class="catec-card">
+  <div class="card-content">
+    @if (icon()) {
+      <div class="icon-wrapper">
+        <span class="material-icons card-icon">{{ icon() }}</span>
+      </div>
+    }
+    <h3 class="card-title">{{ title() }}</h3>
+    <p class="card-description">{{ description() }}</p>
+  </div>
+
+  @if (showButton()) {
+    <div class="card-action">
+      <app-button [variant]="buttonVariant()" (click)="onButtonClick()">
+        {{ buttonText() }} <i class="fa-solid fa-arrow-right"></i>
+      </app-button>
+    </div>
+  }
+</div>

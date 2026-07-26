@@ -1,1 +1,194 @@
-/* You can add global styles to this file, and also import other style files */
+// --- DESIGN TOKENS (CATEC) ---
+@import "material-design-icons-iconfont/dist/material-design-icons.css";
+
+:root {
+  // --- CATEC BRAND ---
+  --primary-catec: #f26522; // Laranja Catec principal
+  --primary-hover-catec: #d44d0e; // Laranja escuro para hover
+  --secondary-catec: #1e293b; // Azul escuro/grafite para textos principais
+
+  // --- DESIGN TOKENS (TONOMEI)
+  --primary-tonomei: #110627; // Roxo/Azul Noturno dominante
+  --primary-hover-tonomei: #210d47;
+  --accent-tonomei: #00b5a3; // Turquesa de destaque do símbolo
+  --secondary-tonomei: #1a162b; // Tom escuro de apoio para backgrounds/cards
+
+  // --- DESIGN TOKENS (GESTAO UNA)
+  --primary-gestao: #00bfa5; // Verde-Água / Turquesa da marca
+  --primary-hover-gestao: #009d88;
+  --secondary-gestao: #181328; // Roxo Profundo das letras
+  --accent-gestao: #100b1e; // Background escuro / contraste
+
+  // --- DESIGN TOKENS (SISAMB)
+  --primary-sisamb: #00c29d; // Verde Esmeralda vibrante
+  --primary-hover-sisamb: #00a082;
+  --secondary-sisamb: #2a2f35; // Cinza Chumbo/Grafite
+
+  // GLOBAIS
+  --text-muted: #64748b; // Cinza para descrições secundárias
+  --bg-dark-sisamb: #12161a;
+  --bg-light: #f8fafc; // Fundo suave de seções
+  --white: #ffffff;
+
+  --shadow-sm:
+    0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-md:
+    0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  --shadow-lg:
+    0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+
+  --radius-md: 12px;
+  --radius-lg: 24px;
+}
+
+// --- DESIGN TOKENS (CATEC) ---
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--secondary-catec);
+  line-height: 1.6;
+}
+
+// --- UTILIÁRIOS DE TEXTO & ESPAÇAMENTO ---
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-badge {
+  color: var(--primary-catec);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  display: inline-block;
+
+  &::after {
+    content: " —";
+    margin-left: 5px;
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--secondary-catec);
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 48px auto;
+}
+
+// --- DESIGN TOKENS (TONOMEI) ---
+body.theme-tonomei,
+.theme-tonomei {
+  background-color: var(--primary-tonomei);
+  color: var(--white);
+
+  .section-badge {
+    color: var(--accent-tonomei);
+  }
+
+  .section-title {
+    color: var(--white);
+  }
+
+  .section-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+// Modificadores individuais caso queira usar via classes específicas
+.section-badge--tonomei {
+  color: var(--accent-tonomei);
+}
+
+.section-title--tonomei {
+  color: var(--white);
+}
+
+.section-subtitle--tonomei {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+// --- DESIGN TOKENS (GESTAO) ---
+body.theme-gestao,
+.theme-gestao {
+  background-color: var(--accent-gestao);
+  color: var(--white);
+
+  .section-badge {
+    color: var(--primary-gestao);
+  }
+
+  .section-title {
+    color: var(--white);
+  }
+
+  .section-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+// Modificadores individuais
+.section-badge--gestao {
+  color: var(--primary-gestao);
+}
+
+.section-title--gestao {
+  color: var(--secondary-gestao);
+}
+
+.section-subtitle--gestao {
+  color: var(--text-muted);
+}
+
+// --- DESIGN TOKENS (SISAMB) ---
+body.theme-sisamb,
+.theme-sisamb {
+  background-color: var(--bg-dark-sisamb);
+  color: var(--white);
+
+  .section-badge {
+    color: var(--primary-sisamb);
+  }
+
+  .section-title {
+    color: var(--white);
+  }
+
+  .section-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+// Modificadores individuais
+.section-badge--sisamb {
+  color: var(--primary-sisamb);
+}
+
+.section-title--sisamb {
+  color: var(--secondary-sisamb);
+}
+
+.section-subtitle--sisamb {
+  color: var(--text-muted);
+}
