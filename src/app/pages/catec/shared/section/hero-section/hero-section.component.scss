@@ -1,0 +1,128 @@
+.hero-section {
+  width: 100%;
+  background: #fffefe;
+  // Aumentado para 120px para que o fundo estenda bem por trás dos cards
+  padding: 30px 30px 5px 0px;
+  position: relative;
+
+  @media (max-width: 968px) {
+    padding: 60px 24px 80px 24px;
+  }
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+}
+
+/* CONTEÚDO ESQUERDO */
+.hero-content {
+  flex: 1.1;
+  max-width: 580px;
+  z-index: 2;
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--secondary-catec);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+
+    .highlight {
+      color: var(--primary-catec);
+    }
+
+    @media (max-width: 576px) {
+      font-size: 2.2rem;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @media (max-width: 968px) {
+    justify-content: center;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    width: 100%;
+
+    app-button {
+      width: 100%;
+    }
+  }
+}
+
+/* IMAGEM DIREITA */
+.hero-image-wrapper {
+  flex: 1.3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+
+  .hero-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
+}
+
+/* CARD INFERIOR (Ajustado com margem positiva para desgrudar a próxima seção) */
+.hero-features-container {
+  position: relative;
+  width: 100%;
+  padding: 0 24px;
+  z-index: 5;
+
+  // Mantém o distanciamento correto da imagem/texto acima
+  margin-top: 20px;
+
+  // Alterado para positivo (+60px) para empurrar os Serviços para baixo com segurança
+  margin-bottom: 60px;
+
+  @media (max-width: 968px) {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+.hero-features-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: transparent;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  border: none;
+
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

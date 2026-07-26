@@ -1,0 +1,139 @@
+.about-section {
+  width: 100%;
+  background: #fffefe;
+  margin-bottom: 40px 40px 5px;
+  position: relative;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+
+/* COLUNA DE CONTEÚDO */
+.about-content {
+  flex: 1;
+  max-width: 580px;
+
+  @media (max-width: 968px) {
+    max-width: 100%;
+  }
+
+  .about-description {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    text-align: justify;
+
+    strong {
+      color: var(--secondary-catec);
+    }
+  }
+}
+
+/* LISTA DE BENEFÍCIOS (TIPO CHECKLIST) */
+.about-features-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: justify;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+
+    strong {
+      color: var(--secondary-catec);
+      font-weight: 700;
+    }
+  }
+
+  .check-icon {
+    color: var(--primary-catec);
+    font-size: 1.35rem;
+    margin-top: 2px;
+  }
+}
+
+/* COLUNA DA IMAGEM E BADGE */
+.about-image-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .about-img {
+    width: 100%;
+    max-width: 540px;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius-lg); // Mantém o arredondamento característico
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* BADGE DE MÉTRICA FLUTUANTE */
+.metric-badge {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  background-color: var(
+    --secondary-catec
+  ); // Azul escuro corporativo para alto contraste
+  color: var(--white);
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 3;
+
+  @media (max-width: 576px) {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    bottom: -30px;
+  }
+
+  .badge-icon {
+    font-size: 2.5rem;
+    color: var(--primary-catec); // Estrela dourada/laranja em destaque
+  }
+
+  .metric-text {
+    display: flex;
+    flex-direction: column;
+
+    .number {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .label {
+      font-size: 0.85rem;
+      color: #94a3b8; // Cinza claro para leitura secundária sobre fundo escuro
+      font-weight: 500;
+    }
+  }
+}

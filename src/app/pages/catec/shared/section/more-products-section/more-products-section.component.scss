@@ -1,0 +1,35 @@
+.more-products-section {
+  width: 100%;
+  background-color: var(--white);
+
+  .highlight {
+    color: var(--primary-catec);
+  }
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    1fr
+  ); // 2 cards em cima, 2 cards embaixo no desktop
+  gap: 32px; // Espaçamento levemente maior para destacar bem cada card
+  max-width: 960px; // Largura máxima ideal para 2 colunas ficarem bem proporcionais e elegantes
+  margin: 0 auto 48px auto; // Centraliza o grid na página e dá margem inferior para o botão
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr; // 1 por linha no mobile
+    gap: 24px;
+  }
+}
+
+.more-products-actions {
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 480px) {
+    app-button {
+      width: 100%;
+    }
+  }
+}
