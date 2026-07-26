@@ -5,6 +5,9 @@
   .highlight {
     color: var(--primary-catec);
   }
+  @media (max-width: 480px) {
+    padding: 10px 10px 5px 0px;
+  }
 }
 
 .products-grid {

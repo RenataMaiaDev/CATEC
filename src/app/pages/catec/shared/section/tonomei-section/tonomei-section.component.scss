@@ -3,7 +3,11 @@
   background: #fffefe;
   padding: 60px 0;
   position: relative;
-  overflow: hidden; // Previne estouro lateral por conta das setas flutuantes
+  overflow: hidden;
+
+  @media (max-width: 576px) {
+    padding: 40px 0;
+  }
 }
 
 .tonomei-container {

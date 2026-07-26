@@ -4,6 +4,12 @@
   padding: 60px 0; // Usar padding vertical em vez de margin-bottom com sintaxe errada
   position: relative;
   overflow: hidden; // Evita scroll horizontal por conta da badge flutuante
+
+  @media (max-width: 968px) {
+    padding: 10px 0;
+    position: relative;
+    overflow: hidden;
+  }
 }
 
 .about-container {
