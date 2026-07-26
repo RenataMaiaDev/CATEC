@@ -16,24 +16,30 @@
     </div>
 
     <!-- ABAS NAVEGÁVEIS (TABS DO CARROSSEL) -->
-    <div class="carousel-tabs">
-      @for (slide of slides; track slide.id; let i = $index) {
-        <button
-          class="tab-btn"
-          [class.active]="activeSlideIndex() === i"
-          (click)="setActiveSlide(i)"
-        >
-          <span class="material-icons tab-icon">{{ slide.icon }}</span>
-          <span>{{ slide.button }}</span>
-        </button>
-      }
+    <div class="carousel-tabs-wrapper">
+      <div class="carousel-tabs">
+        @for (slide of slides; track slide.id; let i = $index) {
+          <button
+            class="tab-btn"
+            [class.active]="activeSlideIndex() === i"
+            (click)="setActiveSlide(i)"
+          >
+            <span class="material-icons tab-icon">{{ slide.icon }}</span>
+            <span>{{ slide.button }}</span>
+          </button>
+        }
+      </div>
     </div>
 
-    <!-- CARROSSEL SHOWCASE -->
+    <!-- CARROSSEL SHOWCASE COM SUPORTE A TOUCH -->
     <div class="carousel-showcase">
       @for (slide of slides; track slide.id; let i = $index) {
         @if (activeSlideIndex() === i) {
-          <div class="showcase-card animated-fade-in">
+          <div
+            class="showcase-card animated-fade-in"
+            (touchstart)="onTouchStart($event)"
+            (touchend)="onTouchEnd($event)"
+          >
             <!-- LADO DIREITO DA TELA DE DEMONSTRAÇÃO (MOCKUP/IMAGEM) -->
             <div class="showcase-media">
               <div class="mockup-frame">
@@ -44,7 +50,6 @@
                     <span class="dot green"></span>
                   </div>
 
-                  <!-- LOGO DO PRODUTO EM SUBSTITUIÇÃO AO TEXTO FIXO -->
                   <img
                     [src]="slide.logo"
                     [alt]="slide.button + ' Logo'"
