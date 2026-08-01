@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { WhatsappButtonComponent } from './pages/catec/shared/components/whatsapp-button/whatsapp-button.component';
+import { WhatsappButtonComponent } from './components/whatsapp-button/whatsapp-button.component';
 
 @Component({
   selector: 'app-root',

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
-import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { Router } from '@angular/router';
+import { ButtonComponent } from '../../components/button/button.component';
 
 interface Slide {
   id: string;
@@ -19,7 +19,7 @@ interface Slide {
 @Component({
   selector: 'app-tonomei-section',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, RouterLink],
+  imports: [CommonModule, ButtonComponent],
   templateUrl: './tonomei-section.component.html',
   styleUrl: './tonomei-section.component.scss',
 })

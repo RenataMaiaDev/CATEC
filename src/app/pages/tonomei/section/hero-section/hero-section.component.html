@@ -1,0 +1,108 @@
+<section class="tonomei-hero theme-tonomei" id="tonomei-inicio">
+  <div class="section-container hero-grid">
+    <!-- COLUNA DA ESQUERDA: Textos & CTAs -->
+    <div class="hero-content">
+      <h1 class="section-title section-title--tonomei">
+        A Solução Completa para o seu
+        <span class="highlight">MEI</span> Prosperar
+      </h1>
+
+      <h2 class="hero-subtitle">
+        Tudo o que a sua empresa precisa para ficar 100% regularizada em um só
+        lugar.
+      </h2>
+
+      <p class="section-subtitle--tonomei hero-description">
+        Simplifique o controle do DAS, declarações anuais e regularização
+        cadastral em uma interface intuitiva feita sob medida para o seu dia a
+        dia.
+      </p>
+
+      <!-- Botão de Ação -->
+      <div class="hero-actions">
+        <app-tonomei-button
+          variant="primary"
+          (click)="
+            navigateTo('https://backendjava.catecsolucoes.com.br/tonomei/demo')
+          "
+        >
+          Criar Conta Grátis
+        </app-tonomei-button>
+      </div>
+
+      <!-- Destaques de Valor -->
+      <div class="hero-value-highlights">
+        <div class="highlight-item">
+          <div class="icon-wrapper">
+            <i class="material-icons">bolt</i>
+          </div>
+          <div class="highlight-text">
+            <strong>Rotina MEI Descomplicada</strong>
+            <small>Sem burocracia no dia a dia</small>
+          </div>
+        </div>
+
+        <div class="highlight-divider"></div>
+
+        <div class="highlight-item">
+          <div class="icon-wrapper">
+            <i class="material-icons">query_stats</i>
+          </div>
+          <div class="highlight-text">
+            <strong>Gestão em Tempo Real</strong>
+            <small>Controle total do seu negócio</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUNA DA DIREITA: Imagem Fixa & Cards Flutuantes -->
+    <div class="hero-media">
+      <!-- Card Flutuante Superior -->
+      <div class="floating-card card-top">
+        <div class="card-icon">
+          <i class="material-icons">verified</i>
+        </div>
+        <div class="card-text">
+          <span class="card-title">Vitrine Virtual</span>
+          <span class="card-sub">Divulgue e venda online</span>
+        </div>
+      </div>
+
+      <!-- Arco de Fundo -->
+      <div class="bg-arch"></div>
+
+      <!-- Imagem da Empreendedora -->
+      <img
+        src="img-tonomei/boleira.png"
+        alt="Empreendedora utilizando a plataforma TôNoMEI"
+        class="main-person-img"
+      />
+
+      <!-- Card Flutuante Inferior -->
+      <div class="floating-card card-bottom">
+        <div class="card-icon icon-accent">
+          <i class="material-icons">receipt_long</i>
+        </div>
+        <div class="card-text">
+          <span class="card-title">Gestão de Gastos</span>
+          <span class="card-sub">Acompanhe suas despesas em tempo real</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARROSSEL FINO DE RETÂNGULOS LARGOS -->
+  <div class="entrepreneurs-ticker-wrapper">
+    <div class="ticker-track">
+      @for (
+        image of entrepreneurImages.concat(entrepreneurImages);
+        track $index
+      ) {
+        <div class="ticker-card-rectangle">
+          <img [src]="image" alt="Empreendedor TôNoMEI" />
+        </div>
+      }
+    </div>
+  </div>
+</section>
