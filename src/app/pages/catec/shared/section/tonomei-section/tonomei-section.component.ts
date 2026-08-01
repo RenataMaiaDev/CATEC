@@ -25,42 +25,41 @@ export class TonomeiSectionComponent {
   slides: Slide[] = [
     {
       id: 'tonomei',
-      button: 'Tônomei',
-      title: 'Gestão de Vendas & Faturamento',
-      subtitle: 'Vendas x Gastos',
+      button: 'tônomei',
+      title: 'Solução Completa para o Microempreendedor',
+      subtitle: 'Gestão & Obrigações Fiscais',
       description:
-        'Registre suas vendas em segundos, acompanhe o histórico financeiro completo e saiba exatamente quanto está entrando no seu caixa. Tenha previsibilidade sobre os custos da sua empresa, compare resultados mês a mês e elimine a bagunça dos papéis com relatórios automáticos.',
-      badge: 'Controle de Gastos em Tempo Real',
+        'Um sistema desenvolvido para reunir todas as suas obrigações fiscais em um só lugar. Monte seu portfólio de produtos e serviços, mantenha o controle de gastos na ponta do lápis e gerencie o faturamento com facilidade, sem complicação.',
+      badge: 'Microempreendedores Individuais (MEI)',
       icon: 'point_of_sale',
-      image: 'img/hero.png',
+      image: 'img/tonomei.png',
       logo: 'img/logo-tonomei.png',
     },
-    {
-      id: 'sisambe',
-      button: 'SISAMB',
-      title: 'Vitrine Virtual para alavancar seu negócio',
-      subtitle: 'Catálogo Digital',
-      description:
-        'Crie uma vitrine online profissional para expor seus produtos e serviços de forma simples e atrativa. Compartilhe o link do seu catálogo diretamente pelo WhatsApp e redes sociais, permitindo que seus clientes façam pedidos de maneira rápida, prática e sem intermediários.',
-      badge: 'Divulgação & Vendas Online',
-      icon: 'storefront',
-      image: 'img/hero.png',
-      logo: 'img/logo-sisamb.png',
-    },
-    {
-      id: 'gestao',
-      button: 'Gestão Una',
-      title: 'Rotina MEI 100% Organizada e sem complicações',
-      subtitle: 'Obrigas e Prazos',
-      description:
-        'Centralize todas as obrigações do seu microempreendimento em um só lugar. Acompanhe datas de pagamento das guias DAS, organize compras e vendas para a Declaração Anual (DASN-SIMEI) e mantenha seu CNPJ sempre regularizado sem surpresas no fim do ano.',
-      badge: 'Tranquilidade para o Empreendedor',
-      icon: 'assignment_turned_in',
-      image: 'img/hero.png',
-      logo: 'img/logo-gestao-una.png',
-    },
+    // {
+    //   id: 'sisambe',
+    //   button: 'SISAMB',
+    //   title: 'Transformação Digital na Gestão Ambiental',
+    //   subtitle: 'Cidades, Estados & Consórcios',
+    //   description:
+    //     'O SISAMB leva a gestão ambiental do seu município, estado ou consórcio para o ambiente digital de forma leve, fácil e intuitiva. Simplifique processos, monitore indicadores ecológicos e modernize a administração pública ambiental.',
+    //   badge: 'Órgãos de Gestão Ambiental e Consórcios',
+    //   icon: 'eco',
+    //   image: 'img/hero.png',
+    //   logo: 'img/logo-sisamb.png',
+    // },
+    // {
+    //   id: 'gestao',
+    //   button: 'Gestão Una',
+    //   title: 'Gestão Eficiente para o Setor Público',
+    //   subtitle: 'Serviços Públicos Integrados',
+    //   description:
+    //     'Um sistema projetado para gerir as principais áreas do serviço público de maneira prática, inteligente, acessível, econômica, inclusiva e moderna. Otimize rotinas administrativas e melhore o atendimento ao cidadão.',
+    //   badge: 'Prefeituras e Secretarias Públicas',
+    //   icon: 'account_balance',
+    //   image: 'img/hero.png',
+    //   logo: 'img/logo-gestao-una.png',
+    // },
   ];
-
   activeSlideIndex = signal<number>(0);
 
   // Variáveis para controle do Touch / Swipe
