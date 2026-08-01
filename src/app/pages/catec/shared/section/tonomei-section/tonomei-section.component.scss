@@ -1,9 +1,10 @@
 .tonomei-section {
   width: 100%;
   background: #fffefe;
-  padding: 60px 0;
+  padding: 30px 0;
   position: relative;
   overflow: hidden;
+  scroll-margin-top: 80px;
 
   @media (max-width: 576px) {
     padding: 40px 0;
@@ -249,6 +250,7 @@
     color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 24px;
+    text-align: justify;
 
     @media (max-width: 576px) {
       font-size: 0.9rem;

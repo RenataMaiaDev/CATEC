@@ -1,34 +1,88 @@
 <header class="header" [class.menu-open]="isMenuOpen()">
   <div class="header-container">
-    <!-- Logotipo Oficial da Catec através de Imagem -->
-    <a href="#" class="logo" (click)="closeMenu()">
-      <img src="img/logo-catec-solucoes.png" alt="CATEC Soluções" class="logo-img">
+    <a href="#" class="logo" (click)="setActiveSection('inicio')">
+      <img
+        src="img/logo-catec-solucoes.png"
+        alt="CATEC Soluções"
+        class="logo-img"
+      />
     </a>
 
-    <!-- Menu de Navegação Desktop -->
+    <!-- Navigation Menu Desktop -->
     <nav class="nav-menu">
-      <a href="#inicio" class="nav-link active">INÍCIO</a>
-      <a href="#quem-somos" class="nav-link">QUEM SOMOS</a>
-      <a href="#produto" class="nav-link">PRODUTO</a>
-      <a href="#outros-servicos" class="nav-link">OUTROS SERVIÇOS</a>
-      <a href="#contato" class="nav-link">CONTATO</a>
-      
-      <!-- Dropdown Item com ícone chevron delicado -->
+      <a
+        href="#inicio"
+        class="nav-link"
+        [class.active]="activeSection() === 'inicio'"
+        (click)="setActiveSection('inicio')"
+        >INÍCIO</a
+      >
+
+      <a
+        href="#quem-somos"
+        class="nav-link"
+        [class.active]="activeSection() === 'quem-somos'"
+        (click)="setActiveSection('quem-somos')"
+        >QUEM SOMOS</a
+      >
+
+      <a
+        href="#produto"
+        class="nav-link"
+        [class.active]="activeSection() === 'produto'"
+        (click)="setActiveSection('produto')"
+        >SOLUÇÕES EM DESTAQUE</a
+      >
+
+      <a
+        href="#outros-servicos"
+        class="nav-link"
+        [class.active]="activeSection() === 'outros-servicos'"
+        (click)="setActiveSection('outros-servicos')"
+        >NOSSOS SERVIÇOS</a
+      >
+
+      <!-- Dropdown Item -->
       <div class="dropdown-container" [class.open]="isDropdownOpen()">
-        <button class="nav-link dropdown-toggle" (click)="toggleDropdown($event)">
-          LINKS ÚTEIS 
+        <button
+          class="nav-link dropdown-toggle"
+          [class.active]="
+            ['portal', 'suporte', 'transparencia'].includes(activeSection())
+          "
+          (click)="toggleDropdown($event)"
+        >
+          LINKS ÚTEIS
           <i class="fa-solid fa-chevron-down arrow-icon"></i>
         </button>
         <div class="dropdown-menu">
-          <a href="#portal" class="dropdown-item" (click)="closeMenu()">Portal do Cliente</a>
-          <a href="#suporte" class="dropdown-item" (click)="closeMenu()">Suporte Técnico</a>
-          <a href="#transparencia" class="dropdown-item" (click)="closeMenu()">Portal da Transparência</a>
+          <a
+            href="#portal"
+            class="dropdown-item"
+            (click)="setActiveSection('portal')"
+            >Portal do Cliente</a
+          >
+          <a
+            href="#suporte"
+            class="dropdown-item"
+            (click)="setActiveSection('suporte')"
+            >Suporte Técnico</a
+          >
+          <a
+            href="#transparencia"
+            class="dropdown-item"
+            (click)="setActiveSection('transparencia')"
+            >Portal da Transparência</a
+          >
         </div>
       </div>
     </nav>
 
-    <!-- Botão Hambúrguer para Mobile -->
-    <button class="hamburger-btn" (click)="toggleMenu()" aria-label="Menu de navegação">
+    <!-- Botão Hambúrguer Mobile -->
+    <button
+      class="hamburger-btn"
+      (click)="toggleMenu()"
+      aria-label="Menu de navegação"
+    >
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
@@ -37,20 +91,57 @@
     <!-- Menu Mobile Expandido -->
     <div class="mobile-menu">
       <nav class="mobile-nav">
-        <a href="#inicio" class="mobile-link" (click)="closeMenu()">INÍCIO</a>
-        <a href="#quem-somos" class="mobile-link" (click)="closeMenu()">QUEM SOMOS</a>
-        <a href="#produto" class="mobile-link" (click)="closeMenu()">PRODUTO</a>
-        <a href="#outros-servicos" class="mobile-link" (click)="closeMenu()">OUTROS SERVIÇOS</a>
-        <a href="#contato" class="mobile-link" (click)="closeMenu()">CONTATO</a>
-        
+        <a
+          href="#inicio"
+          class="mobile-link"
+          (click)="setActiveSection('inicio')"
+          >INÍCIO</a
+        >
+        <a
+          href="#quem-somos"
+          class="mobile-link"
+          (click)="setActiveSection('quem-somos')"
+          >QUEM SOMOS</a
+        >
+        <a
+          href="#produto"
+          class="mobile-link"
+          (click)="setActiveSection('produto')"
+          >SOLUÇÕES EM DESTAQUE</a
+        >
+        <a
+          href="#outros-servicos"
+          class="mobile-link"
+          (click)="setActiveSection('outros-servicos')"
+          >NOSSOS SERVIÇOS</a
+        >
+
         <div class="mobile-dropdown" [class.open]="isDropdownOpen()">
-          <button class="mobile-link mobile-dropdown-toggle" (click)="toggleDropdown($event)">
+          <button
+            class="mobile-link mobile-dropdown-toggle"
+            (click)="toggleDropdown($event)"
+          >
             LINKS ÚTEIS <i class="fa-solid fa-chevron-down arrow-icon"></i>
           </button>
           <div class="mobile-dropdown-menu">
-            <a href="#portal" class="mobile-dropdown-item" (click)="closeMenu()">Portal do Cliente</a>
-            <a href="#suporte" class="mobile-dropdown-item" (click)="closeMenu()">Suporte Técnico</a>
-            <a href="#transparencia" class="mobile-dropdown-item" (click)="closeMenu()">Portal da Transparência</a>
+            <a
+              href="#portal"
+              class="mobile-dropdown-item"
+              (click)="setActiveSection('portal')"
+              >Portal do Cliente</a
+            >
+            <a
+              href="#suporte"
+              class="mobile-dropdown-item"
+              (click)="setActiveSection('suporte')"
+              >Suporte Técnico</a
+            >
+            <a
+              href="#transparencia"
+              class="mobile-dropdown-item"
+              (click)="setActiveSection('transparencia')"
+              >Portal da Transparência</a
+            >
           </div>
         </div>
       </nav>

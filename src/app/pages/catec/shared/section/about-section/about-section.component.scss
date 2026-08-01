@@ -1,9 +1,10 @@
 .about-section {
   width: 100%;
   background: #fffefe;
-  padding: 60px 0; // Usar padding vertical em vez de margin-bottom com sintaxe errada
+  padding: 30px 0;
   position: relative;
-  overflow: hidden; // Evita scroll horizontal por conta da badge flutuante
+  overflow: hidden;
+  scroll-margin-top: 80px;
 
   @media (max-width: 968px) {
     padding: 10px 0;
@@ -33,7 +34,6 @@
   }
 }
 
-/* COLUNA DE CONTEÚDO */
 .about-content {
   flex: 1;
   max-width: 580px;
@@ -48,7 +48,7 @@
     color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 32px;
-    text-align: left; // 'justify' cria buracos grandes no texto em telas menores
+    text-align: left;
 
     strong {
       color: var(--secondary-catec);
