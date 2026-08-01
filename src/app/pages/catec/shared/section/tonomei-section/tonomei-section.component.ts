@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 
 interface Slide {
@@ -12,16 +13,19 @@ interface Slide {
   icon: string;
   image: string;
   logo: string;
+  route: string;
 }
 
 @Component({
   selector: 'app-tonomei-section',
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule, ButtonComponent, RouterLink],
   templateUrl: './tonomei-section.component.html',
   styleUrl: './tonomei-section.component.scss',
 })
 export class TonomeiSectionComponent {
+  private router = inject(Router);
+
   slides: Slide[] = [
     {
       id: 'tonomei',
@@ -34,32 +38,36 @@ export class TonomeiSectionComponent {
       icon: 'point_of_sale',
       image: 'img/tonomei.png',
       logo: 'img/logo-tonomei.png',
+      route: '/tonomei',
     },
-    // {
-    //   id: 'sisambe',
-    //   button: 'SISAMB',
-    //   title: 'Transformação Digital na Gestão Ambiental',
-    //   subtitle: 'Cidades, Estados & Consórcios',
-    //   description:
-    //     'O SISAMB leva a gestão ambiental do seu município, estado ou consórcio para o ambiente digital de forma leve, fácil e intuitiva. Simplifique processos, monitore indicadores ecológicos e modernize a administração pública ambiental.',
-    //   badge: 'Órgãos de Gestão Ambiental e Consórcios',
-    //   icon: 'eco',
-    //   image: 'img/hero.png',
-    //   logo: 'img/logo-sisamb.png',
-    // },
-    // {
-    //   id: 'gestao',
-    //   button: 'Gestão Una',
-    //   title: 'Gestão Eficiente para o Setor Público',
-    //   subtitle: 'Serviços Públicos Integrados',
-    //   description:
-    //     'Um sistema projetado para gerir as principais áreas do serviço público de maneira prática, inteligente, acessível, econômica, inclusiva e moderna. Otimize rotinas administrativas e melhore o atendimento ao cidadão.',
-    //   badge: 'Prefeituras e Secretarias Públicas',
-    //   icon: 'account_balance',
-    //   image: 'img/hero.png',
-    //   logo: 'img/logo-gestao-una.png',
-    // },
+    {
+      id: 'sisambe',
+      button: 'SISAMB',
+      title: 'Transformação Digital na Gestão Ambiental',
+      subtitle: 'Cidades, Estados & Consórcios',
+      description:
+        'O SISAMB leva a gestão ambiental do seu município, estado ou consórcio para o ambiente digital de forma leve, fácil e intuitiva. Simplifique processos, monitore indicadores ecológicos e modernize a administração pública ambiental.',
+      badge: 'Órgãos de Gestão Ambiental e Consórcios',
+      icon: 'eco',
+      image: 'img/hero.png',
+      logo: 'img/logo-sisamb.png',
+      route: '/sisamb',
+    },
+    {
+      id: 'gestao',
+      button: 'Gestão Una',
+      title: 'Gestão Eficiente para o Setor Público',
+      subtitle: 'Serviços Públicos Integrados',
+      description:
+        'Um sistema projetado para gerir as principais áreas do serviço público de maneira prática, inteligente, acessível, econômica, inclusiva e moderna. Otimize rotinas administrativas e melhore o atendimento ao cidadão.',
+      badge: 'Prefeituras e Secretarias Públicas',
+      icon: 'account_balance',
+      image: 'img/hero.png',
+      logo: 'img/logo-gestao-una.png',
+      route: '/gestao-una',
+    },
   ];
+
   activeSlideIndex = signal<number>(0);
 
   // Variáveis para controle do Touch / Swipe
@@ -91,19 +99,20 @@ export class TonomeiSectionComponent {
   }
 
   private handleSwipe(): void {
-    const swipeThreshold = 50; // Distância mínima em pixels para detectar o deslize
+    const swipeThreshold = 50;
     const diff = this.touchStartX - this.touchEndX;
 
     if (Math.abs(diff) > swipeThreshold) {
       if (diff > 0) {
-        // Deslizou para a esquerda -> Próximo Slide
         this.nextSlide();
       } else {
-        // Deslizou para a direita -> Slide Anterior
         this.prevSlide();
       }
     }
   }
 
-  openTonoMei(): void {}
+  // Método manual para fallback de navegação
+  openSystemPage(routePath: string): void {
+    this.router.navigate([routePath]);
+  }
 }

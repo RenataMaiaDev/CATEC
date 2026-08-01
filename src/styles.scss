@@ -41,12 +41,25 @@
   --radius-lg: 24px;
 }
 
-// --- DESIGN TOKENS (CATEC) ---
+// --- RESET E CONFIGURAÇÕES BASE ---
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Compensa a altura de qualquer Header Fixo Individual ao navegar por #id */
+section[id] {
+  scroll-margin-top: 85px;
+
+  @media (max-width: 576px) {
+    scroll-margin-top: 65px;
+  }
 }
 
 body {
@@ -92,6 +105,11 @@ body {
   line-height: 1.2;
   margin-bottom: 16px;
   letter-spacing: -0.5px;
+
+  /* Destaque de palavras em Laranja */
+  .highlight {
+    color: var(--primary-catec);
+  }
 }
 
 .section-subtitle {
@@ -101,7 +119,7 @@ body {
   margin: 0 auto 48px auto;
 }
 
-// --- DESIGN TOKENS (TONOMEI) ---
+// --- DESIGN TOKENS & TEMAS (TONOMEI) ---
 body.theme-tonomei,
 .theme-tonomei {
   background-color: var(--primary-tonomei);
@@ -113,6 +131,10 @@ body.theme-tonomei,
 
   .section-title {
     color: var(--white);
+
+    .highlight {
+      color: var(--accent-tonomei);
+    }
   }
 
   .section-subtitle {
@@ -120,7 +142,6 @@ body.theme-tonomei,
   }
 }
 
-// Modificadores individuais caso queira usar via classes específicas
 .section-badge--tonomei {
   color: var(--accent-tonomei);
 }
@@ -133,7 +154,7 @@ body.theme-tonomei,
   color: rgba(255, 255, 255, 0.7);
 }
 
-// --- DESIGN TOKENS (GESTAO) ---
+// --- DESIGN TOKENS & TEMAS (GESTAO UNA) ---
 body.theme-gestao,
 .theme-gestao {
   background-color: var(--accent-gestao);
@@ -145,6 +166,10 @@ body.theme-gestao,
 
   .section-title {
     color: var(--white);
+
+    .highlight {
+      color: var(--primary-gestao);
+    }
   }
 
   .section-subtitle {
@@ -152,7 +177,6 @@ body.theme-gestao,
   }
 }
 
-// Modificadores individuais
 .section-badge--gestao {
   color: var(--primary-gestao);
 }
@@ -165,7 +189,7 @@ body.theme-gestao,
   color: var(--text-muted);
 }
 
-// --- DESIGN TOKENS (SISAMB) ---
+// --- DESIGN TOKENS & TEMAS (SISAMB) ---
 body.theme-sisamb,
 .theme-sisamb {
   background-color: var(--bg-dark-sisamb);
@@ -177,6 +201,10 @@ body.theme-sisamb,
 
   .section-title {
     color: var(--white);
+
+    .highlight {
+      color: var(--primary-sisamb);
+    }
   }
 
   .section-subtitle {
@@ -184,7 +212,6 @@ body.theme-sisamb,
   }
 }
 
-// Modificadores individuais
 .section-badge--sisamb {
   color: var(--primary-sisamb);
 }
