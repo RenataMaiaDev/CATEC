@@ -9,7 +9,7 @@
 
   // --- DESIGN TOKENS (TONOMEI)
   --primary-tonomei: #110627; // Roxo/Azul Noturno dominante
-  --primary-hover-tonomei: #210d47;
+  --primary-hover-tonomei: #00b5a3;
   --accent-tonomei: #00b5a3; // Turquesa de destaque do símbolo
   --secondary-tonomei: #1a162b; // Tom escuro de apoio para backgrounds/cards
 
@@ -72,7 +72,7 @@ body {
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 30px 24px;
+  padding: 10px 24px;
 
   @media (max-width: 480px) {
     padding: 10px 10px;
@@ -130,7 +130,7 @@ body.theme-tonomei,
   }
 
   .section-title {
-    color: var(--white);
+    color: var(--primary-tonomei);
 
     .highlight {
       color: var(--accent-tonomei);

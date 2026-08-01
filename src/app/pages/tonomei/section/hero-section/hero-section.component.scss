@@ -1,0 +1,353 @@
+.tonomei-hero {
+  width: 100%;
+  background: #fffefe;
+  position: relative;
+  overflow: hidden;
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 50px;
+    }
+  }
+}
+
+/* --- COLUNA ESQUERDA (TEXTOS) --- */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+
+  @media (max-width: 992px) {
+    align-items: center;
+  }
+
+  .section-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--secondary-catec);
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+
+    .highlight {
+      color: var(--accent-tonomei);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2.1rem;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--secondary-catec);
+    margin-bottom: 20px;
+    line-height: 1.4;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    max-width: 480px;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+
+    @media (max-width: 480px) {
+      width: 100%;
+
+      app-tonomei-button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* HIGHLIGHTS DE VALOR */
+.hero-value-highlights {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--bg-light, #f8fafc);
+  padding: 14px 22px;
+  border-radius: var(--radius-md, 12px);
+  border: 1px solid #e2e8f0;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .icon-wrapper {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background-color: rgba(0, 181, 163, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      i {
+        font-size: 20px;
+        color: var(--accent-tonomei);
+      }
+    }
+
+    .highlight-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      strong {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: var(--secondary-catec, #1e293b);
+      }
+
+      small {
+        font-size: 0.75rem;
+        color: var(--text-muted, #64748b);
+        margin-top: 1px;
+      }
+    }
+  }
+
+  .highlight-divider {
+    width: 1px;
+    height: 32px;
+    background-color: #cbd5e1;
+
+    @media (max-width: 576px) {
+      display: none;
+    }
+  }
+}
+
+/* --- COLUNA DIREITA (IMAGEM E CARDS) --- */
+.hero-media {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 460px;
+  padding: 40px 20px 0 20px;
+  z-index: 2;
+
+  .bg-arch {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    height: 380px;
+    background-color: var(--accent-tonomei);
+    border-radius: 150px 150px 0 0;
+    z-index: 1;
+
+    @media (max-width: 480px) {
+      width: 250px;
+      height: 320px;
+    }
+  }
+
+  .main-person-img {
+    position: relative;
+    z-index: 2;
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+
+    @media (max-width: 480px) {
+      max-width: 270px;
+    }
+  }
+
+  .floating-card {
+    position: absolute;
+    z-index: 3;
+    background-color: var(--white, #ffffff);
+    padding: 12px 18px;
+    border-radius: var(--radius-md, 12px);
+    box-shadow:
+      0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    animation: float 4s ease-in-out infinite;
+
+    .card-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background-color: rgba(0, 181, 163, 0.12);
+      color: var(--accent-tonomei);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      i {
+        font-size: 20px;
+      }
+
+      &.icon-accent {
+        background-color: rgba(0, 181, 163, 0.15);
+      }
+    }
+
+    .card-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      .card-title {
+        font-weight: 700;
+        font-size: 0.85rem;
+        color: var(--secondary-catec, #1e293b);
+      }
+
+      .card-sub {
+        font-size: 0.725rem;
+        color: var(--text-muted, #64748b);
+      }
+    }
+  }
+
+  .card-top {
+    top: 20px;
+    left: -10px;
+
+    @media (max-width: 576px) {
+      left: -5px;
+      top: 0px;
+    }
+  }
+
+  .card-bottom {
+    bottom: 25px;
+    right: -10px;
+
+    @media (max-width: 576px) {
+      right: -5px;
+      bottom: 0px;
+    }
+  }
+}
+
+/* --- CARROSSEL FININHO INFERIOR (RETÂNGULOS BEM MAIORES) --- */
+.entrepreneurs-ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f8fafc;
+  padding: 18px 0; // Mais respiro para os retângulos maiores
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  display: flex;
+
+  /* Máscaras suaves de entrada e saída nas laterais */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, #f8fafc, transparent);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, #f8fafc, transparent);
+  }
+
+  .ticker-track {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: max-content;
+    animation: marquee 35s linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  /* ESTILIZAÇÃO RETANGULAR BEM MAIOR E MAIS ALTA */
+  .ticker-card-rectangle {
+    width: 300px; // Largura ampliada
+    height: 100px; // Altura ampliada
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid var(--white, #ffffff);
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+    background-color: var(--white, #ffffff);
+    transition: transform 0.25s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}
+
+/* ANIMAÇÕES */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CardComponent } from '../../../shared/components/card/card.component';
-import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { CardComponent } from '../../../../../components/card/card.component';
+import { ButtonComponent } from '../../components/button/button.component';
 
 @Component({
   selector: 'app-more-products-section',

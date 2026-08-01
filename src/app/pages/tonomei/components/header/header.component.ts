@@ -1,5 +1,6 @@
+import { Component, signal, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,37 +10,55 @@ import { Component, HostListener, signal } from '@angular/core';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  private router = inject(Router);
+
   isMenuOpen = signal<boolean>(false);
   isDropdownOpen = signal<boolean>(false);
   isScrolled = signal<boolean>(false);
 
-  // Define a seção ativa por padrão (ex: 'inicio')
-  activeSection = signal<string>('inicio');
+  // Define 'tonomei-inicio' como ativo por padrão na LP do TôNoMEI
+  activeSection = signal<string>('tonomei-inicio');
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
     this.isScrolled.set(window.scrollY > 20);
   }
 
-  // Atualiza o item ativo e rola até a seção compensando o Header fixo
   setActiveSection(sectionId: string, event?: Event): void {
+    // Para o link de Login, não interceptamos com preventDefault para permitir a navegação da tag <a>
+    if (sectionId === 'login') {
+      this.closeMenu();
+      return;
+    }
+
     if (event) {
-      event.preventDefault(); // Previne o salto brusco nativo da tag <a>
+      event.preventDefault(); // Impede o salto automático bruto das âncoras #
     }
 
     this.activeSection.set(sectionId);
     this.closeMenu();
 
-    // Rola até o topo caso seja a primeira seção
+    // 1. REDIRECIONA PARA A CATEC (Apenas ao clicar no link 'inicio' / CATEC)
     if (sectionId === 'inicio') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const isHome =
+        this.router.url === '/' || this.router.url.startsWith('/#');
+      if (isHome) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        this.router.navigate(['/']); // Redireciona para a CATEC
+      }
       return;
     }
 
-    // Busca o elemento da seção pelo ID e rola compensando a altura do menu
+    // 2. DEMAIS BOTÕES DO TÔNOMEI (Rola estritamente dentro da página atual)
+    this.scrollToElement(sectionId);
+  }
+
+  private scrollToElement(sectionId: string): void {
     const targetElement = document.getElementById(sectionId);
+
     if (targetElement) {
-      const headerOffset = 90; // Desconto em pixels para a altura do Header + folga
+      const headerOffset = 90; // Desconto da altura do Header + respiro
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition =
         elementPosition + window.pageYOffset - headerOffset;
@@ -66,11 +85,6 @@ export class HeaderComponent {
   closeMenu(): void {
     this.isMenuOpen.set(false);
     this.isDropdownOpen.set(false);
-  }
-
-  // Apenas fecha o menu e o dropdown ao clicar em links externos
-  onExternalLinkClick(): void {
-    this.closeMenu();
   }
 
   @HostListener('document:click', ['$event'])

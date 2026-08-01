@@ -46,9 +46,6 @@
       <div class="dropdown-container" [class.open]="isDropdownOpen()">
         <button
           class="nav-link dropdown-toggle"
-          [class.active]="
-            ['portal', 'suporte', 'transparencia'].includes(activeSection())
-          "
           (click)="toggleDropdown($event)"
         >
           LINKS ÚTEIS
@@ -56,22 +53,28 @@
         </button>
         <div class="dropdown-menu">
           <a
-            href="#portal"
+            href="https://www8.receita.fazenda.gov.br/SimplesNacional/Default.aspx"
+            target="_blank"
+            rel="noopener noreferrer"
             class="dropdown-item"
-            (click)="setActiveSection('portal', $event)"
-            >Portal do Cliente</a
+            (click)="onExternalLinkClick()"
+            >SIMEI</a
           >
           <a
-            href="#suporte"
+            href="https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br"
+            target="_blank"
+            rel="noopener noreferrer"
             class="dropdown-item"
-            (click)="setActiveSection('suporte', $event)"
-            >Suporte Técnico</a
+            (click)="onExternalLinkClick()"
+            >GOV.BR</a
           >
           <a
-            href="#transparencia"
+            href="https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/"
+            target="_blank"
+            rel="noopener noreferrer"
             class="dropdown-item"
-            (click)="setActiveSection('transparencia', $event)"
-            >Portal da Transparência</a
+            (click)="onExternalLinkClick()"
+            >RECEITA FEDERAL</a
           >
         </div>
       </div>
@@ -125,22 +128,28 @@
           </button>
           <div class="mobile-dropdown-menu">
             <a
-              href="#portal"
+              href="https://www8.receita.fazenda.gov.br/SimplesNacional/Default.aspx"
+              target="_blank"
+              rel="noopener noreferrer"
               class="mobile-dropdown-item"
-              (click)="setActiveSection('portal', $event)"
-              >Portal do Cliente</a
+              (click)="onExternalLinkClick()"
+              >SIMEI</a
             >
             <a
-              href="#suporte"
+              href="https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br"
+              target="_blank"
+              rel="noopener noreferrer"
               class="mobile-dropdown-item"
-              (click)="setActiveSection('suporte', $event)"
-              >Suporte Técnico</a
+              (click)="onExternalLinkClick()"
+              >GOV.BR</a
             >
             <a
-              href="#transparencia"
+              href="https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/"
+              target="_blank"
+              rel="noopener noreferrer"
               class="mobile-dropdown-item"
-              (click)="setActiveSection('transparencia', $event)"
-              >Portal da Transparência</a
+              (click)="onExternalLinkClick()"
+              >RECEITA FEDERAL</a
             >
           </div>
         </div>

@@ -1,0 +1,108 @@
+<header class="header" [class.menu-open]="isMenuOpen()">
+  <div class="header-container">
+    <a href="#" class="logo" (click)="setActiveSection('inicio', $event)">
+      <img src="img-tonomei/logo.png" alt="CATEC Soluções" class="logo-img" />
+    </a>
+
+    <!-- Navigation Menu Desktop -->
+    <nav class="nav-menu">
+      <a
+        href="#inicio"
+        class="nav-link"
+        [class.active]="activeSection() === 'inicio'"
+        (click)="setActiveSection('inicio', $event)"
+        >CATEC</a
+      >
+
+      <a
+        href="#tonomei-inicio"
+        class="nav-link"
+        [class.active]="activeSection() === 'tonomei-inicio'"
+        (click)="setActiveSection('tonomei-inicio', $event)"
+        >INÍCIO</a
+      >
+
+      <a
+        href="#tonomei-apresentação"
+        class="nav-link"
+        [class.active]="activeSection() === 'tonomei-apresentação'"
+        (click)="setActiveSection('tonomei-apresentação', $event)"
+        >CONHEÇA O TÔNOMEI</a
+      >
+
+      <a
+        href="#tonomei-vantagens"
+        class="nav-link"
+        [class.active]="activeSection() === 'tonomei-vantagens'"
+        (click)="setActiveSection('tonomei-vantagens', $event)"
+        >NOSSOS SERVIÇOS</a
+      >
+
+      <!-- Login TôNoMEI no mesmo estilo dos outros links -->
+      <a
+        href="https://backendjava.catecsolucoes.com.br/tonomei/demo"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-link"
+        [class.active]="activeSection() === 'login'"
+        (click)="setActiveSection('login', $event)"
+      >
+        <i class="fa-solid fa-right-to-bracket"></i>
+        <span>ACESSAR O TÔNOMEI</span>
+      </a>
+    </nav>
+
+    <!-- Botão Hambúrguer Mobile -->
+    <button
+      class="hamburger-btn"
+      (click)="toggleMenu()"
+      aria-label="Menu de navegação"
+    >
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <!-- Menu Mobile Expandido -->
+    <div class="mobile-menu">
+      <nav class="mobile-nav">
+        <a
+          href="#inicio"
+          class="mobile-link"
+          (click)="setActiveSection('inicio', $event)"
+          >CATEC</a
+        >
+        <a
+          href="#tonomei-inicio"
+          class="mobile-link"
+          (click)="setActiveSection('tonomei-inicio', $event)"
+          >INÍCIO</a
+        >
+        <a
+          href="#tonomei-apresentação"
+          class="mobile-link"
+          (click)="setActiveSection('tonomei-apresentação', $event)"
+          >CONHEÇA O TÔNOMEI</a
+        >
+        <a
+          href="#tonomei-vantagens"
+          class="mobile-link"
+          (click)="setActiveSection('tonomei-vantagens', $event)"
+          >NOSSOS SERVIÇOS</a
+        >
+
+        <!-- Login TôNoMEI Mobile (estilo idêntico) -->
+        <a
+          href="https://tonomei.com.br/login"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mobile-link"
+          (click)="setActiveSection('login', $event)"
+        >
+          <span>ACESSAR O TÔNOMEI</span>
+          <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
