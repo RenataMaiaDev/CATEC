@@ -3,11 +3,13 @@ import { AboutSectionComponent } from '../shared/section/about-section/about-sec
 import { HeroSectionComponent } from '../shared/section/hero-section/hero-section.component';
 import { MoreProductsSectionComponent } from '../shared/section/more-products-section/more-products-section.component';
 import { TonomeiSectionComponent } from '../shared/section/tonomei-section/tonomei-section.component';
+import { HeaderComponent } from '../shared/components/header/header.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
+    HeaderComponent,
     HeroSectionComponent,
     AboutSectionComponent,
     TonomeiSectionComponent,

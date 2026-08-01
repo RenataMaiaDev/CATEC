@@ -1,6 +1,6 @@
 <header class="header" [class.menu-open]="isMenuOpen()">
   <div class="header-container">
-    <a href="#" class="logo" (click)="setActiveSection('inicio')">
+    <a href="#" class="logo" (click)="setActiveSection('inicio', $event)">
       <img
         src="img/logo-catec-solucoes.png"
         alt="CATEC Soluções"
@@ -14,7 +14,7 @@
         href="#inicio"
         class="nav-link"
         [class.active]="activeSection() === 'inicio'"
-        (click)="setActiveSection('inicio')"
+        (click)="setActiveSection('inicio', $event)"
         >INÍCIO</a
       >
 
@@ -22,7 +22,7 @@
         href="#quem-somos"
         class="nav-link"
         [class.active]="activeSection() === 'quem-somos'"
-        (click)="setActiveSection('quem-somos')"
+        (click)="setActiveSection('quem-somos', $event)"
         >QUEM SOMOS</a
       >
 
@@ -30,7 +30,7 @@
         href="#produto"
         class="nav-link"
         [class.active]="activeSection() === 'produto'"
-        (click)="setActiveSection('produto')"
+        (click)="setActiveSection('produto', $event)"
         >SOLUÇÕES EM DESTAQUE</a
       >
 
@@ -38,7 +38,7 @@
         href="#outros-servicos"
         class="nav-link"
         [class.active]="activeSection() === 'outros-servicos'"
-        (click)="setActiveSection('outros-servicos')"
+        (click)="setActiveSection('outros-servicos', $event)"
         >NOSSOS SERVIÇOS</a
       >
 
@@ -58,19 +58,19 @@
           <a
             href="#portal"
             class="dropdown-item"
-            (click)="setActiveSection('portal')"
+            (click)="setActiveSection('portal', $event)"
             >Portal do Cliente</a
           >
           <a
             href="#suporte"
             class="dropdown-item"
-            (click)="setActiveSection('suporte')"
+            (click)="setActiveSection('suporte', $event)"
             >Suporte Técnico</a
           >
           <a
             href="#transparencia"
             class="dropdown-item"
-            (click)="setActiveSection('transparencia')"
+            (click)="setActiveSection('transparencia', $event)"
             >Portal da Transparência</a
           >
         </div>
@@ -94,25 +94,25 @@
         <a
           href="#inicio"
           class="mobile-link"
-          (click)="setActiveSection('inicio')"
+          (click)="setActiveSection('inicio', $event)"
           >INÍCIO</a
         >
         <a
           href="#quem-somos"
           class="mobile-link"
-          (click)="setActiveSection('quem-somos')"
+          (click)="setActiveSection('quem-somos', $event)"
           >QUEM SOMOS</a
         >
         <a
           href="#produto"
           class="mobile-link"
-          (click)="setActiveSection('produto')"
+          (click)="setActiveSection('produto', $event)"
           >SOLUÇÕES EM DESTAQUE</a
         >
         <a
           href="#outros-servicos"
           class="mobile-link"
-          (click)="setActiveSection('outros-servicos')"
+          (click)="setActiveSection('outros-servicos', $event)"
           >NOSSOS SERVIÇOS</a
         >
 
@@ -127,19 +127,19 @@
             <a
               href="#portal"
               class="mobile-dropdown-item"
-              (click)="setActiveSection('portal')"
+              (click)="setActiveSection('portal', $event)"
               >Portal do Cliente</a
             >
             <a
               href="#suporte"
               class="mobile-dropdown-item"
-              (click)="setActiveSection('suporte')"
+              (click)="setActiveSection('suporte', $event)"
               >Suporte Técnico</a
             >
             <a
               href="#transparencia"
               class="mobile-dropdown-item"
-              (click)="setActiveSection('transparencia')"
+              (click)="setActiveSection('transparencia', $event)"
               >Portal da Transparência</a
             >
           </div>

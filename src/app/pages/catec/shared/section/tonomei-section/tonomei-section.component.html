@@ -73,17 +73,23 @@
               <p>{{ slide.description }}</p>
 
               <div class="showcase-actions">
-                <app-button variant="primary" (click)="openTonoMei()">
-                  Experimente o {{ slide.button }}
-                  <i class="fa-solid fa-arrow-right"></i>
-                </app-button>
+                <!-- Wrapper que garante a interceptação do clique e o redirecionamento -->
+                <div
+                  (click)="openSystemPage(slide.route)"
+                  style="cursor: pointer; display: inline-block"
+                >
+                  <app-button variant="primary">
+                    Experimente o {{ slide.button }}
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </app-button>
+                </div>
               </div>
             </div>
           </div>
         }
       }
 
-      <!-- CONTROLES NAVEGADORAS (SETA ESQUERDA/DIREITA) -->
+      <!-- CONTROLES NAVEGADORES (SETA ESQUERDA/DIREITA) -->
       <button class="nav-btn prev" (click)="prevSlide()" aria-label="Anterior">
         <span class="material-icons">chevron_left</span>
       </button>
