@@ -12,14 +12,14 @@ import { TonomeiButtonComponent } from '../../components/tonomei-button/tonomei-
 export class HeroSectionComponent {
   // Lista com 8 imagens para o carrossel em formato retangular
   entrepreneurImages: string[] = [
-    'img-tonomei/boleira.png',
+    'img-tonomei/vendedora.png',
     'img-tonomei/mecanico.png',
-    'img-tonomei/costureira.png',
+    'img-tonomei/feirante.png',
+    'img-tonomei/queijeiro.png',
     'img-tonomei/barbeiro.png',
-    'img-tonomei/marmitaria.png',
-    'img-tonomei/entregador.png',
-    'img-tonomei/loja-roupa.png',
-    'img-tonomei/salao-beleza.png',
+    'img-tonomei/pedreiro.png',
+    'img-tonomei/padeiro.png',
+    'img-tonomei/marceneiro.png',
   ];
 
   navigateTo(url: string): void {
