@@ -4,3 +4,10 @@
 </main>
 
 <app-whatsapp-button></app-whatsapp-button>
+
+<!-- Instância única do modal de orçamento (catec), fora de qualquer seção
+     com z-index próprio para nunca ficar preso atrás de outros elementos.
+     Carregado sob demanda (só quando alguém realmente abre o formulário). -->
+@defer (when orcamentoService.isOpen()) {
+  <app-orcamento-modal></app-orcamento-modal>
+}

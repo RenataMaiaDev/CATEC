@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CardComponent } from '../../../../../components/card/card.component';
 import { ButtonComponent } from '../../components/button/button.component';
+import { OrcamentoService } from '../../components/orcamento-modal/orcamento.service';
 
 @Component({
   selector: 'app-more-products-section',
@@ -10,11 +11,9 @@ import { ButtonComponent } from '../../components/button/button.component';
   styleUrl: './more-products-section.component.scss',
 })
 export class MoreProductsSectionComponent {
-  openWhatsApp(): void {
-    const text = encodeURIComponent(
-      'Olá! Gostaria de tirar algumas dúvidas e saber mais sobre as soluções da CATEC.',
-    );
-    const url = `https://api.whatsapp.com/send/?phone=5585996157126&text=${text}`;
-    window.open(url, '_blank');
+  private readonly orcamentoService = inject(OrcamentoService);
+
+  abrirOrcamento(): void {
+    this.orcamentoService.abrir();
   }
 }

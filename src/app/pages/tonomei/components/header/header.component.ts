@@ -16,7 +16,7 @@ export class HeaderComponent {
   isDropdownOpen = signal<boolean>(false);
   isScrolled = signal<boolean>(false);
 
-  // Define 'tonomei-inicio' como ativo por padrão na LP do TôNoMEI
+  // Define 'tonomei-inicio' como ativo por padrão na LP do tônomei
   activeSection = signal<string>('tonomei-inicio');
 
   @HostListener('window:scroll', [])

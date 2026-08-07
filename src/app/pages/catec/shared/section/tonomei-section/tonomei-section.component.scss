@@ -23,7 +23,7 @@
 
 .tonomei-header {
   text-align: center;
-  max-width: 720px;
+  max-width: 920px;
   margin: 0 auto 40px auto;
 
   .tonomei-logo {
@@ -56,6 +56,7 @@
     font-size: 1.125rem;
     color: var(--text-muted);
     line-height: 1.6;
+    max-width: none;
 
     @media (max-width: 768px) {
       font-size: 0.95rem;

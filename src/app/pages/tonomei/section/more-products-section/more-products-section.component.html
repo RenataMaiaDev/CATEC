@@ -1,0 +1,72 @@
+<section class="more-products-section" id="tonomei-vantagens">
+  <div class="section-container text-center">
+    <!-- Cabeçalho -->
+    <span class="section-badge">Nossos Serviços</span>
+    <h2 class="section-title">
+      Tudo que o seu Negócio Precisa,
+      <span class="highlight">em um só Lugar</span>
+    </h2>
+    <p class="section-subtitle">
+      Do imposto em dia à vitrine online: conheça as funcionalidades que fazem
+      do tônomei a rotina descomplicada que o seu negócio merece.
+    </p>
+
+    <!-- Grid de Funcionalidades -->
+    <div class="features-grid">
+      <app-card
+        icon="receipt_long"
+        title="Emissão e Controle do DAS"
+        description="Gere suas guias e acompanhe vencimentos sem risco de multa ou atraso."
+      >
+      </app-card>
+
+      <app-card
+        icon="description"
+        title="Declaração Anual Simplificada"
+        description="Cumpra a DASN-SIMEI direto pela plataforma, sem depender de terceiros."
+      >
+      </app-card>
+
+      <app-card
+        icon="fact_check"
+        title="Regularização Cadastral"
+        description="Mantenha seu CNPJ sempre em conformidade, de forma automática."
+      >
+      </app-card>
+
+      <app-card
+        icon="storefront"
+        title="Vitrine Virtual Integrada"
+        description="Divulgue e venda seus produtos e serviços direto pela sua página."
+      >
+      </app-card>
+
+      <app-card
+        icon="account_balance_wallet"
+        title="Gestão de Gastos"
+        description="Acompanhe entradas e saídas do seu negócio em tempo real."
+      >
+      </app-card>
+
+      <app-card
+        icon="bolt"
+        title="Rotina MEI Descomplicada"
+        description="Tudo o que sua empresa precisa para ficar 100% regularizada em um só lugar."
+      >
+      </app-card>
+    </div>
+
+    <!-- Botão Principal -->
+    <div class="more-products-actions">
+      <app-tonomei-button
+        variant="primary"
+        (click)="
+          navigateTo('https://backendjava.catecsolucoes.com.br/tonomei/demo')
+        "
+      >
+        Criar Conta Grátis
+        <i class="fa-solid fa-arrow-right"></i>
+      </app-tonomei-button>
+    </div>
+  </div>
+</section>
