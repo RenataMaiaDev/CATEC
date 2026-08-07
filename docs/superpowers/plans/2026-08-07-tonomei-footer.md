@@ -43,7 +43,7 @@
 **Interfaces:**
 - Produces: `FooterComponent` (selector `app-footer`), `@Input() theme: 'tonomei' | 'catec' | 'gestao'` (default `'tonomei'`). Later tasks (2 and 3) consume this exact selector and input.
 
-- [ ] **Step 1: Create the component TypeScript file**
+- [x] **Step 1: Create the component TypeScript file**
 
 `src/app/components/footer/footer.component.ts`:
 
@@ -85,7 +85,7 @@ export class FooterComponent {
 }
 ```
 
-- [ ] **Step 2: Create the component template**
+- [x] **Step 2: Create the component template**
 
 `src/app/components/footer/footer.component.html`:
 
@@ -139,7 +139,7 @@ export class FooterComponent {
 </footer>
 ```
 
-- [ ] **Step 3: Create the component styles**
+- [x] **Step 3: Create the component styles**
 
 `src/app/components/footer/footer.component.scss`:
 
@@ -250,7 +250,7 @@ a.footer-item:hover {
 }
 ```
 
-- [ ] **Step 4: Wire the footer into the tônomei home page**
+- [x] **Step 4: Wire the footer into the tônomei home page**
 
 Replace the full contents of `src/app/pages/tonomei/home/home.page.ts`:
 
@@ -300,13 +300,13 @@ Replace the full contents of `src/app/pages/tonomei/home/home.page.html`:
 <app-footer theme="tonomei"></app-footer>
 ```
 
-- [ ] **Step 5: Verify in the browser**
+- [ ] **Step 5: Verify in the browser** (not yet visually verified — no browser tooling available in the agent session; build passes with no errors)
 
 Run: `npm start` (from `C:\Users\renat\landing-pages\catec`), then open the tônomei route in a browser.
 
-Expected: a thin dark-purple (`#110627`) footer at the bottom of the page showing the white Catec logo, a clickable WhatsApp phone number, a clickable email, "Ceará, Brasil", and below a thin divider the line "© 2026 tônomei · Gestão UNA · Todos os direitos reservados." with "Termos de Uso | Privacidade" links that don't navigate anywhere when clicked. Resize the window narrow (e.g. 375px) and confirm the items wrap and stay centered instead of overflowing.
+Expected: a thin dark-purple (`#110627`) footer at the bottom of the page showing the white Catec logo, a clickable WhatsApp phone number, a clickable email, and (now) fictitious phone/e-mail/location placeholders, and below a thin divider the line "© 2026 tônomei · Gestão UNA · Todos os direitos reservados." with "Termos de Uso | Privacidade" links that don't navigate anywhere when clicked. Resize the window narrow (e.g. 375px) and confirm the items wrap and stay centered instead of overflowing.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/app/components/footer src/app/pages/tonomei/home/home.page.ts src/app/pages/tonomei/home/home.page.html
@@ -324,7 +324,7 @@ git commit -m "feat: add minimalist footer component and wire it into tonomei pa
 **Interfaces:**
 - Consumes: `FooterComponent` / `app-footer` / `theme` input, from Task 1 (`src/app/components/footer/footer.component.ts`).
 
-- [ ] **Step 1: Wire the footer into the Catec home page**
+- [x] **Step 1: Wire the footer into the Catec home page**
 
 Replace the full contents of `src/app/pages/catec/home/home.page.ts`:
 
@@ -381,13 +381,13 @@ Replace the full contents of `src/app/pages/catec/home/home.page.html`:
 <app-footer theme="catec"></app-footer>
 ```
 
-- [ ] **Step 2: Verify in the browser**
+- [ ] **Step 2: Verify in the browser** (not yet visually verified — no browser tooling available in the agent session; build passes with no errors)
 
 Run: `npm start` (if not already running), open the Catec home route.
 
-Expected: same thin footer, now in the slate color `#1e293b` (matching that page's own header), copyright line reads "© 2026 CATEC Soluções · Todos os direitos reservados.". Phone, email, and location are unchanged.
+Expected: same thin footer, now in the slate color `#1e293b` (matching that page's own header), copyright line reads "© 2026 CATEC Soluções · Todos os direitos reservados.". Phone, email, and location are the fictitious placeholders, unchanged across pages.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/app/pages/catec/home/home.page.ts src/app/pages/catec/home/home.page.html
@@ -405,7 +405,7 @@ git commit -m "feat: add footer to Catec home page"
 **Interfaces:**
 - Consumes: `FooterComponent` / `app-footer` / `theme` input, from Task 1 (`src/app/components/footer/footer.component.ts`).
 
-- [ ] **Step 1: Wire the footer into the Gestão UNA home page**
+- [x] **Step 1: Wire the footer into the Gestão UNA home page**
 
 This page currently has no sections wired up yet (`imports: []`, template is a single HTML comment) — that is out of scope for this plan. Only the footer is added, without building the missing sections.
 
@@ -441,13 +441,13 @@ Replace the full contents of `src/app/pages/gestao-una/home/home.page.html`:
 <app-footer theme="gestao"></app-footer>
 ```
 
-- [ ] **Step 2: Verify in the browser**
+- [ ] **Step 2: Verify in the browser** (not yet visually verified — no browser tooling available in the agent session; build passes with no errors)
 
 Run: `npm start` (if not already running), open the Gestão UNA home route.
 
 Expected: the same slate-colored (`#1e293b`) thin footer renders at the top of the otherwise-empty page (since no other sections exist yet on this page), with the copyright line reading "© 2026 Gestão UNA · Todos os direitos reservados."
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/app/pages/gestao-una/home/home.page.ts src/app/pages/gestao-una/home/home.page.html
