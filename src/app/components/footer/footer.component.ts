@@ -9,6 +9,12 @@ const BRAND_NAMES: Record<FooterTheme, string> = {
   gestao: 'Gestão UNA',
 };
 
+const BRAND_TAGLINES: Record<FooterTheme, string> = {
+  tonomei: 'Gestão simples para o microempreendedor.',
+  catec: 'Tecnologia de gestão para o seu negócio.',
+  gestao: 'Gestão unificada para a sua operação.',
+};
+
 @Component({
   selector: 'app-footer',
   standalone: true,
@@ -27,6 +33,10 @@ export class FooterComponent {
 
   get brandName(): string {
     return BRAND_NAMES[this.theme];
+  }
+
+  get tagline(): string {
+    return BRAND_TAGLINES[this.theme];
   }
 
   get currentYear(): number {
