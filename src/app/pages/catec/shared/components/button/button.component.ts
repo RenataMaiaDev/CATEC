@@ -8,4 +8,5 @@ import { Component, input } from '@angular/core';
 })
 export class ButtonComponent {
   variant = input<'primary' | 'secondary' | 'outline'>('primary');
+  type = input<'button' | 'submit'>('button');
 }

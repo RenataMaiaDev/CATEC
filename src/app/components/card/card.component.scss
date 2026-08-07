@@ -30,7 +30,7 @@
   .icon-wrapper {
     width: 64px;
     height: 64px;
-    background-color: rgba(242, 101, 34, 0.1);
+    background-color: var(--card-icon-bg, rgba(242, 101, 34, 0.1));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -40,7 +40,7 @@
 
   .card-icon {
     font-size: 2rem;
-    color: var(--primary-catec);
+    color: var(--card-icon-color, var(--primary-catec));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,12 +53,16 @@
     font-weight: 700;
     color: var(--secondary-catec);
     margin-bottom: 12px;
+    text-align: center;
   }
 
   .card-description {
     font-size: 0.95rem;
     color: var(--text-muted);
     line-height: 1.5;
+    text-align: justify;
+    align-self: stretch;
+    width: 100%;
   }
 
   /* Área do botão no rodapé do card */

@@ -223,3 +223,58 @@ body.theme-sisamb,
 .section-subtitle--sisamb {
   color: var(--text-muted);
 }
+
+// --- BARRA DE ROLAGEM DA PÁGINA (uma cor por marca) ---
+// Cada HomePage adiciona "scroll-theme-X" no <body> ao entrar na rota
+// (ver ngOnInit/ngOnDestroy dos respectivos home.page.ts).
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-catec) transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--primary-catec);
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-button {
+    background-color: transparent;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+html:has(body.scroll-theme-tonomei) {
+  scrollbar-color: var(--accent-tonomei) transparent;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--accent-tonomei);
+  }
+}
+
+html:has(body.scroll-theme-gestao) {
+  scrollbar-color: var(--primary-gestao) transparent;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--primary-gestao);
+  }
+}
+
+html:has(body.scroll-theme-sisamb) {
+  scrollbar-color: var(--primary-sisamb) transparent;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--primary-sisamb);
+  }
+}

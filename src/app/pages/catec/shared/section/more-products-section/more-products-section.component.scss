@@ -9,6 +9,10 @@
     color: var(--primary-catec);
   }
 
+  .section-subtitle {
+    max-width: 960px;
+  }
+
   @media (max-width: 768px) {
     padding: 30px 16px;
   }

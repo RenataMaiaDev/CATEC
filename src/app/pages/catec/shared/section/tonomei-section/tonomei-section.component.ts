@@ -33,7 +33,7 @@ export class TonomeiSectionComponent {
       title: 'Solução Completa para o Microempreendedor',
       subtitle: 'Gestão & Obrigações Fiscais',
       description:
-        'Um sistema desenvolvido para reunir todas as suas obrigações fiscais em um só lugar. Monte seu portfólio de produtos e serviços, mantenha o controle de gastos na ponta do lápis e gerencie o faturamento com facilidade, sem complicação.',
+        'Um sistema desenvolvido especialmente para o empreendedor brasileiro. Seja você formalizado (com CNPJ) ou informal (CPF), tudo num só lugar. Garantindo a você, de forma fácil e intuitiva, uma gestão de alto nível, novas oportunidades e tudo mais que precisa. Tudo isso na palma da sua mão.',
       badge: 'Microempreendedores Individuais (MEI)',
       icon: 'point_of_sale',
       image: 'img/tonomei.png',
@@ -49,7 +49,7 @@ export class TonomeiSectionComponent {
         'O SISAMB leva a gestão ambiental do seu município, estado ou consórcio para o ambiente digital de forma leve, fácil e intuitiva. Simplifique processos, monitore indicadores ecológicos e modernize a administração pública ambiental.',
       badge: 'Órgãos de Gestão Ambiental e Consórcios',
       icon: 'eco',
-      image: 'img/hero.png',
+      image: 'img/sisamb.png',
       logo: 'img/logo-sisamb.png',
       route: '/sisamb',
     },

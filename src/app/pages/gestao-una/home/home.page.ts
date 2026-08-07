@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })
-export class HomePage {}
+export class HomePage implements OnInit, OnDestroy {
+  ngOnInit(): void {
+    document.body.classList.add('scroll-theme-gestao');
+  }
+
+  ngOnDestroy(): void {
+    document.body.classList.remove('scroll-theme-gestao');
+  }
+}
