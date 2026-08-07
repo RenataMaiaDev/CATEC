@@ -3,12 +3,6 @@ import { CommonModule } from '@angular/common';
 
 export type FooterTheme = 'tonomei' | 'catec' | 'gestao';
 
-const BRAND_NAMES: Record<FooterTheme, string> = {
-  tonomei: 'tônomei · Gestão UNA',
-  catec: 'CATEC Soluções',
-  gestao: 'Gestão UNA',
-};
-
 const BRAND_TAGLINES: Record<FooterTheme, string> = {
   tonomei: 'Gestão simples para o microempreendedor.',
   catec: 'Tecnologia de gestão para o seu negócio.',
@@ -30,10 +24,6 @@ export class FooterComponent {
     encodeURIComponent(
       'Olá! Gostaria de tirar algumas dúvidas sobre o tônomei.',
     );
-
-  get brandName(): string {
-    return BRAND_NAMES[this.theme];
-  }
 
   get tagline(): string {
     return BRAND_TAGLINES[this.theme];
