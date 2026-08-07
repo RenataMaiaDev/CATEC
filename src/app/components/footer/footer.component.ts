@@ -20,9 +20,9 @@ export class FooterComponent {
   @Input() theme: FooterTheme = 'tonomei';
 
   readonly whatsappUrl =
-    'https://api.whatsapp.com/send/?phone=5500000000000&text=' +
+    'https://api.whatsapp.com/send/?phone=5585996157126&text=' +
     encodeURIComponent(
-      'Olá! Gostaria de tirar algumas dúvidas sobre o tônomei.',
+      'Olá! Gostaria de tirar algumas dúvidas sobre os serviços da CATEC Soluções.',
     );
 
   get tagline(): string {
