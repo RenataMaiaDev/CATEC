@@ -4,6 +4,7 @@ import { HeroSectionComponent } from '../shared/section/hero-section/hero-sectio
 import { MoreProductsSectionComponent } from '../shared/section/more-products-section/more-products-section.component';
 import { TonomeiSectionComponent } from '../shared/section/tonomei-section/tonomei-section.component';
 import { HeaderComponent } from '../shared/components/header/header.component';
+import { FooterComponent } from '../../../components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ import { HeaderComponent } from '../shared/components/header/header.component';
     AboutSectionComponent,
     TonomeiSectionComponent,
     MoreProductsSectionComponent,
+    FooterComponent,
   ], // Importando os componentes reutilizáveis
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
