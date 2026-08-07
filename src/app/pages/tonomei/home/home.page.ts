@@ -3,6 +3,7 @@ import { HeaderComponent } from '../components/header/header.component';
 import { HeroSectionComponent } from '../section/hero-section/hero-section.component';
 import { AboutSectionComponent } from '../section/about-section/about-section.component';
 import { MoreProductsSectionComponent } from '../section/more-products-section/more-products-section.component';
+import { FooterComponent } from '../../../components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { MoreProductsSectionComponent } from '../section/more-products-section/m
     HeroSectionComponent,
     AboutSectionComponent,
     MoreProductsSectionComponent,
+    FooterComponent,
   ],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',

@@ -1,0 +1,49 @@
+<footer class="footer" [ngClass]="'footer--' + theme">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-brand-name">CATEC Soluções</p>
+        <p class="footer-tagline">{{ tagline }}</p>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-eyebrow">Fale com a gente</p>
+        <div class="footer-list">
+          <a
+            class="footer-item"
+            [href]="whatsappUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>(85) 9 9615-7126</span>
+          </a>
+
+          <a class="footer-item" href="mailto:contato&#64;catecsolucoes.com.br">
+            <i class="fa-solid fa-envelope"></i>
+            <span>contato&#64;catecsolucoes.com.br</span>
+          </a>
+
+          <span class="footer-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Fortaleza, Ceará</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-eyebrow">Institucional</p>
+        <div class="footer-links">
+          <a href="#" (click)="$event.preventDefault()">Termos de Uso</a>
+          <a href="#" (click)="$event.preventDefault()"
+            >Política de Privacidade</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © {{ currentYear }} Todos os direitos reservados à CATEC Soluções.
+    </div>
+  </div>
+</footer>
