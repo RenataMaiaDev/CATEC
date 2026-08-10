@@ -29,6 +29,24 @@ export const routes: Routes = [
       import('./pages/tonomei/home/home.page').then((m) => m.HomePage), // Ajuste a classe da HomePage do tônomei
   },
 
+  // Rota Política de Privacidade
+  {
+    path: 'politica-de-privacidade',
+    loadComponent: () =>
+      import('./pages/legal/privacy-policy/privacy-policy.page').then(
+        (m) => m.PrivacyPolicyPage,
+      ),
+  },
+
+  // Rota Termos de Uso
+  {
+    path: 'termos-de-uso',
+    loadComponent: () =>
+      import('./pages/legal/terms-of-use/terms-of-use.page').then(
+        (m) => m.TermsOfUsePage,
+      ),
+  },
+
   // Redirecionamento de rotas inexistentes para a principal
   {
     path: '**',

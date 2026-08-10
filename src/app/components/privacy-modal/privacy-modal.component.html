@@ -1,0 +1,32 @@
+@if (isOpen()) {
+  <div class="privacy-overlay" (click)="fechar()">
+    <div class="privacy-dialog" (click)="$event.stopPropagation()">
+      <div class="privacy-scroll">
+        <header class="privacy-header">
+          <div class="privacy-header-text">
+            <h3 class="privacy-title">Política de Privacidade</h3>
+            <p class="privacy-subtitle">Última atualização: 10 de agosto de 2026</p>
+          </div>
+          <button
+            type="button"
+            class="privacy-close"
+            (click)="fechar()"
+            aria-label="Fechar"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </header>
+
+        <div class="privacy-body">
+          <app-privacy-content></app-privacy-content>
+        </div>
+
+        <footer class="privacy-footer">
+          <app-button variant="outline" (click)="abrirPaginaDedicada()">
+            Abrir em uma página dedicada
+          </app-button>
+        </footer>
+      </div>
+    </div>
+  </div>
+}

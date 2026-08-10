@@ -1,0 +1,128 @@
+// --- ESTILOS COMPARTILHADOS DAS PÁGINAS LEGAIS (Termos de Uso / Política de Privacidade) ---
+
+.legal-header {
+  border-bottom: 1px solid #e2e8f0;
+  background: var(--white);
+
+  .legal-header-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .legal-logo-img {
+    height: 36px;
+    width: auto;
+  }
+
+  .legal-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--secondary-catec);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--primary-catec);
+    }
+  }
+}
+
+.legal-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+  color: var(--secondary-catec);
+
+  .legal-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+
+    .highlight {
+      color: var(--primary-catec);
+    }
+  }
+
+  .legal-updated {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+  }
+
+  .legal-intro {
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    color: var(--secondary-catec);
+    margin-bottom: 40px;
+    font-size: 0.975rem;
+  }
+
+  .legal-placeholder {
+    background: #fff7ed;
+    border: 1px dashed var(--primary-catec);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    color: var(--secondary-catec);
+    margin: 40px 0 0;
+  }
+}
+
+// Estilos do conteúdo em si (títulos, parágrafos, listas). Fora de
+// `.legal-page` de propósito, para poderem ser reaproveitados tanto na
+// página cheia quanto dentro do modal de Termos de Uso.
+section.legal-section {
+  margin-bottom: 32px;
+  color: var(--secondary-catec);
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--secondary-catec);
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 16px 0 8px;
+  }
+
+  p {
+    margin-bottom: 12px;
+    font-size: 0.975rem;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 12px 1.25rem;
+    font-size: 0.975rem;
+
+    li {
+      margin-bottom: 6px;
+    }
+  }
+
+  a {
+    color: var(--primary-catec);
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  strong {
+    font-weight: 700;
+  }
+}

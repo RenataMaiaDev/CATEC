@@ -17,7 +17,7 @@
   max-width: 680px;
   max-height: 90vh;
   background: var(--white);
-  border-radius: var(--radius-lg);
+  border-radius: 10px;
   box-shadow: var(--shadow-lg);
   overflow: hidden; // recorta o conteúdo/scrollbar no formato arredondado
   animation: pop-in 0.25s ease;
@@ -83,7 +83,7 @@
   padding: 28px 32px 20px 32px;
   background: var(--white);
   border-bottom: 1px solid #f1f5f9;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border-radius: 10px 10px 0 0;
   z-index: 1;
 
   @media (max-width: 576px) {
@@ -95,7 +95,7 @@
   flex-shrink: 0;
   width: 48px;
   height: 48px;
-  border-radius: 14px;
+  border-radius: 10px;
   background: rgba(242, 101, 34, 0.1);
   display: flex;
   align-items: center;

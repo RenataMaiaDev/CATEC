@@ -24,18 +24,23 @@
             <span>contato&#64;catecsolucoes.com.br</span>
           </a>
 
-          <span class="footer-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Fortaleza, Ceará</span>
-          </span>
+          <a
+            class="footer-item"
+            href="https://instagram.com/catecsolucoes"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-instagram"></i>
+            <span>&#64;catecsolucoes</span>
+          </a>
         </div>
       </div>
 
       <div class="footer-col">
         <p class="footer-eyebrow">Institucional</p>
         <div class="footer-links">
-          <a href="#" (click)="$event.preventDefault()">Termos de Uso</a>
-          <a href="#" (click)="$event.preventDefault()"
+          <a href="#" (click)="abrirTermos($event)">Termos de Uso</a>
+          <a href="#" (click)="abrirPrivacidade($event)"
             >Política de Privacidade</a
           >
         </div>

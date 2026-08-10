@@ -35,7 +35,15 @@
         class="nav-link"
         [class.active]="activeSection() === 'tonomei-vantagens'"
         (click)="setActiveSection('tonomei-vantagens', $event)"
-        >NOSSOS SERVIÇOS</a
+        >CONHEÇA AS VANTAGENS</a
+      >
+
+      <a
+        href="#tonomei-planos"
+        class="nav-link"
+        [class.active]="activeSection() === 'tonomei-planos'"
+        (click)="setActiveSection('tonomei-planos', $event)"
+        >PLANOS</a
       >
 
       <!-- Login tônomei no mesmo estilo dos outros links -->
@@ -88,7 +96,14 @@
           href="#tonomei-vantagens"
           class="mobile-link"
           (click)="setActiveSection('tonomei-vantagens', $event)"
-          >NOSSOS SERVIÇOS</a
+          >CONHEÇA AS VANTAGENS</a
+        >
+
+        <a
+          href="#tonomei-planos"
+          class="mobile-link"
+          (click)="setActiveSection('tonomei-planos', $event)"
+          >PLANOS</a
         >
 
         <!-- Login tônomei Mobile (estilo idêntico) -->

@@ -1,0 +1,92 @@
+<section class="plans-section" id="tonomei-planos">
+  <div class="section-container text-center">
+    <span class="section-badge">Planos</span>
+    <h2 class="section-title">
+      Escolha o Plano que Cabe no seu
+      <span class="highlight">Bolso</span>
+    </h2>
+    <p class="section-subtitle">
+      Comece grátis e evolua conforme o seu negócio cresce, sem contrato de
+      fidelidade.
+    </p>
+
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-header">
+          <h3 class="plan-name">Plano Grátis</h3>
+          <p class="plan-cycle">Grátis por 7 dias</p>
+        </div>
+
+        <div class="plan-price">
+          <span class="plan-price-value">R$ 0,00</span>
+          <span class="plan-price-caption">Válido por 7 dias</span>
+        </div>
+
+        <p class="plan-description">
+          Todas as funções, exceto Cursos e Treinamentos
+        </p>
+
+        <app-tonomei-button
+          variant="outline"
+          (click)="
+            navigateTo('https://backendjava.catecsolucoes.com.br/tonomei/demo')
+          "
+        >
+          Começar Grátis
+        </app-tonomei-button>
+      </div>
+
+      <div class="plan-card plan-card--destaque">
+        <span class="plan-highlight-tag">Mais Popular</span>
+
+        <div class="plan-header">
+          <h3 class="plan-name">Plano Intermediário</h3>
+          <p class="plan-cycle">Mensal</p>
+        </div>
+
+        <div class="plan-price">
+          <span class="plan-price-value">R$ 39,90</span>
+          <span class="plan-price-caption">Por mês</span>
+        </div>
+
+        <p class="plan-description">
+          Todas as funções, exceto Cursos e Treinamentos
+        </p>
+
+        <app-tonomei-button
+          variant="primary"
+          (click)="
+            navigateTo('https://backendjava.catecsolucoes.com.br/tonomei/demo')
+          "
+        >
+          Assinar Agora
+        </app-tonomei-button>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-header">
+          <h3 class="plan-name">Plano Avançado</h3>
+          <p class="plan-cycle">Mensal</p>
+        </div>
+
+        <div class="plan-price">
+          <span class="plan-price-value">R$ 49,90</span>
+          <span class="plan-price-caption">Por mês</span>
+        </div>
+
+        <p class="plan-description">
+          Todas as funções, incluindo Cursos e Treinamentos
+        </p>
+
+        <app-tonomei-button
+          variant="outline"
+          (click)="
+            navigateTo('https://backendjava.catecsolucoes.com.br/tonomei/demo')
+          "
+        >
+          Assinar Agora
+        </app-tonomei-button>
+      </div>
+    </div>
+  </div>
+</section>
