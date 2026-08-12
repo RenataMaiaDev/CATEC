@@ -16,16 +16,19 @@ export class TermsModalComponent {
   private readonly router = inject(Router);
   readonly isOpen = this.termsModalService.isOpen;
 
+  // Locks page scroll while the modal is open.
   constructor() {
     effect(() => {
       document.body.style.overflow = this.isOpen() ? 'hidden' : '';
     });
   }
 
+  // Closes the modal.
   fechar(): void {
     this.termsModalService.fechar();
   }
 
+  // Closes the modal and navigates to the full Terms of Use page.
   abrirPaginaDedicada(): void {
     this.fechar();
     this.router.navigate(['/termos-de-uso']);

@@ -10,7 +10,7 @@ import { TonomeiButtonComponent } from '../../components/tonomei-button/tonomei-
   styleUrl: './hero-section.component.scss',
 })
 export class HeroSectionComponent {
-  // Lista com 8 imagens para o carrossel em formato retangular
+  // List of 8 images for the rectangular carousel
   entrepreneurImages: string[] = [
     'img-tonomei/vendedora.png',
     'img-tonomei/mecanico.png',
@@ -22,6 +22,7 @@ export class HeroSectionComponent {
     'img-tonomei/marceneiro.png',
   ];
 
+  // Opens the given URL in a new tab.
   navigateTo(url: string): void {
     window.open(url, '_blank');
   }

@@ -6,7 +6,7 @@
   overflow: hidden;
   scroll-margin-top: 80px;
 
-  /* Mancha decorativa suave no fundo, ecoando a paleta do Hero */
+  /* Soft decorative blob in the background, echoing the Hero palette */
   &::before {
     content: "";
     position: absolute;
@@ -49,7 +49,7 @@
   z-index: 1;
 }
 
-/* CABEÇALHO CENTRALIZADO: badge, título e descrição */
+/* CENTERED HEADER: badge, title and description */
 .about-header {
   display: flex;
   flex-direction: column;
@@ -62,9 +62,7 @@
     margin-bottom: 12px;
   }
 
-  // Mesmo tamanho de fonte do .section-subtitle global (usado nas outras
-  // descrições da página, como "Conheça as Vantagens" e "Planos"), para as
-  // descrições ficarem padronizadas em toda a LP do tônomei.
+  // Same font size as the global .section-subtitle, so descriptions stay consistent across the tônomei LP.
   .about-description {
     font-size: 1.125rem;
     color: var(--text-muted);
@@ -76,7 +74,7 @@
   }
 }
 
-/* LINHA: VÍDEO + PILARES LADO A LADO */
+/* ROW: VIDEO + PILLARS SIDE BY SIDE */
 .about-row {
   display: flex;
   align-items: center;
@@ -93,7 +91,7 @@
   }
 }
 
-/* COLUNA ESQUERDA: VÍDEO */
+/* LEFT COLUMN: VIDEO */
 .about-media {
   flex: 1.1;
   display: flex;
@@ -111,7 +109,7 @@
   width: 100%;
   max-width: 600px;
 
-  /* Forma decorativa atrás do vídeo, no mesmo espírito do arco do Hero */
+  /* Decorative shape behind the video, in the same spirit as the Hero's arch */
   &::before {
     content: "";
     position: absolute;
@@ -141,34 +139,33 @@
   }
 }
 
-/* COLUNA DIREITA: OS 3 PILARES CITADOS NO PARÁGRAFO */
+/* RIGHT COLUMN: EVERYTHING TÔNOMEI HELPS WITH, AS A 2-COLUMN GRID OF PILLARS */
 .about-pillars {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; // centralizado em relação à altura do vídeo ao lado
-  gap: 4px;
-  padding: 4px 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px 14px;
+  padding: 14px 16px;
   background-color: var(--bg-light);
   border: 1px solid #e2e8f0;
   border-radius: var(--radius-md);
   width: 100%;
-  max-width: 460px;
+  max-width: 480px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 
   .pillar-item {
     display: flex;
     align-items: center;
-    gap: 18px;
-    padding: 20px 0;
-
-    &:not(:last-child) {
-      border-bottom: 1px solid #e2e8f0;
-    }
+    gap: 10px;
+    padding: 6px 4px;
 
     .icon-wrapper {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
       background-color: rgba(0, 181, 163, 0.12);
       display: flex;
       align-items: center;
@@ -176,7 +173,7 @@
       flex-shrink: 0;
 
       i {
-        font-size: 24px;
+        font-size: 17px;
         color: var(--accent-tonomei);
       }
     }
@@ -187,13 +184,14 @@
       text-align: left;
 
       strong {
-        font-size: 1.1rem;
+        font-size: 0.85rem;
         font-weight: 700;
+        line-height: 1.25;
         color: var(--secondary-catec);
       }
 
       small {
-        font-size: 0.95rem;
+        font-size: 0.8rem;
         color: var(--text-muted);
         margin-top: 2px;
       }

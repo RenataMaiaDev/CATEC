@@ -1,7 +1,7 @@
+// Reuses the shared legal content styles.
 @use '../legal-page';
 
-// Link de e-mail em azul escuro (--secondary-catec), no lugar do laranja
-// padrão dos links dentro de .legal-section.
+// Email link in dark blue instead of the default orange.
 section.legal-section a {
   color: var(--secondary-catec);
 }

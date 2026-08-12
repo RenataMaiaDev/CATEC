@@ -20,11 +20,14 @@ import { FooterComponent } from '../../../components/footer/footer.component';
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })
+// tônomei home page: assembles the tônomei-specific sections.
 export class HomePage implements OnInit, OnDestroy {
+  // Applies the tônomei scrollbar theme while this page is active.
   ngOnInit(): void {
     document.body.classList.add('scroll-theme-tonomei');
   }
 
+  // Removes the tônomei scrollbar theme when leaving the page.
   ngOnDestroy(): void {
     document.body.classList.remove('scroll-theme-tonomei');
   }

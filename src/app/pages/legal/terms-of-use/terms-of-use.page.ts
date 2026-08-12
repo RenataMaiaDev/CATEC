@@ -10,4 +10,5 @@ import { TermsContentComponent } from './terms-content.component';
   templateUrl: './terms-of-use.page.html',
   styleUrl: './terms-of-use.page.scss',
 })
+// Standalone /termos-de-uso page: page chrome around the shared terms content.
 export class TermsOfUsePage {}

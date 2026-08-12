@@ -9,14 +9,14 @@ type TipoPessoa = 'fisica' | 'juridica';
 type StatusEnvio = 'idle' | 'enviando' | 'sucesso' | 'erro';
 type Toast = { tipo: 'sucesso' | 'erro'; mensagem: string };
 
-// TODO: credenciais de TESTE (conta pessoal). Trocar pelas credenciais
-// definitivas da CATEC antes de ir para produção.
+// TODO: TEST credentials (personal account). Replace with CATEC's final credentials before going to production.
 const EMAILJS_SERVICE_ID = 'service_c0rs4th';
 const EMAILJS_TEMPLATE_ID = 'template_f0vnyhp';
 const EMAILJS_PUBLIC_KEY = 'lkJzopXB5M7ekUZFm';
 
 const DURACAO_TOAST_MS = 5000;
 
+// Quote request modal: form, validation and submission via EmailJS.
 @Component({
   selector: 'app-orcamento-modal',
   standalone: true,
@@ -47,26 +47,31 @@ export class OrcamentoModalComponent {
 
   readonly dataMinima = new Date().toISOString().split('T')[0];
 
+  // Locks page scroll while the modal is open.
   constructor() {
     effect(() => {
       document.body.style.overflow = this.isOpen() ? 'hidden' : '';
     });
   }
 
+  // Closes the modal.
   fechar(): void {
     this.orcamentoService.fechar();
   }
 
+  // Dismisses the success/error toast.
   fecharToast(): void {
     this.toast.set(null);
     clearTimeout(this.toastTimeoutId);
   }
 
+  // Switches between individual (CPF) and company (CNPJ) and clears the document field.
   selecionarTipoPessoa(tipo: TipoPessoa): void {
     this.tipoPessoa.set(tipo);
     this.documento = '';
   }
 
+  // Formats the document field as CPF or CNPJ while typing.
   onDocumentoInput(event: Event): void {
     const digitos = (event.target as HTMLInputElement).value.replace(/\D/g, '');
     this.documento =
@@ -75,11 +80,13 @@ export class OrcamentoModalComponent {
         : this.mascararCnpj(digitos);
   }
 
+  // Formats the phone field while typing.
   onTelefoneInput(event: Event): void {
     const digitos = (event.target as HTMLInputElement).value.replace(/\D/g, '');
     this.telefone = this.mascararTelefone(digitos);
   }
 
+  // Applies the CPF mask (000.000.000-00).
   private mascararCpf(digitos: string): string {
     return digitos
       .slice(0, 11)
@@ -88,6 +95,7 @@ export class OrcamentoModalComponent {
       .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
   }
 
+  // Applies the CNPJ mask (00.000.000/0000-00).
   private mascararCnpj(digitos: string): string {
     return digitos
       .slice(0, 14)
@@ -97,6 +105,7 @@ export class OrcamentoModalComponent {
       .replace(/(\d{4})(\d{1,2})$/, '$1-$2');
   }
 
+  // Applies the phone mask, handling both 10 and 11-digit numbers.
   private mascararTelefone(digitosBrutos: string): string {
     const digitos = digitosBrutos.slice(0, 11);
     if (digitos.length <= 10) {
@@ -109,15 +118,14 @@ export class OrcamentoModalComponent {
       .replace(/(\d{5})(\d{1,4})$/, '$1-$2');
   }
 
-  // O <input type="date"> guarda/envia o valor em ISO (AAAA-MM-DD); esse
-  // getter converte pro formato BR pra ir assim no e-mail (ver campo oculto
-  // "data_preferida" no template).
+  // Converts the native ISO date value to BR format for the hidden form field sent by email.
   get dataPreferidaBr(): string {
     if (!this.dataPreferida) return '';
     const [ano, mes, dia] = this.dataPreferida.split('-');
     return `${dia}/${mes}/${ano}`;
   }
 
+  // True when the document field has a complete CPF or CNPJ.
   get documentoValido(): boolean {
     const digitos = this.documento.replace(/\D/g, '');
     return this.tipoPessoa() === 'fisica'
@@ -125,14 +133,17 @@ export class OrcamentoModalComponent {
       : digitos.length === 14;
   }
 
+  // True when the email field looks like a valid address.
   get emailValido(): boolean {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email.trim());
   }
 
+  // True when the phone field has enough digits.
   get telefoneValido(): boolean {
     return this.telefone.replace(/\D/g, '').length >= 10;
   }
 
+  // True when all required fields pass validation.
   get formularioValido(): boolean {
     return (
       this.nome.trim().length > 1 &&
@@ -143,6 +154,7 @@ export class OrcamentoModalComponent {
     );
   }
 
+  // Validates and submits the form via EmailJS, then shows a success/error toast.
   async enviar(): Promise<void> {
     this.tentouEnviar.set(true);
     if (!this.formularioValido || this.status() === 'enviando') {
@@ -175,12 +187,14 @@ export class OrcamentoModalComponent {
     }
   }
 
+  // Shows a toast and schedules its automatic dismissal.
   private mostrarToast(tipo: Toast['tipo'], mensagem: string): void {
     this.toast.set({ tipo, mensagem });
     clearTimeout(this.toastTimeoutId);
     this.toastTimeoutId = setTimeout(() => this.toast.set(null), DURACAO_TOAST_MS);
   }
 
+  // Resets the form fields and status after a successful submission.
   private reiniciar(): void {
     this.nome = '';
     this.documento = '';

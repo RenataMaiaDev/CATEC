@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
   templateUrl: './about-section.component.html',
   styleUrl: './about-section.component.scss',
 })
+// "Conheça o tônomei" section: demo video and the platform's 3 pillars.
 export class AboutSectionComponent {}

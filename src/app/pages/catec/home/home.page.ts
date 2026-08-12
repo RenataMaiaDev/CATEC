@@ -16,14 +16,14 @@ import { FooterComponent } from '../../../components/footer/footer.component';
     TonomeiSectionComponent,
     MoreProductsSectionComponent,
     FooterComponent,
-  ], // Importando os componentes reutilizáveis
+  ],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })
+// Catec home page: assembles the shared sections into the root LP.
 export class HomePage implements OnInit {
+  // Clears any scrollbar theme class left over from another LP.
   ngOnInit(): void {
-    // Catec é a marca padrão (cor base da barra de rolagem) — só garante
-    // que não sobrou classe de outra LP no body.
     document.body.classList.remove(
       'scroll-theme-tonomei',
       'scroll-theme-gestao',

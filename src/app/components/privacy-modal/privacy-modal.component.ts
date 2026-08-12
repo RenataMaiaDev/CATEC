@@ -16,16 +16,19 @@ export class PrivacyModalComponent {
   private readonly router = inject(Router);
   readonly isOpen = this.privacyModalService.isOpen;
 
+  // Locks page scroll while the modal is open.
   constructor() {
     effect(() => {
       document.body.style.overflow = this.isOpen() ? 'hidden' : '';
     });
   }
 
+  // Closes the modal.
   fechar(): void {
     this.privacyModalService.fechar();
   }
 
+  // Closes the modal and navigates to the full Privacy Policy page.
   abrirPaginaDedicada(): void {
     this.fechar();
     this.router.navigate(['/politica-de-privacidade']);

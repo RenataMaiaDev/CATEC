@@ -1,11 +1,13 @@
 <footer class="footer" [ngClass]="'footer--' + theme">
   <div class="footer-container">
     <div class="footer-grid">
+      <!-- Brand name and tagline -->
       <div class="footer-brand">
         <p class="footer-brand-name">CATEC Soluções</p>
         <p class="footer-tagline">{{ tagline }}</p>
       </div>
 
+      <!-- Contact channels -->
       <div class="footer-col">
         <p class="footer-eyebrow">Fale com a gente</p>
         <div class="footer-list">
@@ -16,12 +18,12 @@
             rel="noopener noreferrer"
           >
             <i class="fa-brands fa-whatsapp"></i>
-            <span>(85) 9 9615-7126</span>
+            <span>(85) 9 9804-9463</span>
           </a>
 
-          <a class="footer-item" href="mailto:contato&#64;catecsolucoes.com.br">
+          <a class="footer-item" href="mailto:contato&#64;tonomei.com.br">
             <i class="fa-solid fa-envelope"></i>
-            <span>contato&#64;catecsolucoes.com.br</span>
+            <span>contato&#64;tonomei.com.br</span>
           </a>
 
           <a
@@ -36,6 +38,7 @@
         </div>
       </div>
 
+      <!-- Legal links (open the Terms/Privacy modals) -->
       <div class="footer-col">
         <p class="footer-eyebrow">Institucional</p>
         <div class="footer-links">
@@ -45,8 +48,41 @@
           >
         </div>
       </div>
+
+      <!-- App store badges -->
+      <div class="footer-col">
+        <p class="footer-eyebrow">Baixe o app</p>
+        <div class="footer-stores">
+          <!-- TODO: replace "#" with the real Google Play listing URL once published -->
+          <a
+            class="footer-store-badge"
+            href="#"
+            (click)="$event.preventDefault()"
+          >
+            <i class="fa-brands fa-google-play"></i>
+            <span class="footer-store-text">
+              <small>Disponível no</small>
+              Google Play
+            </span>
+          </a>
+
+          <!-- TODO: replace "#" with the real App Store listing URL once published -->
+          <a
+            class="footer-store-badge"
+            href="#"
+            (click)="$event.preventDefault()"
+          >
+            <i class="fa-brands fa-apple"></i>
+            <span class="footer-store-text">
+              <small>Disponível na</small>
+              App Store
+            </span>
+          </a>
+        </div>
+      </div>
     </div>
 
+    <!-- Copyright -->
     <div class="footer-bottom">
       © {{ currentYear }} Todos os direitos reservados à CATEC Soluções.
     </div>

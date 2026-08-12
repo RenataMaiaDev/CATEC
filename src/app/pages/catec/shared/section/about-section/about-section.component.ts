@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   templateUrl: './about-section.component.html',
   styleUrl: './about-section.component.scss'
 })
-export class AboutSectionComponent {
-
-}
+// "Quem somos" section: company story and image.
+export class AboutSectionComponent {}

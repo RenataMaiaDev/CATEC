@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  z-index: 10000; // acima do botão flutuante de WhatsApp (z-index: 9999)
+  z-index: 10000; // above the floating WhatsApp button (z-index: 9999)
   animation: fade-in 0.2s ease;
 }
 
@@ -19,7 +19,7 @@
   background: var(--white);
   border-radius: 10px;
   box-shadow: var(--shadow-lg);
-  overflow: hidden; // recorta o conteúdo/scrollbar no formato arredondado
+  overflow: hidden; // clips the content/scrollbar to the rounded shape
   animation: pop-in 0.25s ease;
 }
 
@@ -27,7 +27,7 @@
   max-height: 90vh;
   overflow-y: auto;
 
-  /* Barra de rolagem fina, cinza, em vez do padrão do navegador */
+  /* Thin, gray scrollbar instead of the browser default */
   scrollbar-width: thin;
   scrollbar-color: var(--text-muted) transparent;
 
@@ -115,8 +115,8 @@
     padding: 16px 20px 24px 20px;
   }
 
-  // Hover em azul escuro (--secondary-catec), no lugar do laranja padrão do
-  // botão outline.
+  // Dark blue hover (--secondary-catec), instead of the outline button's
+  // default orange.
   ::ng-deep .btn.outline:hover {
     border-color: var(--secondary-catec);
     color: var(--secondary-catec);

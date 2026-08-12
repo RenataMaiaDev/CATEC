@@ -1,3 +1,4 @@
+<!-- Quote request modal: multi-section form + success/error toast -->
 @if (isOpen()) {
   <div class="orcamento-overlay" (click)="fechar()">
     <div class="orcamento-dialog" (click)="$event.stopPropagation()">
@@ -7,7 +8,7 @@
           <span class="material-icons">request_quote</span>
         </div>
         <div class="orcamento-header-text">
-          <h3 class="orcamento-title">Solicitar Orçamento</h3>
+          <h3 class="orcamento-title">Solicitar orçamento</h3>
           <p class="orcamento-subtitle">
             Preencha os dados abaixo e entraremos em contato o quanto antes.
           </p>
@@ -27,11 +28,11 @@
         class="orcamento-form"
         (ngSubmit)="enviar()"
       >
-        <!-- TODO: e-mail de TESTE. Trocar para contato@catecsolucoes.com.br antes de ir para produção. -->
+        <!-- TODO: TEST email. Replace with contato@catecsolucoes.com.br before going to production. -->
         <input type="hidden" name="to_email" value="renataaugustomaia@gmail.com" />
         <input type="hidden" name="tipo_pessoa" [value]="tipoPessoa()" />
 
-        <!-- SEÇÃO: IDENTIFICAÇÃO -->
+        <!-- SECTION: IDENTIFICATION -->
         <section class="form-section">
           <h4 class="form-section-title">
             <i class="material-icons">badge</i>
@@ -129,7 +130,7 @@
           </div>
         </section>
 
-        <!-- SEÇÃO: CONTATO -->
+        <!-- SECTION: CONTACT -->
         <section class="form-section">
           <h4 class="form-section-title">
             <i class="material-icons">contact_mail</i>
@@ -179,7 +180,7 @@
           </div>
         </section>
 
-        <!-- SEÇÃO: AGENDAMENTO -->
+        <!-- SECTION: SCHEDULING -->
         <section class="form-section">
           <h4 class="form-section-title">
             <i class="material-icons">event_available</i>
@@ -199,9 +200,9 @@
                   [ngModelOptions]="{ standalone: true }"
                 />
               </div>
-              <!-- O input acima não tem [name] de propósito: o valor nativo do
-                   type="date" é ISO (AAAA-MM-DD). Quem realmente é enviado é
-                   este campo oculto, já convertido pro formato BR. -->
+              <!-- The input above has no [name] on purpose: the native value of
+                   type="date" is ISO (YYYY-MM-DD). What actually gets sent is
+                   this hidden field, already converted to BR format. -->
               <input type="hidden" name="data_preferida" [value]="dataPreferidaBr" />
             </div>
 
@@ -221,7 +222,7 @@
           </div>
         </section>
 
-        <!-- SEÇÃO: DETALHES -->
+        <!-- SECTION: DETAILS -->
         <section class="form-section">
           <h4 class="form-section-title">
             <i class="material-icons">description</i>

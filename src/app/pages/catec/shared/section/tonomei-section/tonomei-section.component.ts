@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import {
+  afterNextRender,
+  Component,
+  DestroyRef,
+  inject,
+  signal,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonComponent } from '../../components/button/button.component';
 
@@ -16,6 +22,7 @@ interface Slide {
   route: string;
 }
 
+// Swipeable carousel promoting tônomei, SISAMB and Gestão Una.
 @Component({
   selector: 'app-tonomei-section',
   standalone: true,
@@ -25,12 +32,24 @@ interface Slide {
 })
 export class TonomeiSectionComponent {
   private router = inject(Router);
+  private readonly destroyRef = inject(DestroyRef);
+
+  // How often the carousel auto-advances when the user isn't interacting with it.
+  private static readonly AUTOPLAY_INTERVAL_MS = 6000;
+  private autoplayId: ReturnType<typeof setInterval> | null = null;
+
+  constructor() {
+    afterNextRender(() => {
+      this.restartAutoplay();
+      this.destroyRef.onDestroy(() => this.stopAutoplay());
+    });
+  }
 
   slides: Slide[] = [
     {
       id: 'tonomei',
       button: 'tônomei',
-      title: 'Solução Completa para o Microempreendedor',
+      title: 'Solução completa para o microempreendedor',
       subtitle: 'Gestão & Obrigações Fiscais',
       description:
         'Um sistema desenvolvido especialmente para o empreendedor brasileiro. Seja você formalizado (com CNPJ) ou informal (CPF), tudo num só lugar. Garantindo a você, de forma fácil e intuitiva, uma gestão de alto nível, novas oportunidades e tudo mais que precisa. Tudo isso na palma da sua mão.',
@@ -43,7 +62,7 @@ export class TonomeiSectionComponent {
     {
       id: 'sisambe',
       button: 'SISAMB',
-      title: 'Transformação Digital na Gestão Ambiental',
+      title: 'Transformação digital na gestão ambiental',
       subtitle: 'Cidades, Estados & Consórcios',
       description:
         'O SISAMB leva a gestão ambiental do seu município, estado ou consórcio para o ambiente digital de forma leve, fácil e intuitiva. Simplifique processos, monitore indicadores ecológicos e modernize a administração pública ambiental.',
@@ -56,10 +75,10 @@ export class TonomeiSectionComponent {
     {
       id: 'gestao',
       button: 'Gestão Una',
-      title: 'Gestão Eficiente para o Setor Público',
+      title: 'Gestão eficiente para o setor público',
       subtitle: 'Serviços Públicos Integrados',
       description:
-        'Um sistema projetado para gerir as principais áreas do serviço público de maneira prática, inteligente, acessível, econômica, inclusiva e moderna. Otimize rotinas administrativas e melhore o atendimento ao cidadão.',
+        'Gestão Uma é uma plataforma de integração e centralização de informações, concebida para atuar como um ponto único de acesso a dados que hoje estão espalhados em diversos sistemas independentes, tanto no setor público quanto no privado.',
       badge: 'Prefeituras e Secretarias Públicas',
       icon: 'account_balance',
       image: 'img/hero.png',
@@ -70,34 +89,57 @@ export class TonomeiSectionComponent {
 
   activeSlideIndex = signal<number>(0);
 
-  // Variáveis para controle do Touch / Swipe
   private touchStartX = 0;
   private touchEndX = 0;
 
+  // Sets the active slide by index and restarts the autoplay timer from there.
   setActiveSlide(index: number): void {
     this.activeSlideIndex.set(index);
+    this.restartAutoplay();
   }
 
+  // Advances to the next slide, wrapping around, and restarts the autoplay timer.
   nextSlide(): void {
     this.activeSlideIndex.update((idx) => (idx + 1) % this.slides.length);
+    this.restartAutoplay();
   }
 
+  // Goes back to the previous slide, wrapping around, and restarts the autoplay timer.
   prevSlide(): void {
     this.activeSlideIndex.update(
       (idx) => (idx - 1 + this.slides.length) % this.slides.length,
     );
+    this.restartAutoplay();
   }
 
-  // Métodos do Touch Event
+  // (Re)starts the periodic auto-advance, always counting the interval from
+  // whichever slide is currently active — manual or automatic.
+  private restartAutoplay(): void {
+    this.stopAutoplay();
+    this.autoplayId = setInterval(() => {
+      this.activeSlideIndex.update((idx) => (idx + 1) % this.slides.length);
+    }, TonomeiSectionComponent.AUTOPLAY_INTERVAL_MS);
+  }
+
+  private stopAutoplay(): void {
+    if (this.autoplayId !== null) {
+      clearInterval(this.autoplayId);
+      this.autoplayId = null;
+    }
+  }
+
+  // Records the touch start position.
   onTouchStart(event: TouchEvent): void {
     this.touchStartX = event.changedTouches[0].screenX;
   }
 
+  // Records the touch end position and resolves the swipe.
   onTouchEnd(event: TouchEvent): void {
     this.touchEndX = event.changedTouches[0].screenX;
     this.handleSwipe();
   }
 
+  // Advances/goes back a slide if the swipe distance passes the threshold.
   private handleSwipe(): void {
     const swipeThreshold = 50;
     const diff = this.touchStartX - this.touchEndX;
@@ -111,7 +153,7 @@ export class TonomeiSectionComponent {
     }
   }
 
-  // Método manual para fallback de navegação
+  // Navigates to the selected product's route.
   openSystemPage(routePath: string): void {
     this.router.navigate([routePath]);
   }

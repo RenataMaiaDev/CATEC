@@ -1,6 +1,7 @@
 import { Component, signal, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Sticky header with a mobile menu and a useful-links dropdown.
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -11,17 +12,15 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent {
   isMenuOpen = signal<boolean>(false);
   isDropdownOpen = signal<boolean>(false);
-  
-  // Novo estado para controlar se a página sofreu scroll
   isScrolled = signal<boolean>(false);
 
-  // Monitora a rolagem da página
+  // Tracks scroll position to toggle the header's scrolled state.
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
-    // Se rolou mais de 20px para baixo, ativa o estado scrolled
     this.isScrolled.set(window.scrollY > 20);
   }
 
+  // Toggles the mobile menu open/closed.
   toggleMenu(): void {
     this.isMenuOpen.update(state => !state);
     if (!this.isMenuOpen()) {
@@ -29,16 +28,19 @@ export class HeaderComponent {
     }
   }
 
+  // Toggles the "useful links" dropdown.
   toggleDropdown(event: Event): void {
     event.stopPropagation();
     this.isDropdownOpen.update(state => !state);
   }
 
+  // Closes the mobile menu and dropdown.
   closeMenu(): void {
     this.isMenuOpen.set(false);
     this.isDropdownOpen.set(false);
   }
 
+  // Closes the dropdown when clicking anywhere outside it.
   @HostListener('document:click', ['$event'])
   onDocumentClick(): void {
     this.isDropdownOpen.set(false);

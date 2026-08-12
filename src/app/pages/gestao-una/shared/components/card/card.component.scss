@@ -9,7 +9,7 @@
   text-align: center;
   border: 1px solid #b0b1b45e;
 
-  // Garante alinhamento perfeito e mesma altura em grids
+  // Ensures perfect alignment and equal height inside grids
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -61,7 +61,7 @@
     line-height: 1.5;
   }
 
-  /* Área do botão no rodapé do card */
+  /* Button area at the bottom of the card */
   .card-action {
     margin-top: 24px;
     padding-top: 20px;

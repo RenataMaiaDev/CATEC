@@ -1,10 +1,12 @@
+<!-- Terms of Use modal, rendered only while open -->
 @if (isOpen()) {
   <div class="terms-overlay" (click)="fechar()">
     <div class="terms-dialog" (click)="$event.stopPropagation()">
       <div class="terms-scroll">
+        <!-- Title and close button -->
         <header class="terms-header">
           <div class="terms-header-text">
-            <h3 class="terms-title">Termos de Uso</h3>
+            <h3 class="terms-title">Termos de uso</h3>
             <p class="terms-subtitle">Última atualização: 10 de agosto de 2026</p>
           </div>
           <button
@@ -17,10 +19,12 @@
           </button>
         </header>
 
+        <!-- Shared legal content -->
         <div class="terms-body">
           <app-terms-content></app-terms-content>
         </div>
 
+        <!-- Link to the full standalone page -->
         <footer class="terms-footer">
           <app-button variant="outline" (click)="abrirPaginaDedicada()">
             Abrir em uma página dedicada

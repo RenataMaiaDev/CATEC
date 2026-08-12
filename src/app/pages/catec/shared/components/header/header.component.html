@@ -1,5 +1,6 @@
 <header class="header" [class.menu-open]="isMenuOpen()">
   <div class="header-container">
+    <!-- Logo -->
     <a href="#" class="logo" (click)="setActiveSection('inicio', $event)">
       <img
         src="img/logo-catec-solucoes.png"
@@ -80,7 +81,7 @@
       </div>
     </nav>
 
-    <!-- Botão Hambúrguer Mobile -->
+    <!-- Mobile Hamburger Button -->
     <button
       class="hamburger-btn"
       (click)="toggleMenu()"
@@ -91,7 +92,7 @@
       <span class="hamburger-line"></span>
     </button>
 
-    <!-- Menu Mobile Expandido -->
+    <!-- Expanded Mobile Menu -->
     <div class="mobile-menu">
       <nav class="mobile-nav">
         <a

@@ -1,18 +1,16 @@
 import { Injectable, signal } from '@angular/core';
 
-// Controla a abertura do app-orcamento-modal a partir de qualquer lugar da
-// LP catec (Hero, Nossos Serviços, etc.), sem precisar de uma instância do
-// modal aninhada dentro de cada seção — o que causava um bug de z-index
-// (seções com z-index próprio "prendiam" o modal atrás de outros elementos
-// fixos da página, como o botão de WhatsApp).
+// Shared open/close state for the quote request modal, usable from anywhere on the catec LP.
 @Injectable({ providedIn: 'root' })
 export class OrcamentoService {
   readonly isOpen = signal(false);
 
+  // Opens the modal.
   abrir(): void {
     this.isOpen.set(true);
   }
 
+  // Closes the modal.
   fechar(): void {
     this.isOpen.set(false);
   }

@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class WhatsappButtonComponent {
 
+  // Opens WhatsApp in a new tab with a pre-filled message.
   openWhatsApp(): void {
     const text = encodeURIComponent('Olá! Gostaria de tirar algumas dúvidas e saber mais sobre as soluções da CATEC.');
     const url = `https://api.whatsapp.com/send/?phone=5585996157126&text=${text}`;

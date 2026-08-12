@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.scss',
 })
+// SISAMB hero section (not yet wired into the home page).
 export class HeroSectionComponent {}

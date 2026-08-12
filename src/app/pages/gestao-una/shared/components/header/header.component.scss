@@ -1,4 +1,4 @@
-// --- CONFIGURAÇÃO DO HEADER ---
+// --- HEADER CONFIGURATION ---
 .header {
   position: sticky;
   top: 0;
@@ -21,12 +21,12 @@
   }
 }
 
-/* LOGO (IMAGEM BRANCA) */
+/* LOGO (WHITE IMAGE) */
 .logo {
   display: flex;
   align-items: center;
   text-decoration: none;
-  z-index: 1010; // Mantém acima do menu mobile ao abrir
+  z-index: 1010; // Stays above the mobile menu when it opens
 
   .logo-img {
     height: 40px;
@@ -43,7 +43,7 @@
   height: 100%;
 
   @media (max-width: 1024px) {
-    display: none; // Oculta o menu clássico no mobile/tablet
+    display: none; // Hides the classic menu on mobile/tablet
   }
 }
 
@@ -88,7 +88,7 @@
   }
 }
 
-/* DROPDOWN (LINKS ÚTEIS) DESKTOP */
+/* DROPDOWN (USEFUL LINKS) DESKTOP */
 .dropdown-container {
   position: relative;
   display: flex;
@@ -158,7 +158,7 @@
   }
 }
 
-/* BOTÃO HAMBÚRGUER RESPONSIVO */
+/* RESPONSIVE HAMBURGER BUTTON */
 .hamburger-btn {
   display: none;
   flex-direction: column;
@@ -169,10 +169,10 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1010; // Garante clique sobre o menu expandido
+  z-index: 1010; // Ensures it stays clickable above the expanded menu
 
   @media (max-width: 1024px) {
-    display: flex; // Exibe apenas em telas menores
+    display: flex; // Only shown on smaller screens
   }
 
   .hamburger-line {
@@ -186,7 +186,7 @@
   }
 }
 
-/* TRANSFORMAÇÃO DO HAMBÚRGUER EM "X" */
+/* TRANSFORMS THE HAMBURGER INTO AN "X" */
 .header.menu-open {
   .hamburger-line:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
@@ -199,22 +199,22 @@
   }
 }
 
-/* MENU RESPONSIVO MOBILE */
+/* RESPONSIVE MOBILE MENU */
 .mobile-menu {
   display: none;
   background-color: var(--secondary-catec);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  position: fixed; // Preenche a tela corretamente ao rolar
+  position: fixed; // Fills the screen correctly while scrolling
   top: 60px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 60px); // Ocupa a viewport restante
+  height: calc(100vh - 60px); // Takes up the remaining viewport
   box-shadow: var(--shadow-md);
   z-index: 999;
-  overflow-y: auto; // Permite scroll interno caso existam muitos links
+  overflow-y: auto; // Allows inner scroll if there are many links
 }
 
-// Ativa a exibição do bloco mobile no clique
+// Shows the mobile block on click
 .header.menu-open .mobile-menu {
   @media (max-width: 1024px) {
     display: block;

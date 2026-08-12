@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   templateUrl: './about-section.component.html',
   styleUrl: './about-section.component.scss'
 })
-export class AboutSectionComponent {
-
-}
+// SISAMB about section (not yet wired into the home page).
+export class AboutSectionComponent {}

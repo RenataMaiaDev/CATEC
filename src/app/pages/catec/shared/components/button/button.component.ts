@@ -6,6 +6,7 @@ import { Component, input } from '@angular/core';
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss'
 })
+// Reusable pill-shaped button with primary/secondary/outline variants.
 export class ButtonComponent {
   variant = input<'primary' | 'secondary' | 'outline'>('primary');
   type = input<'button' | 'submit'>('button');

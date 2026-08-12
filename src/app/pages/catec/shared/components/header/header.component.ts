@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, signal } from '@angular/core';
 
+// Sticky header with a scroll-spy nav and a mobile menu.
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -12,34 +13,31 @@ export class HeaderComponent {
   isMenuOpen = signal<boolean>(false);
   isDropdownOpen = signal<boolean>(false);
   isScrolled = signal<boolean>(false);
-
-  // Define a seção ativa por padrão (ex: 'inicio')
   activeSection = signal<string>('inicio');
 
+  // Tracks scroll position to toggle the header's scrolled state.
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
     this.isScrolled.set(window.scrollY > 20);
   }
 
-  // Atualiza o item ativo e rola até a seção compensando o Header fixo
+  // Marks a section active and smooth-scrolls to it, offsetting for the fixed header.
   setActiveSection(sectionId: string, event?: Event): void {
     if (event) {
-      event.preventDefault(); // Previne o salto brusco nativo da tag <a>
+      event.preventDefault();
     }
 
     this.activeSection.set(sectionId);
     this.closeMenu();
 
-    // Rola até o topo caso seja a primeira seção
     if (sectionId === 'inicio') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
-    // Busca o elemento da seção pelo ID e rola compensando a altura do menu
     const targetElement = document.getElementById(sectionId);
     if (targetElement) {
-      const headerOffset = 90; // Desconto em pixels para a altura do Header + folga
+      const headerOffset = 90;
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition =
         elementPosition + window.pageYOffset - headerOffset;
@@ -51,6 +49,7 @@ export class HeaderComponent {
     }
   }
 
+  // Toggles the mobile menu open/closed.
   toggleMenu(): void {
     this.isMenuOpen.update((state) => !state);
     if (!this.isMenuOpen()) {
@@ -58,21 +57,24 @@ export class HeaderComponent {
     }
   }
 
+  // Toggles the "useful links" dropdown.
   toggleDropdown(event: Event): void {
     event.stopPropagation();
     this.isDropdownOpen.update((state) => !state);
   }
 
+  // Closes the mobile menu and dropdown.
   closeMenu(): void {
     this.isMenuOpen.set(false);
     this.isDropdownOpen.set(false);
   }
 
-  // Apenas fecha o menu e o dropdown ao clicar em links externos
+  // Closes the menu when an external link is clicked.
   onExternalLinkClick(): void {
     this.closeMenu();
   }
 
+  // Closes the dropdown when clicking anywhere outside it.
   @HostListener('document:click', ['$event'])
   onDocumentClick(): void {
     this.isDropdownOpen.set(false);

@@ -128,10 +128,42 @@
   color: var(--text-muted);
 }
 
+.plan-price-pix {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-tonomei);
+}
+
 .plan-description {
   font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.5;
   margin-bottom: 28px;
   flex-grow: 1;
+}
+
+.plan-exceptions {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  text-align: left;
+
+  li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.85rem;
+
+    &:not(:last-child) {
+      margin-bottom: 6px;
+    }
+
+    &::before {
+      content: "\2715";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      font-size: 0.7rem;
+      color: #cbd5e1;
+    }
+  }
 }

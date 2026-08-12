@@ -16,7 +16,7 @@ export class HeaderComponent {
   isDropdownOpen = signal<boolean>(false);
   isScrolled = signal<boolean>(false);
 
-  // Define 'tonomei-inicio' como ativo por padrão na LP do tônomei
+  // Sets 'tonomei-inicio' as active by default on the tônomei LP
   activeSection = signal<string>('tonomei-inicio');
 
   @HostListener('window:scroll', [])
@@ -25,32 +25,32 @@ export class HeaderComponent {
   }
 
   setActiveSection(sectionId: string, event?: Event): void {
-    // Para o link de Login, não interceptamos com preventDefault para permitir a navegação da tag <a>
+    // For the Login link, we don't intercept with preventDefault so the <a> tag can navigate normally
     if (sectionId === 'login') {
       this.closeMenu();
       return;
     }
 
     if (event) {
-      event.preventDefault(); // Impede o salto automático bruto das âncoras #
+      event.preventDefault(); // Prevents the abrupt native jump of # anchors
     }
 
     this.activeSection.set(sectionId);
     this.closeMenu();
 
-    // 1. REDIRECIONA PARA A CATEC (Apenas ao clicar no link 'inicio' / CATEC)
+    // 1. REDIRECT TO CATEC (only when clicking the 'inicio' / CATEC link)
     if (sectionId === 'inicio') {
       const isHome =
         this.router.url === '/' || this.router.url.startsWith('/#');
       if (isHome) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        this.router.navigate(['/']); // Redireciona para a CATEC
+        this.router.navigate(['/']); // Redirects to CATEC
       }
       return;
     }
 
-    // 2. DEMAIS BOTÕES DO TÔNOMEI (Rola estritamente dentro da página atual)
+    // 2. OTHER TÔNOMEI BUTTONS (scroll strictly within the current page)
     this.scrollToElement(sectionId);
   }
 
@@ -58,7 +58,7 @@ export class HeaderComponent {
     const targetElement = document.getElementById(sectionId);
 
     if (targetElement) {
-      const headerOffset = 90; // Desconto da altura do Header + respiro
+      const headerOffset = 90; // Offset for the header height + breathing room
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition =
         elementPosition + window.pageYOffset - headerOffset;

@@ -5,11 +5,8 @@ import { PrivacyModalService } from '../privacy-modal/privacy-modal.service';
 
 export type FooterTheme = 'tonomei' | 'catec' | 'gestao';
 
-const BRAND_TAGLINES: Record<FooterTheme, string> = {
-  tonomei: 'Gestão simples para o microempreendedor.',
-  catec: 'Tecnologia de gestão para o seu negócio.',
-  gestao: 'Gestão unificada para a sua operação.',
-};
+// Shared tagline shown under the CATEC Soluções name in the footer, across all brands.
+const FOOTER_TAGLINE = 'Gestão Inovadora para os Empreendedores do Brasil';
 
 @Component({
   selector: 'app-footer',
@@ -24,25 +21,30 @@ export class FooterComponent {
   private readonly termsModalService = inject(TermsModalService);
   private readonly privacyModalService = inject(PrivacyModalService);
 
+  // Pre-built WhatsApp link with the default contact message.
   readonly whatsappUrl =
-    'https://api.whatsapp.com/send/?phone=5585996157126&text=' +
+    'https://api.whatsapp.com/send/?phone=5585998049463&text=' +
     encodeURIComponent(
       'Olá! Gostaria de tirar algumas dúvidas sobre os serviços da CATEC Soluções.',
     );
 
+  // Returns the shared footer tagline.
   get tagline(): string {
-    return BRAND_TAGLINES[this.theme];
+    return FOOTER_TAGLINE;
   }
 
+  // Returns the current year for the copyright line.
   get currentYear(): number {
     return new Date().getFullYear();
   }
 
+  // Opens the Terms of Use modal.
   abrirTermos(event: Event): void {
     event.preventDefault();
     this.termsModalService.abrir();
   }
 
+  // Opens the Privacy Policy modal.
   abrirPrivacidade(event: Event): void {
     event.preventDefault();
     this.privacyModalService.abrir();

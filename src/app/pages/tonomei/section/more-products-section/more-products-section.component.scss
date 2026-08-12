@@ -21,10 +21,17 @@
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 20px;
   width: 100%;
   max-width: 1100px;
   margin: 0 auto 48px auto;
+
+  /* app-card is shared across the LPs; it reads the icon color through CSS
+     variables (--card-icon-color/--card-icon-bg), which pass through
+     Angular's style encapsulation normally. Here we redefine those variables
+     for the tônomei palette. */
+  --card-icon-color: var(--accent-tonomei);
+  --card-icon-bg: rgba(0, 181, 163, 0.12);
 
   @media (max-width: 992px) {
     grid-template-columns: repeat(2, 1fr);
@@ -32,18 +39,152 @@
 
   @media (max-width: 620px) {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
     margin-bottom: 32px;
   }
-}
 
-/* O app-card é compartilhado entre as LPs; ele lê a cor do ícone
-   através de variáveis CSS (--card-icon-color/--card-icon-bg), que
-   atravessam o encapsulamento de estilos do Angular normalmente.
-   Aqui redefinimos essas variáveis para a paleta da tônomei. */
-.features-grid {
-  --card-icon-color: var(--accent-tonomei);
-  --card-icon-bg: rgba(0, 181, 163, 0.12);
+  // A more compact take on the shared card, scoped to this grid only.
+  ::ng-deep .catec-card {
+    padding: 22px 18px;
+  }
+
+  ::ng-deep .icon-wrapper {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+
+  ::ng-deep .card-icon {
+    font-size: 1.5rem;
+  }
+
+  ::ng-deep .card-title {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  ::ng-deep .card-description {
+    font-size: 0.85rem;
+  }
+
+  // Entrance: cards rise into place, one after another, the first time the
+  // grid scrolls into view (triggered from the component via IntersectionObserver).
+  app-card {
+    display: block;
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  &.in-view app-card {
+    opacity: 1;
+    transform: translateY(0);
+    // Continuous, gentle bob once the card has settled into place. Cards are
+    // out of phase with each other so the grid doesn't move in lockstep.
+    animation: card-float 6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+
+    @for $i from 1 through 9 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{($i - 1) * 0.08}s;
+        animation-delay: #{0.6 + ($i - 1) * 0.25}s;
+      }
+    }
+
+    // Pause the ambient float on hover so it doesn't fight with the hover lift.
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  @keyframes card-float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-7px) rotate(0.6deg);
+    }
+  }
+
+  // Hover: a livelier lift than the default card, plus an icon flourish.
+  ::ng-deep .catec-card {
+    transition:
+      transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1),
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
+
+    &:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(0, 181, 163, 0.35);
+      box-shadow:
+        0 20px 32px -14px rgba(0, 181, 163, 0.3),
+        var(--shadow-lg);
+    }
+  }
+
+  ::ng-deep .icon-wrapper {
+    transition: transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
+  }
+
+  ::ng-deep .catec-card:hover .icon-wrapper {
+    transform: rotate(-8deg) scale(1.15);
+  }
+
+  // Icons keep wiggling on their own, independent of hover, once the card
+  // has entered view. Paused on hover so the deliberate flourish above reads
+  // clearly instead of fighting with the ambient motion.
+  &.in-view ::ng-deep .card-icon {
+    animation: icon-wiggle 4s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  }
+
+  @for $i from 1 through 9 {
+    &.in-view app-card:nth-child(#{$i}) ::ng-deep .card-icon {
+      animation-delay: #{0.9 + ($i - 1) * 0.22}s;
+    }
+  }
+
+  ::ng-deep .catec-card:hover .card-icon {
+    animation-play-state: paused;
+  }
+
+  @keyframes icon-wiggle {
+    0%,
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+    25% {
+      transform: rotate(7deg) scale(1.05);
+    }
+    50% {
+      transform: rotate(0deg) scale(1.1);
+    }
+    75% {
+      transform: rotate(-7deg) scale(1.05);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    app-card {
+      opacity: 1;
+      transform: none;
+      transition: none;
+      animation: none;
+    }
+
+    ::ng-deep .catec-card:hover {
+      transform: none;
+    }
+
+    ::ng-deep .catec-card:hover .icon-wrapper {
+      transform: none;
+    }
+
+    ::ng-deep .card-icon {
+      animation: none;
+    }
+  }
 }
 
 .more-products-actions {

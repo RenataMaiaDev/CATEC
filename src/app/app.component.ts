@@ -7,20 +7,19 @@ import { PrivacyModalComponent } from './components/privacy-modal/privacy-modal.
 import { PrivacyModalService } from './components/privacy-modal/privacy-modal.service';
 import { OrcamentoModalComponent } from './pages/catec/shared/components/orcamento-modal/orcamento-modal.component';
 import { OrcamentoService } from './pages/catec/shared/components/orcamento-modal/orcamento.service';
+import { CookieConsentComponent } from './components/cookie-consent/cookie-consent.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  // OrcamentoModalComponent, TermsModalComponent e PrivacyModalComponent só
-  // são usados dentro de um bloco @defer no template — o Angular detecta
-  // isso e separa cada um num chunk à parte, carregado só quando o
-  // respectivo modal é aberto pela primeira vez.
+  // Modal components are lazy-loaded via @defer in the template.
   imports: [
     RouterOutlet,
     WhatsappButtonComponent,
     OrcamentoModalComponent,
     TermsModalComponent,
     PrivacyModalComponent,
+    CookieConsentComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -28,9 +27,7 @@ import { OrcamentoService } from './pages/catec/shared/components/orcamento-moda
 export class AppComponent {
   title = 'catec';
 
-  // Só o serviço (leve) é importado aqui — o componente do modal em si é
-  // carregado sob demanda via @defer no template, pra não pesar o bundle
-  // inicial de LPs que nunca abrem esse modal.
+  // Services drive the @defer blocks that lazy-load each modal.
   protected readonly orcamentoService = inject(OrcamentoService);
   protected readonly termsModalService = inject(TermsModalService);
   protected readonly privacyModalService = inject(PrivacyModalService);

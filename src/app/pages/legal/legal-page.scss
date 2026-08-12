@@ -1,5 +1,6 @@
-// --- ESTILOS COMPARTILHADOS DAS PÁGINAS LEGAIS (Termos de Uso / Política de Privacidade) ---
+// --- SHARED STYLES FOR THE LEGAL PAGES (Terms of Use / Privacy Policy) ---
 
+// Top bar with the logo and a back-to-site link
 .legal-header {
   border-bottom: 1px solid #e2e8f0;
   background: var(--white);
@@ -34,6 +35,7 @@
   }
 }
 
+// Page wrapper, title and callout boxes
 .legal-page {
   max-width: 900px;
   margin: 0 auto;
@@ -77,9 +79,7 @@
   }
 }
 
-// Estilos do conteúdo em si (títulos, parágrafos, listas). Fora de
-// `.legal-page` de propósito, para poderem ser reaproveitados tanto na
-// página cheia quanto dentro do modal de Termos de Uso.
+// Content styles (headings, paragraphs, lists), kept outside .legal-page so they're reusable in the modals too.
 section.legal-section {
   margin-bottom: 32px;
   color: var(--secondary-catec);

@@ -1,11 +1,11 @@
 <section class="tonomei-section" id="produto">
   <div class="tonomei-container">
-    <!-- CABEÇALHO CENTRALIZADO DE IMPACTO -->
+    <!-- Centered header -->
     <div class="tonomei-header">
       <span class="section-badge">Soluções em Destaque</span>
       <h2 class="section-title">
         A plataforma que impulsiona o futuro da <br />
-        <span class="highlight">Sua Empresa</span>
+        <span class="highlight">sua empresa</span>
       </h2>
       <p class="section-subtitle">
         Soluções modernas de tecnologia e gestão com uso de Inteligência
@@ -18,7 +18,7 @@
       </p>
     </div>
 
-    <!-- ABAS NAVEGÁVEIS (TABS DO CARROSSEL) -->
+    <!-- Carousel tabs -->
     <div class="carousel-tabs-wrapper">
       <div class="carousel-tabs">
         @for (slide of slides; track slide.id; let i = $index) {
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <!-- CARROSSEL SHOWCASE COM SUPORTE A TOUCH -->
+    <!-- Showcase carousel with touch/swipe support -->
     <div class="carousel-showcase">
       @for (slide of slides; track slide.id; let i = $index) {
         @if (activeSlideIndex() === i) {
@@ -43,7 +43,7 @@
             (touchstart)="onTouchStart($event)"
             (touchend)="onTouchEnd($event)"
           >
-            <!-- LADO DIREITO DA TELA DE DEMONSTRAÇÃO (MOCKUP/IMAGEM) -->
+            <!-- Right side of the demo screen (mockup/image) -->
             <div class="showcase-media">
               <div class="mockup-frame">
                 <div class="frame-bar">
@@ -67,7 +67,7 @@
               </div>
             </div>
 
-            <!-- INFO DO RECURSO -->
+            <!-- Feature info -->
             <div class="showcase-info">
               <span class="feature-badge">
                 <span class="material-icons">star</span> {{ slide.badge }}
@@ -76,7 +76,7 @@
               <p>{{ slide.description }}</p>
 
               <div class="showcase-actions">
-                <!-- Wrapper que garante a interceptação do clique e o redirecionamento -->
+                <!-- Wrapper that ensures the click is captured and the redirect happens -->
                 <div
                   (click)="openSystemPage(slide.route)"
                   style="cursor: pointer; display: inline-block"
@@ -92,7 +92,7 @@
         }
       }
 
-      <!-- CONTROLES NAVEGADORES (SETA ESQUERDA/DIREITA) -->
+      <!-- Prev/next navigation arrows -->
       <button class="nav-btn prev" (click)="prevSlide()" aria-label="Anterior">
         <span class="material-icons">chevron_left</span>
       </button>
@@ -100,7 +100,7 @@
         <span class="material-icons">chevron_right</span>
       </button>
 
-      <!-- INDICADORES (DOTS) -->
+      <!-- Dot indicators -->
       <div class="carousel-dots">
         @for (slide of slides; track slide.id; let i = $index) {
           <span

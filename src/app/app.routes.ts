@@ -1,35 +1,35 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  // Rota Principal / Raiz (Catec LP)
+  // Main / root route (Catec LP)
   {
     path: '',
     loadComponent: () =>
       import('./pages/catec/home/home.page').then((m) => m.HomePage),
   },
 
-  // Rota SISAMB
+  // SISAMB route
   {
     path: 'sisamb',
     loadComponent: () =>
-      import('./pages/sisamb/home/home.page').then((m) => m.HomePage), // Ajuste a classe da HomePage do SISAMB
+      import('./pages/sisamb/home/home.page').then((m) => m.HomePage),
   },
 
-  // Rota Gestão Una
+  // Gestão Una route
   {
     path: 'gestao-una',
     loadComponent: () =>
-      import('./pages/gestao-una/home/home.page').then((m) => m.HomePage), // Ajuste a classe da HomePage do Gestão Una
+      import('./pages/gestao-una/home/home.page').then((m) => m.HomePage),
   },
 
-  // Rota tônomei
+  // tônomei route
   {
     path: 'tonomei',
     loadComponent: () =>
-      import('./pages/tonomei/home/home.page').then((m) => m.HomePage), // Ajuste a classe da HomePage do tônomei
+      import('./pages/tonomei/home/home.page').then((m) => m.HomePage),
   },
 
-  // Rota Política de Privacidade
+  // Privacy Policy route
   {
     path: 'politica-de-privacidade',
     loadComponent: () =>
@@ -38,7 +38,7 @@ export const routes: Routes = [
       ),
   },
 
-  // Rota Termos de Uso
+  // Terms of Use route
   {
     path: 'termos-de-uso',
     loadComponent: () =>
@@ -47,7 +47,7 @@ export const routes: Routes = [
       ),
   },
 
-  // Redirecionamento de rotas inexistentes para a principal
+  // Redirect unknown routes to the main page
   {
     path: '**',
     redirectTo: '',

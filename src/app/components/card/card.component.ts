@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { ButtonComponent } from '../../pages/catec/shared/components/button/button.component'; // Ajuste o caminho se necessário
+import { ButtonComponent } from '../../pages/catec/shared/components/button/button.component';
 
 @Component({
   selector: 'app-card',
@@ -13,14 +13,15 @@ export class CardComponent {
   title = input<string>('');
   description = input<string>('');
 
-  // Opções para controlar o botão
+  // Options to control the button
   showButton = input<boolean>(false);
   buttonText = input<string>('Saiba Mais');
   buttonVariant = input<'primary' | 'secondary' | 'outline'>('outline');
 
-  // Evento emitido quando o botão interno for clicado
+  // Event emitted when the inner button is clicked
   buttonClick = output<void>();
 
+  // Emits the buttonClick output.
   onButtonClick(): void {
     this.buttonClick.emit();
   }

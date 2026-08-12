@@ -64,17 +64,17 @@
   }
 }
 
-/* NAVEGAÇÃO POR ABAS (TABS) COM ROLAGEM TOUCH NO MOBILE */
+/* TAB NAVIGATION WITH TOUCH SCROLLING ON MOBILE */
 .carousel-tabs-wrapper {
   width: 100%;
   overflow-x: auto;
-  scrollbar-width: none; // Esconde scrollbar no Firefox
-  -ms-overflow-style: none; // Esconde scrollbar no IE/Edge
+  scrollbar-width: none; // Hides the scrollbar on Firefox
+  -ms-overflow-style: none; // Hides the scrollbar on IE/Edge
   margin-bottom: 32px;
   padding: 4px 0;
 
   &::-webkit-scrollbar {
-    display: none; // Esconde scrollbar no Chrome/Safari
+    display: none; // Hides the scrollbar on Chrome/Safari
   }
 }
 
@@ -82,7 +82,7 @@
   display: flex;
   justify-content: center;
   gap: 12px;
-  min-width: max-content; // Garante que as abas não amassem no mobile
+  min-width: max-content; // Keeps the tabs from squeezing together on mobile
   margin: 0 auto;
 
   @media (max-width: 768px) {
@@ -127,7 +127,7 @@
   }
 }
 
-/* CONTAINER DO SHOWCASE */
+/* SHOWCASE CONTAINER */
 .carousel-showcase {
   position: relative;
   max-width: 1100px;
@@ -143,7 +143,7 @@
   display: flex;
   align-items: center;
   gap: 48px;
-  user-select: none; // Evita seleção acidental de texto durante o swipe
+  user-select: none; // Prevents accidental text selection while swiping
 
   @media (max-width: 968px) {
     flex-direction: column;
@@ -152,7 +152,7 @@
   }
 }
 
-/* MOCKUP DA TELA DE SISTEMA */
+/* SYSTEM SCREEN MOCKUP */
 .showcase-media {
   flex: 1.3;
   width: 100%;
@@ -206,12 +206,12 @@
       height: auto;
       display: block;
       object-fit: cover;
-      pointer-events: none; // Evita arrastar a imagem ao fazer o gesto de swipe
+      pointer-events: none; // Prevents dragging the image while swiping
     }
   }
 }
 
-/* INFO DO SLIDE */
+/* SLIDE INFO */
 .showcase-info {
   flex: 1;
   width: 100%;
@@ -268,7 +268,7 @@
   }
 }
 
-/* BOTÕES DE NAVEGAÇÃO LATERAL */
+/* SIDE NAVIGATION BUTTONS */
 .nav-btn {
   position: absolute;
   top: 50%;
@@ -301,11 +301,11 @@
   }
 
   @media (max-width: 1140px) {
-    display: none; // Esconde as setas flutuantes em telas menores para evitar sobreposição
+    display: none; // Hides the floating arrows on smaller screens to avoid overlap
   }
 }
 
-/* INDICADORES (DOTS) */
+/* INDICATORS (DOTS) */
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -328,7 +328,7 @@
   }
 }
 
-/* ANIMAÇÃO SUAVE DE ENTRADA */
+/* SMOOTH ENTRANCE ANIMATION */
 .animated-fade-in {
   animation: fadeIn 0.35s ease-in-out;
 }

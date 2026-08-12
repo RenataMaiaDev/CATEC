@@ -22,12 +22,12 @@
   justify-content: space-between;
   gap: 64px;
 
-  // Ajuste intermediário para telas médias (tablets grandes / notebooks)
+  // Intermediate adjustment for medium screens (large tablets / notebooks)
   @media (max-width: 1024px) {
     gap: 40px;
   }
 
-  // Breakpoint principal para empilhamento em telas menores
+  // Main breakpoint for stacking on smaller screens
   @media (max-width: 968px) {
     flex-direction: column;
     gap: 48px;
@@ -61,7 +61,7 @@
   }
 }
 
-/* LISTA DE BENEFÍCIOS (TIPO CHECKLIST) */
+/* BENEFITS LIST (CHECKLIST-STYLE) */
 .about-features-list {
   list-style: none;
   padding: 0;
@@ -91,11 +91,11 @@
     color: var(--primary-catec);
     font-size: 1.35rem;
     margin-top: 2px;
-    flex-shrink: 0; // Impede o ícone de encolher caso o texto ocupe muitas linhas
+    flex-shrink: 0; // Prevents the icon from shrinking if the text spans many lines
   }
 }
 
-/* COLUNA DA IMAGEM E BADGE */
+/* IMAGE AND BADGE COLUMN */
 .about-image-wrapper {
   flex: 1;
   position: relative;
@@ -103,7 +103,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-bottom: 20px; // Espaço reservado para a badge não cortar embaixo
+  padding-bottom: 20px; // Reserved space so the badge doesn't get cropped at the bottom
 
   .about-img {
     width: 100%;
@@ -115,10 +115,10 @@
   }
 }
 
-/* BADGE DE MÉTRICA FLUTUANTE */
+/* FLOATING METRIC BADGE */
 .metric-badge {
   position: absolute;
-  bottom: 0; // Ajustado junto ao padding-bottom da imagem para evitar vazamentos
+  bottom: 0; // Adjusted alongside the image's padding-bottom to avoid overflow
   left: 20px;
   background-color: var(--secondary-catec);
   color: var(--white);
@@ -133,7 +133,7 @@
   @media (max-width: 576px) {
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 32px); // Garante margem lateral sem estourar a tela
+    width: calc(100% - 32px); // Keeps side margins without overflowing the screen
     max-width: 360px;
     padding: 12px 18px;
     gap: 12px;

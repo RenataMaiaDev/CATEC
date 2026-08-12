@@ -3,31 +3,31 @@
 
 :root {
   // --- CATEC BRAND ---
-  --primary-catec: #f26522; // Laranja Catec principal
-  --primary-hover-catec: #d44d0e; // Laranja escuro para hover
-  --secondary-catec: #1e293b; // Azul escuro/grafite para textos principais
+  --primary-catec: #f26522; // Main Catec orange
+  --primary-hover-catec: #d44d0e; // Dark orange for hover
+  --secondary-catec: #1e293b; // Dark blue/graphite for primary text
 
   // --- DESIGN TOKENS (TONOMEI)
-  --primary-tonomei: #110627; // Roxo/Azul Noturno dominante
+  --primary-tonomei: #110627; // Dominant deep purple/night blue
   --primary-hover-tonomei: #00b5a3;
-  --accent-tonomei: #00b5a3; // Turquesa de destaque do símbolo
-  --secondary-tonomei: #1a162b; // Tom escuro de apoio para backgrounds/cards
+  --accent-tonomei: #00b5a3; // Turquoise highlight of the symbol
+  --secondary-tonomei: #1a162b; // Dark supporting tone for backgrounds/cards
 
   // --- DESIGN TOKENS (GESTAO UNA)
-  --primary-gestao: #00bfa5; // Verde-Água / Turquesa da marca
+  --primary-gestao: #00bfa5; // Teal/turquoise of the brand
   --primary-hover-gestao: #009d88;
-  --secondary-gestao: #181328; // Roxo Profundo das letras
-  --accent-gestao: #100b1e; // Background escuro / contraste
+  --secondary-gestao: #181328; // Deep purple used in the lettering
+  --accent-gestao: #100b1e; // Dark background/contrast
 
   // --- DESIGN TOKENS (SISAMB)
-  --primary-sisamb: #00c29d; // Verde Esmeralda vibrante
+  --primary-sisamb: #00c29d; // Vibrant emerald green
   --primary-hover-sisamb: #00a082;
-  --secondary-sisamb: #2a2f35; // Cinza Chumbo/Grafite
+  --secondary-sisamb: #2a2f35; // Slate gray/graphite
 
-  // GLOBAIS
-  --text-muted: #64748b; // Cinza para descrições secundárias
+  // GLOBAL
+  --text-muted: #64748b; // Gray for secondary descriptions
   --bg-dark-sisamb: #12161a;
-  --bg-light: #f8fafc; // Fundo suave de seções
+  --bg-light: #f8fafc; // Soft background for sections
   --white: #ffffff;
 
   --shadow-sm:
@@ -41,7 +41,7 @@
   --radius-lg: 10px;
 }
 
-// --- RESET E CONFIGURAÇÕES BASE ---
+// --- RESET AND BASE SETTINGS ---
 * {
   margin: 0;
   padding: 0;
@@ -53,7 +53,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Compensa a altura de qualquer Header Fixo Individual ao navegar por #id */
+/* Offsets the height of any individual fixed header when navigating to a #id */
 section[id] {
   scroll-margin-top: 85px;
 
@@ -68,7 +68,7 @@ body {
   line-height: 1.6;
 }
 
-// --- UTILIÁRIOS DE TEXTO & ESPAÇAMENTO ---
+// --- TEXT & SPACING UTILITIES ---
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -106,7 +106,7 @@ body {
   margin-bottom: 16px;
   letter-spacing: -0.5px;
 
-  /* Destaque de palavras em Laranja */
+  /* Highlighted words in orange */
   .highlight {
     color: var(--primary-catec);
   }
@@ -119,7 +119,7 @@ body {
   margin: 0 auto 48px auto;
 }
 
-// --- DESIGN TOKENS & TEMAS (TONOMEI) ---
+// --- DESIGN TOKENS & THEMES (TONOMEI) ---
 body.theme-tonomei,
 .theme-tonomei {
   background-color: var(--primary-tonomei);
@@ -154,7 +154,7 @@ body.theme-tonomei,
   color: rgba(255, 255, 255, 0.7);
 }
 
-// --- DESIGN TOKENS & TEMAS (GESTAO UNA) ---
+// --- DESIGN TOKENS & THEMES (GESTAO UNA) ---
 body.theme-gestao,
 .theme-gestao {
   background-color: var(--accent-gestao);
@@ -189,7 +189,7 @@ body.theme-gestao,
   color: var(--text-muted);
 }
 
-// --- DESIGN TOKENS & TEMAS (SISAMB) ---
+// --- DESIGN TOKENS & THEMES (SISAMB) ---
 body.theme-sisamb,
 .theme-sisamb {
   background-color: var(--bg-dark-sisamb);
@@ -224,9 +224,9 @@ body.theme-sisamb,
   color: var(--text-muted);
 }
 
-// --- BARRA DE ROLAGEM DA PÁGINA (uma cor por marca) ---
-// Cada HomePage adiciona "scroll-theme-X" no <body> ao entrar na rota
-// (ver ngOnInit/ngOnDestroy dos respectivos home.page.ts).
+// --- PAGE SCROLLBAR (one color per brand) ---
+// Each HomePage adds "scroll-theme-X" to <body> when entering the route
+// (see ngOnInit/ngOnDestroy in the respective home.page.ts files).
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--primary-catec) transparent;

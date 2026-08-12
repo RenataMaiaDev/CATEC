@@ -64,7 +64,7 @@
   position: relative;
   transition: color 0.2s ease;
 
-  /* HOVER AJUSTADO PARA O TURQUESA (#00b5a3) */
+  /* Hover in the brand turquoise (#00b5a3) */
   &:hover {
     color: var(--accent-tonomei);
 
@@ -73,7 +73,7 @@
     }
   }
 
-  /* ITEM ATIVO AJUSTADO COM A BORDA TURQUESA */
+  /* Active item with a turquoise underline */
   &.active {
     color: var(--accent-tonomei);
 
@@ -90,7 +90,7 @@
   }
 }
 
-/* DROPDOWN (LINKS ÚTEIS) DESKTOP */
+/* DROPDOWN (USEFUL LINKS) DESKTOP */
 .dropdown-container {
   position: relative;
   display: flex;
@@ -160,7 +160,7 @@
   }
 }
 
-/* BOTÃO HAMBÚRGUER RESPONSIVO */
+/* RESPONSIVE HAMBURGER BUTTON */
 .hamburger-btn {
   display: none;
   flex-direction: column;

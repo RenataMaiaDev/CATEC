@@ -1,16 +1,17 @@
 import { Injectable, signal } from '@angular/core';
 
-// Controla a abertura do app-terms-modal a partir de qualquer lugar do site
-// (rodapé de qualquer marca, formulário de orçamento etc.), sem precisar de
-// uma instância do modal aninhada em cada componente que precisa abri-lo.
+// Shared open/close state for the Terms of Use modal, usable from anywhere
+// on the site.
 @Injectable({ providedIn: 'root' })
 export class TermsModalService {
   readonly isOpen = signal(false);
 
+  // Opens the modal.
   abrir(): void {
     this.isOpen.set(true);
   }
 
+  // Closes the modal.
   fechar(): void {
     this.isOpen.set(false);
   }
