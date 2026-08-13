@@ -12,79 +12,51 @@
       forma fácil, intuitiva, moderna e organizada.
     </p>
 
-    <!-- Grid de Funcionalidades -->
-    <div class="features-grid" #featuresGrid>
-      <!-- Linha 1: imagem - texto - imagem -->
-      <app-card image="img-tonomei/DAS.webp" imageAlt="Emissão de nota fiscal na plataforma tônomei">
-      </app-card>
+    <!-- Carrossel: imagem sincronizada (2/3) + card ativo (1/3) -->
+    <div
+      class="advantages-carousel"
+      [class.reduced-motion]="prefersReducedMotion"
+      (mouseenter)="pauseAutoplay()"
+      (mouseleave)="resumeAutoplay()"
+    >
+      <div class="advantages-media">
+        @for (item of advantages; track $index; let i = $index) {
+          <img
+            [src]="item.image"
+            [alt]="item.imageAlt"
+            class="advantages-media-img"
+            [class.is-active]="i === activeIndex()"
+          />
+        }
+      </div>
 
-      <app-card
-        icon="receipt_long"
-        title="Emissão e controle DAS"
-        description="Gerenciamos suas guias automaticamente. Sem risco, sem multas, sem atrasos."
-      >
-      </app-card>
+      <div class="advantages-card">
+        @for (item of advantages; track $index; let i = $index) {
+          <div
+            class="advantages-card-item"
+            [class.is-active]="i === activeIndex()"
+          >
+            <div class="icon-wrapper">
+              <i class="material-icons card-icon">{{ item.icon }}</i>
+            </div>
+            <h3 class="card-title">{{ item.title }}</h3>
+            <p class="card-description">{{ item.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
 
-      <app-card image="img-tonomei/vitrine.webp" imageAlt="Vitrine integrada tônomei">
-      </app-card>
-
-      <!-- Linha 2 -->
-      <app-card
-        icon="description"
-        title="Declaração anual simplificada"
-        description="Cumpra a DASN-SIMEI direto pela plataforma, sem depender de terceiros."
-      >
-      </app-card>
-
-      <app-card
-        icon="inventory_2"
-        title="Controle de estoque"
-        description="Cadastre seus produtos e serviços e mantenha controle total de seus estoques e prazos de validade."
-      >
-      </app-card>
-
-      <app-card
-        icon="storefront"
-        title="Vitrine integrada"
-        description="Aqui você será visto, novos clientes, novos mercados, mais negócios para dentro de sua empresa."
-      >
-      </app-card>
-
-      <!-- Linha 3 -->
-      <app-card
-        icon="point_of_sale"
-        title="Sistema de vendas integrado"
-        description="Registre seus pedidos e acompanhe todas as suas vendas em um único lugar, direto pela plataforma."
-      >
-      </app-card>
-
-      <app-card
-        icon="school"
-        title="Trilha do conhecimento"
-        description="Aqui, de qualquer lugar, você pode fazer seu curso, seu treinamento e melhorar ainda mais seu negócio."
-      >
-      </app-card>
-
-      <app-card
-        icon="verified"
-        title="Validação de documentos"
-        description="A ferramenta tônomei analisa e valida seus documentos, ou seja, sua validade, sua origem e demais itens de segurança."
-      >
-      </app-card>
-
-      <!-- Linha 4: imagem - texto - imagem -->
-      <app-card image="img-tonomei/vendas.webp" imageAlt="Sistema de vendas integrado tônomei">
-      </app-card>
-
-      <app-card
-        icon="event"
-        title="Feiras e eventos"
-        description="Permite que você tenha acesso as feiras e eventos para vender seus produtos e serviços através de uma reserva simples e descomplicada."
-      >
-      </app-card>
-
-      <app-card image="img-tonomei/curso.webp" imageAlt="Trilha do conhecimento tônomei">
-      </app-card>
+    <!-- Pontos indicadores -->
+    <div class="advantages-dots">
+      @for (item of advantages; track $index; let i = $index) {
+        <button
+          type="button"
+          class="advantages-dot"
+          [class.is-active]="i === activeIndex()"
+          [attr.aria-label]="'Ver ' + item.title"
+          (click)="goTo(i)"
+        ></button>
+      }
     </div>
 
     <!-- Botão Principal -->
