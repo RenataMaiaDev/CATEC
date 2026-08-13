@@ -20,6 +20,9 @@ interface Slide {
   image: string;
   logo: string;
   route: string;
+  // Whether the CTA navigates to the product's route. SISAMB and Gestão Una
+  // aren't live yet, so their CTA is inert for now.
+  clickable: boolean;
 }
 
 // Swipeable carousel promoting tônomei, SISAMB and Gestão Una.
@@ -58,6 +61,7 @@ export class TonomeiSectionComponent {
       image: 'img/tonomei.png',
       logo: 'img/logo-tonomei.png',
       route: '/tonomei',
+      clickable: true,
     },
     {
       id: 'sisambe',
@@ -71,6 +75,7 @@ export class TonomeiSectionComponent {
       image: 'img/sisamb.png',
       logo: 'img/logo-sisamb.png',
       route: '/sisamb',
+      clickable: false,
     },
     {
       id: 'gestao',
@@ -84,6 +89,7 @@ export class TonomeiSectionComponent {
       image: 'img/gestao.png',
       logo: 'img/logo-gestao-una.png',
       route: '/gestao-una',
+      clickable: false,
     },
   ];
 
@@ -153,8 +159,9 @@ export class TonomeiSectionComponent {
     }
   }
 
-  // Navigates to the selected product's route.
-  openSystemPage(routePath: string): void {
-    this.router.navigate([routePath]);
+  // Navigates to the selected product's route, if its CTA is clickable.
+  openSystemPage(slide: Slide): void {
+    if (!slide.clickable) return;
+    this.router.navigate([slide.route]);
   }
 }

@@ -78,8 +78,9 @@
               <div class="showcase-actions">
                 <!-- Wrapper that ensures the click is captured and the redirect happens -->
                 <div
-                  (click)="openSystemPage(slide.route)"
-                  style="cursor: pointer; display: inline-block"
+                  (click)="openSystemPage(slide)"
+                  [style.cursor]="slide.clickable ? 'pointer' : 'default'"
+                  style="display: inline-block"
                 >
                   <app-button variant="primary">
                     Experimente o {{ slide.button }}
