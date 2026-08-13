@@ -12,51 +12,63 @@
       forma fácil, intuitiva, moderna e organizada.
     </p>
 
-    <!-- Carrossel: imagem sincronizada (2/3) + card ativo (1/3) -->
+    <!-- Carrossel: imagem sincronizada (1/2) + card ativo (1/2). Autoplay
+         pausa em hover, foco por teclado e toque, para sempre existir uma
+         forma de parar o conteúdo (WCAG 2.2.2). -->
     <div
-      class="advantages-carousel"
-      [class.reduced-motion]="prefersReducedMotion"
+      class="advantages-wrapper"
       (mouseenter)="pauseAutoplay()"
       (mouseleave)="resumeAutoplay()"
+      (focusin)="pauseAutoplay()"
+      (focusout)="resumeAutoplay()"
+      (touchstart)="pauseAutoplay()"
+      (touchend)="resumeAutoplay()"
     >
-      <div class="advantages-media">
-        @for (item of advantages; track $index; let i = $index) {
-          <img
-            [src]="item.image"
-            [alt]="item.imageAlt"
-            class="advantages-media-img"
-            [class.is-active]="i === activeIndex()"
-          />
-        }
-      </div>
+      <div class="advantages-carousel">
+        <div class="advantages-media">
+          @for (item of advantages; track $index; let i = $index) {
+            <img
+              [src]="item.image"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              class="advantages-media-img"
+              [class.is-active]="i === activeIndex()"
+              [attr.aria-hidden]="i === activeIndex() ? null : 'true'"
+            />
+          }
+        </div>
 
-      <div class="advantages-card">
-        @for (item of advantages; track $index; let i = $index) {
-          <div
-            class="advantages-card-item"
-            [class.is-active]="i === activeIndex()"
-          >
-            <div class="icon-wrapper">
-              <i class="material-icons card-icon">{{ item.icon }}</i>
+        <div class="advantages-card">
+          @for (item of advantages; track $index; let i = $index) {
+            <div
+              class="advantages-card-item"
+              [class.is-active]="i === activeIndex()"
+              [attr.aria-hidden]="i === activeIndex() ? null : 'true'"
+            >
+              <div class="icon-wrapper">
+                <i class="material-icons card-icon">{{ item.icon }}</i>
+              </div>
+              <h3 class="card-title">{{ item.title }}</h3>
+              <p class="card-description">{{ item.description }}</p>
             </div>
-            <h3 class="card-title">{{ item.title }}</h3>
-            <p class="card-description">{{ item.description }}</p>
-          </div>
+          }
+        </div>
+      </div>
+
+      <!-- Pontos indicadores -->
+      <div class="advantages-dots">
+        @for (item of advantages; track $index; let i = $index) {
+          <button
+            type="button"
+            class="advantages-dot"
+            [class.is-active]="i === activeIndex()"
+            [attr.aria-label]="'Ver ' + item.title"
+            [attr.aria-current]="i === activeIndex() ? 'true' : null"
+            (click)="goTo(i)"
+          ></button>
         }
       </div>
-    </div>
-
-    <!-- Pontos indicadores -->
-    <div class="advantages-dots">
-      @for (item of advantages; track $index; let i = $index) {
-        <button
-          type="button"
-          class="advantages-dot"
-          [class.is-active]="i === activeIndex()"
-          [attr.aria-label]="'Ver ' + item.title"
-          (click)="goTo(i)"
-        ></button>
-      }
     </div>
 
     <!-- Botão Principal -->

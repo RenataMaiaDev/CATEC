@@ -6,11 +6,12 @@ interface AdvantageItem {
   title: string;
   description: string;
   image: string;
-  imageAlt: string;
 }
 
 // The 8 feature cards. Only 4 dedicated images exist, so pairs of
-// thematically-related features share the same lateral image.
+// thematically-related features share the same lateral image. The images
+// are purely decorative here (the card text already conveys the meaning),
+// so they're rendered with an empty alt in the template.
 const ADVANTAGES: AdvantageItem[] = [
   {
     icon: 'receipt_long',
@@ -18,7 +19,6 @@ const ADVANTAGES: AdvantageItem[] = [
     description:
       'Gerenciamos suas guias automaticamente. Sem risco, sem multas, sem atrasos.',
     image: 'img-tonomei/DAS.webp',
-    imageAlt: 'Emissão de nota fiscal na plataforma tônomei',
   },
   {
     icon: 'description',
@@ -26,7 +26,6 @@ const ADVANTAGES: AdvantageItem[] = [
     description:
       'Cumpra a DASN-SIMEI direto pela plataforma, sem depender de terceiros.',
     image: 'img-tonomei/DAS.webp',
-    imageAlt: 'Emissão de nota fiscal na plataforma tônomei',
   },
   {
     icon: 'storefront',
@@ -34,7 +33,6 @@ const ADVANTAGES: AdvantageItem[] = [
     description:
       'Aqui você será visto, novos clientes, novos mercados, mais negócios para dentro de sua empresa.',
     image: 'img-tonomei/vitrine.webp',
-    imageAlt: 'Vitrine integrada tônomei',
   },
   {
     icon: 'inventory_2',
@@ -42,7 +40,6 @@ const ADVANTAGES: AdvantageItem[] = [
     description:
       'Cadastre seus produtos e serviços e mantenha controle total de seus estoques e prazos de validade.',
     image: 'img-tonomei/vitrine.webp',
-    imageAlt: 'Vitrine integrada tônomei',
   },
   {
     icon: 'point_of_sale',
@@ -50,7 +47,6 @@ const ADVANTAGES: AdvantageItem[] = [
     description:
       'Registre seus pedidos e acompanhe todas as suas vendas em um único lugar, direto pela plataforma.',
     image: 'img-tonomei/vendas.webp',
-    imageAlt: 'Sistema de vendas integrado tônomei',
   },
   {
     icon: 'event',
@@ -58,7 +54,6 @@ const ADVANTAGES: AdvantageItem[] = [
     description:
       'Permite que você tenha acesso as feiras e eventos para vender seus produtos e serviços através de uma reserva simples e descomplicada.',
     image: 'img-tonomei/vendas.webp',
-    imageAlt: 'Sistema de vendas integrado tônomei',
   },
   {
     icon: 'school',
@@ -66,7 +61,6 @@ const ADVANTAGES: AdvantageItem[] = [
     description:
       'Aqui, de qualquer lugar, você pode fazer seu curso, seu treinamento e melhorar ainda mais seu negócio.',
     image: 'img-tonomei/curso.webp',
-    imageAlt: 'Trilha do conhecimento tônomei',
   },
   {
     icon: 'verified',
@@ -74,7 +68,6 @@ const ADVANTAGES: AdvantageItem[] = [
     description:
       'A ferramenta tônomei analisa e valida seus documentos, ou seja, sua validade, sua origem e demais itens de segurança.',
     image: 'img-tonomei/curso.webp',
-    imageAlt: 'Trilha do conhecimento tônomei',
   },
 ];
 
@@ -92,18 +85,11 @@ export class MoreProductsSectionComponent implements OnDestroy {
   readonly advantages = ADVANTAGES;
   readonly activeIndex = signal(0);
 
-  // Set once on init; drives whether the crossfade/slide transitions run.
-  prefersReducedMotion = false;
-
   private timerId: ReturnType<typeof setInterval> | null = null;
 
   constructor() {
-    afterNextRender(() => {
-      this.prefersReducedMotion = window.matchMedia(
-        '(prefers-reduced-motion: reduce)',
-      ).matches;
-      this.startAutoplay();
-    });
+    // Timers touch the browser only; keep them out of any server render.
+    afterNextRender(() => this.startAutoplay());
   }
 
   ngOnDestroy(): void {
@@ -128,7 +114,7 @@ export class MoreProductsSectionComponent implements OnDestroy {
   private startAutoplay(): void {
     if (this.timerId !== null) return;
     this.timerId = setInterval(() => {
-      this.activeIndex.set((this.activeIndex() + 1) % this.advantages.length);
+      this.activeIndex.update((i) => (i + 1) % this.advantages.length);
     }, AUTOPLAY_INTERVAL_MS);
   }
 
