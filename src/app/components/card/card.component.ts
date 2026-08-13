@@ -13,6 +13,10 @@ export class CardComponent {
   title = input<string>('');
   description = input<string>('');
 
+  // When set, the card shows only this image (no icon/title/description).
+  image = input<string>('');
+  imageAlt = input<string>('');
+
   // Options to control the button
   showButton = input<boolean>(false);
   buttonText = input<string>('Saiba Mais');

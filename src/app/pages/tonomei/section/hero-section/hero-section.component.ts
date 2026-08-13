@@ -10,16 +10,18 @@ import { TonomeiButtonComponent } from '../../components/tonomei-button/tonomei-
   styleUrl: './hero-section.component.scss',
 })
 export class HeroSectionComponent {
-  // List of 8 images for the rectangular carousel
+  // List of images for the rectangular carousel
   entrepreneurImages: string[] = [
-    'img-tonomei/vendedora.png',
-    'img-tonomei/mecanico.png',
-    'img-tonomei/feirante.png',
-    'img-tonomei/queijeiro.png',
-    'img-tonomei/barbeiro.png',
-    'img-tonomei/pedreiro.png',
-    'img-tonomei/padeiro.png',
-    'img-tonomei/marceneiro.png',
+    'img-tonomei/vendedora.webp',
+    'img-tonomei/mecanico.webp',
+    'img-tonomei/feirante.webp',
+    'img-tonomei/queijeiro.webp',
+    'img-tonomei/barbeiro.webp',
+    'img-tonomei/pedreiro.webp',
+    'img-tonomei/padeiro.webp',
+    'img-tonomei/marceneiro.webp',
+    'img-tonomei/pipoqueiro.webp',
+    'img-tonomei/pescador.webp',
   ];
 
   // Opens the given URL in a new tab.

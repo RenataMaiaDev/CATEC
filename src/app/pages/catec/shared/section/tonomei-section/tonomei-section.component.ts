@@ -81,7 +81,7 @@ export class TonomeiSectionComponent {
         'Gestão Uma é uma plataforma de integração e centralização de informações, concebida para atuar como um ponto único de acesso a dados que hoje estão espalhados em diversos sistemas independentes, tanto no setor público quanto no privado.',
       badge: 'Prefeituras e Secretarias Públicas',
       icon: 'account_balance',
-      image: 'img/hero.png',
+      image: 'img/gestao.png',
       logo: 'img/logo-gestao-una.png',
       route: '/gestao-una',
     },

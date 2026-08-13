@@ -83,9 +83,10 @@
 
       <!-- Imagem da Empreendedora -->
       <img
-        src="img-tonomei/boleira.png"
+        src="img-tonomei/boleira.webp"
         alt="Empreendedora utilizando a plataforma tônomei"
         class="main-person-img"
+        fetchpriority="high"
       />
 
       <!-- Card Flutuante Inferior -->
@@ -109,7 +110,7 @@
         track $index
       ) {
         <div class="ticker-card-rectangle">
-          <img [src]="image" alt="Empreendedor tônomei" />
+          <img [src]="image" alt="Empreendedor tônomei" loading="lazy" />
         </div>
       }
     </div>

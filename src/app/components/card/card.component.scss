@@ -8,6 +8,8 @@
     box-shadow 0.3s ease;
   text-align: center;
   border: 1px solid #b0b1b45e;
+  position: relative;
+  overflow: hidden;
 
   // Ensures perfect alignment and equal height inside grids
   display: flex;
@@ -18,6 +20,19 @@
   &:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
+  }
+
+  // Image-only variant: no padding, the photo fills the whole card.
+  &.image-only {
+    padding: 0;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    object-fit: cover;
+    display: block;
   }
 
   .card-content {

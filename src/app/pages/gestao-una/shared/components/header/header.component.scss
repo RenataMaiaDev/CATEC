@@ -128,8 +128,13 @@
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(4px);
+  // Right-aligned to the toggle instead of centered: "LINKS ÚTEIS" is the
+  // last item in the nav, so a centered menu spilled past the right edge
+  // of the viewport on narrower desktop widths and got clipped.
+  right: 0;
+  left: auto;
+  transform: translateY(4px);
+  max-width: calc(100vw - 32px);
   background-color: var(--white);
   min-width: 220px;
   box-shadow: var(--shadow-lg);

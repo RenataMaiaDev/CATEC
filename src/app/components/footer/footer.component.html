@@ -3,7 +3,12 @@
     <div class="footer-grid">
       <!-- Brand name and tagline -->
       <div class="footer-brand">
-        <p class="footer-brand-name">CATEC Soluções</p>
+        <img
+          [src]="logo.src"
+          [alt]="logo.alt"
+          class="footer-logo"
+          [class.footer-logo--invert]="logo.invert"
+        />
         <p class="footer-tagline">{{ tagline }}</p>
       </div>
 
@@ -21,9 +26,9 @@
             <span>(85) 9 9804-9463</span>
           </a>
 
-          <a class="footer-item" href="mailto:contato&#64;tonomei.com.br">
+          <a class="footer-item" [href]="'mailto:' + email">
             <i class="fa-solid fa-envelope"></i>
-            <span>contato&#64;tonomei.com.br</span>
+            <span>{{ email }}</span>
           </a>
 
           <a

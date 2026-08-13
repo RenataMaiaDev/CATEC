@@ -1,72 +1,83 @@
 <section class="about-section" id="quem-somos">
   <div class="about-container">
-    <!-- LEFT CONTENT (TEXT AND BENEFITS) -->
-    <div class="about-content">
-      <span class="section-badge">Quem Somos</span>
-      <h2 class="section-title">
-        Mais que tecnologia, uma parceria com
-        <span class="highlight">você</span> rumo ao crescimento,
-        <span class="highlight">seu e do nosso país</span>
-      </h2>
+    <!-- TOP ROW: TEXT AND IMAGE SIDE BY SIDE -->
+    <div class="about-top">
+      <!-- LEFT CONTENT (TEXT) -->
+      <div class="about-content">
+        <span class="section-badge">Quem Somos</span>
+        <h2 class="section-title">
+          Mais que tecnologia, uma parceria com
+          <span class="highlight">você</span> rumo ao crescimento,
+          <span class="highlight">seu e do nosso país</span>
+        </h2>
 
-      <p class="about-description">
-        Fundada em 2018, a <strong>CATEC Soluções</strong> nasceu com a vocação
-        de ir muito além de oferecer softwares ou qualquer outra tecnologia. Faz
-        parte de nossa jornada compreender a realidade brasileira e os desafios
-        diários de fazer boa gestão tanto no setor privado quanto no setor
-        público. Nosso grande objetivo é democratizar o acesso às tecnologias
-        mais modernas, tornando a vida dos agentes econômicos mais simples,
-        prática e verdadeiramente acessível a todos.
-      </p>
+        <p class="about-description">
+          Fundada em 2018, a <strong>CATEC Soluções</strong> nasceu com a
+          vocação de ir muito além de oferecer softwares ou qualquer outra
+          tecnologia. Faz parte de nossa jornada compreender a realidade
+          brasileira e os desafios diários de fazer boa gestão tanto no setor
+          privado quanto no setor público. Nosso grande objetivo é
+          democratizar o acesso às tecnologias mais modernas, tornando a vida
+          dos agentes econômicos mais simples, prática e verdadeiramente
+          acessível a todos.
+        </p>
+      </div>
 
-      <!-- TOPIC LIST (inspired by the template with Material Icons) -->
-      <ul class="about-features-list">
-        <li>
-          <span class="material-icons check-icon">check_circle</span>
-          <div>
-            <strong>Gestão Descomplicada:</strong> Sistemas intuitivos, rápidos
-            e desenvolvidos para o fácil manuseio.
+      <!-- RIGHT CONTENT (IMAGE AND YEARS BADGE) -->
+      <div class="about-image-wrapper">
+        <!-- Accent shape behind the photo for depth, same idea as the arch
+             behind the person cutout on the tônomei hero. -->
+        <div class="about-bg-shape"></div>
+
+        <!-- Main office/team image (reuse the realistic PNG we generated) -->
+        <img
+          src="img/catec.png"
+          alt="Colaboradores CATEC trabalhando em soluções"
+          class="about-img"
+        />
+
+        <!-- Floating metric badge (same idea as the template's "20+ Years", adapted for CATEC's story) -->
+        <div class="metric-badge">
+          <span class="material-icons badge-icon">workspace_premium</span>
+          <div class="metric-text">
+            <span class="number">Desde 2018</span>
+            <span class="label">Inovando na Gestão</span>
           </div>
-        </li>
-        <li>
-          <span class="material-icons check-icon">check_circle</span>
-          <div>
-            <strong>Foco na Inovação:</strong> O que há de melhor no mercado
-            para tornar seu negócio competitivo.
-          </div>
-        </li>
-        <li>
-          <span class="material-icons check-icon">check_circle</span>
-          <div>
-            <strong>Modelo de Crescimento Justo:</strong> Tecnologia robusta com
-            preços proporcionais à sua realidade.
-          </div>
-        </li>
-        <li>
-          <span class="material-icons check-icon">check_circle</span>
-          <div>
-            <strong>Parceria Valorizada:</strong> Um time que caminha lado a
-            lado com você para superar obstáculos.
-          </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
 
-    <!-- RIGHT CONTENT (IMAGE AND YEARS BADGE) -->
-    <div class="about-image-wrapper">
-      <!-- Main office/team image (reuse the realistic PNG we generated) -->
-      <img
-        src="img/catec.png"
-        alt="Colaboradores CATEC trabalhando em soluções"
-        class="about-img"
-      />
+    <!-- BOTTOM ROW: BENEFIT CARDS IN A SINGLE STRAIGHT LINE -->
+    <div class="about-features-grid" #featuresGrid>
+      <div class="feature-card">
+        <span class="material-icons feature-icon">check_circle</span>
+        <div class="feature-text">
+          <strong>Gestão Descomplicada</strong>
+          <p>Sistemas intuitivos, rápidos e desenvolvidos para o fácil manuseio.</p>
+        </div>
+      </div>
 
-      <!-- Floating metric badge (same idea as the template's "20+ Years", adapted for CATEC's story) -->
-      <div class="metric-badge">
-        <span class="material-icons badge-icon">workspace_premium</span>
-        <div class="metric-text">
-          <span class="number">Desde 2018</span>
-          <span class="label">Inovando na Gestão</span>
+      <div class="feature-card">
+        <span class="material-icons feature-icon">check_circle</span>
+        <div class="feature-text">
+          <strong>Foco na Inovação</strong>
+          <p>O que há de melhor no mercado para tornar seu negócio competitivo.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <span class="material-icons feature-icon">check_circle</span>
+        <div class="feature-text">
+          <strong>Modelo de Crescimento Justo</strong>
+          <p>Tecnologia robusta com preços proporcionais à sua realidade.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <span class="material-icons feature-icon">check_circle</span>
+        <div class="feature-text">
+          <strong>Parceria Valorizada</strong>
+          <p>Um time que caminha lado a lado com você para superar obstáculos.</p>
         </div>
       </div>
     </div>

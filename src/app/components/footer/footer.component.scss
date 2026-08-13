@@ -18,6 +18,11 @@
     background-color: var(--secondary-catec);
     --accent: var(--primary-gestao);
   }
+
+  &.footer--sisamb {
+    background-color: var(--secondary-sisamb);
+    --accent: var(--primary-sisamb);
+  }
 }
 
 .footer-container {
@@ -32,18 +37,25 @@
   gap: 32px;
 }
 
-.footer-brand-name {
-  font-weight: 800;
-  font-size: 1.05rem;
-  color: var(--white);
-  margin-bottom: 10px;
+.footer-logo {
+  display: block;
+  height: 34px;
+  width: auto;
+  margin-bottom: 14px;
+
+  // Gestão Una's only logo asset has dark text; invert it to white so it
+  // reads on the footer's dark background, same as the other two brands.
+  &--invert {
+    filter: brightness(0) invert(1);
+  }
 }
 
 .footer-tagline {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--accent);
   line-height: 1.55;
-  max-width: 30ch;
+  max-width: 34ch;
+  white-space: pre-line;
 }
 
 .footer-eyebrow {
