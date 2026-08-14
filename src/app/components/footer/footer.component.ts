@@ -86,6 +86,23 @@ const FOOTER_EMAILS: Record<FooterTheme, string> = {
   sisamb: 'sisamb.eco@catecsolucoes.com.br',
 };
 
+// WhatsApp phone number shown in the footer, per brand. tônomei has its own
+// dedicated number; the other brands share the CATEC Soluções main line.
+const FOOTER_WHATSAPP_PHONES: Record<FooterTheme, string> = {
+  tonomei: '5585998049463',
+  catec: '5585996157126',
+  gestao: '5585996157126',
+  sisamb: '5585996157126',
+};
+
+// Human-readable version of the numbers above, shown as the link's label.
+const FOOTER_WHATSAPP_DISPLAY: Record<FooterTheme, string> = {
+  tonomei: '(85) 9 9804-9463',
+  catec: '(85) 9 9615-7126',
+  gestao: '(85) 9 9615-7126',
+  sisamb: '(85) 9 9615-7126',
+};
+
 @Component({
   selector: 'app-footer',
   standalone: true,
@@ -104,12 +121,19 @@ export class FooterComponent {
     return FOOTER_LOGOS[this.theme];
   }
 
-  // Pre-built WhatsApp link with the default contact message.
-  readonly whatsappUrl =
-    'https://api.whatsapp.com/send/?phone=5585996157126&text=' +
-    encodeURIComponent(
+  // WhatsApp link with the default contact message, using the current
+  // brand's dedicated phone number.
+  get whatsappUrl(): string {
+    const text = encodeURIComponent(
       'Olá! Gostaria de tirar algumas dúvidas sobre os serviços da CATEC Soluções.',
     );
+    return `https://api.whatsapp.com/send/?phone=${FOOTER_WHATSAPP_PHONES[this.theme]}&text=${text}`;
+  }
+
+  // Returns the human-readable WhatsApp number for the current brand theme.
+  get whatsappDisplay(): string {
+    return FOOTER_WHATSAPP_DISPLAY[this.theme];
+  }
 
   // Returns the footer tagline for the current brand theme.
   get tagline(): string {

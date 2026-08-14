@@ -40,21 +40,23 @@
         </div>
 
         <div class="advantages-card">
-          @for (item of advantages; track $index; let i = $index) {
-            <div
-              class="advantages-card-item"
-              [class.is-active]="i === activeIndex()"
-              [attr.aria-hidden]="i === activeIndex() ? null : 'true'"
-            >
-              <div class="icon-wrapper">
-                <i class="material-icons card-icon">{{ item.icon }}</i>
+          <div class="advantages-card-stack">
+            @for (item of advantages; track $index; let i = $index) {
+              <div
+                class="advantages-card-item"
+                [class.is-active]="i === activeIndex()"
+                [attr.aria-hidden]="i === activeIndex() ? null : 'true'"
+              >
+                <div class="icon-wrapper">
+                  <i class="material-icons card-icon">{{ item.icon }}</i>
+                </div>
+                <div class="card-text">
+                  <h3 class="card-title">{{ item.title }}</h3>
+                  <p class="card-description">{{ item.description }}</p>
+                </div>
               </div>
-              <div class="card-text">
-                <h3 class="card-title">{{ item.title }}</h3>
-                <p class="card-description">{{ item.description }}</p>
-              </div>
-            </div>
-          }
+            }
+          </div>
         </div>
       </div>
 
