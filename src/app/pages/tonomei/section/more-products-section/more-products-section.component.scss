@@ -4,41 +4,6 @@
   padding: 60px 24px 0 24px;
   box-sizing: border-box;
   scroll-margin-top: 80px;
-  position: relative;
-  overflow: hidden;
-
-  /* Soft decorative blobs, echoing the ones used in about-section */
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(
-      circle,
-      rgba(0, 181, 163, 0.09) 0%,
-      rgba(0, 181, 163, 0) 70%
-    );
-    z-index: 0;
-  }
-
-  &::before {
-    top: -120px;
-    left: -120px;
-    width: 320px;
-    height: 320px;
-  }
-
-  &::after {
-    bottom: -140px;
-    right: -140px;
-    width: 340px;
-    height: 340px;
-  }
-
-  .section-container {
-    position: relative;
-    z-index: 1;
-  }
 
   .section-badge {
     color: var(--accent-tonomei);
