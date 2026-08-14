@@ -34,6 +34,41 @@
         </app-tonomei-button>
       </div>
 
+      <div class="plan-card">
+        <div class="plan-header">
+          <h3 class="plan-name">Plano básico</h3>
+          <p class="plan-cycle">Mensal</p>
+        </div>
+
+        <div class="plan-price">
+          <span class="plan-price-value">R$ 29,90</span>
+          <span class="plan-price-pix">No Pix por: R$ 19,90</span>
+        </div>
+
+        <div class="plan-description">
+          <p>Todas as funções, exceto:</p>
+          <ul class="plan-exceptions">
+            <li>
+              Emissor de NFe
+              <span class="plan-exception-note"
+                >(necessário possuir certificado digital)</span
+              >
+            </li>
+            <li>Trilha do conhecimento</li>
+            <li>Acesso a feiras e eventos</li>
+          </ul>
+        </div>
+
+        <app-tonomei-button
+          variant="outline"
+          (click)="
+            navigateTo('https://backendjava.catecsolucoes.com.br/tonomei/demo')
+          "
+        >
+          Assinar Agora
+        </app-tonomei-button>
+      </div>
+
       <div class="plan-card plan-card--destaque">
         <span class="plan-highlight-tag">Mais Popular</span>
 

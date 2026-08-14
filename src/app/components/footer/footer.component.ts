@@ -8,12 +8,45 @@ export type FooterTheme = 'tonomei' | 'catec' | 'gestao' | 'sisamb';
 // Tagline shown under the brand logo in the footer, per brand. Lines are
 // separated by \n and rendered with `white-space: pre-line`.
 const FOOTER_TAGLINES: Record<FooterTheme, string> = {
-  tonomei:
-    'O tônomei é patenteado pelo INPI\n' +
-    'Nosso sistema possui Certificação pela ABES (em todo o território nacional)',
+  tonomei: '',
   catec: 'Gestão Inovadora para os Empreendedores do Brasil',
   gestao: 'Gestão Inovadora para os Empreendedores do Brasil',
   sisamb: 'Gestão Inovadora para os Empreendedores do Brasil',
+};
+
+export interface FooterTrustItem {
+  text: string;
+  note?: string;
+}
+
+// Trust/legal bullet points shown under the brand logo, per brand. Only
+// tônomei has these today (patent + certification), rendered as a bulleted
+// list instead of the plain-text tagline; other brands fall back to it.
+const FOOTER_TRUST_ITEMS: Partial<Record<FooterTheme, FooterTrustItem[]>> = {
+  tonomei: [
+    { text: 'O tônomei é patenteado pelo INPI' },
+    {
+      text: 'O sistema possui Certificação pela ABES',
+      note: '(em todo o território nacional)',
+    },
+  ],
+};
+
+export interface FooterBadge {
+  src: string;
+  alt: string;
+  small?: boolean;
+}
+
+// Certification seals shown next to the trust list, per brand. Only
+// tônomei has these today (INPI patent seal + ABES certification seal).
+// The INPI seal is a compact circular mark, so it's rendered a bit smaller
+// than the wider ABES wordmark to look visually balanced next to it.
+const FOOTER_BADGES: Partial<Record<FooterTheme, FooterBadge[]>> = {
+  tonomei: [
+    { src: 'img-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
+    { src: 'img-tonomei/ABES.webp', alt: 'Selo ABES' },
+  ],
 };
 
 // Per-brand logo shown in the footer, in place of the "CATEC Soluções" text.
@@ -25,19 +58,19 @@ const FOOTER_LOGOS: Record<
   FooterTheme,
   { src: string; alt: string; invert: boolean }
 > = {
-  tonomei: { src: 'img-tonomei/logo.png', alt: 'tônomei', invert: false },
+  tonomei: { src: 'img-tonomei/logo.webp', alt: 'tônomei', invert: false },
   catec: {
-    src: 'img/logo-catec-solucoes1.png',
+    src: 'img/logo-catec-solucoes1.webp',
     alt: 'CATEC Soluções',
     invert: false,
   },
   gestao: {
-    src: 'img/logo-gestao-una.png',
+    src: 'img/logo-gestao-una.webp',
     alt: 'Gestão Una',
     invert: true,
   },
   sisamb: {
-    src: 'img/logo-sisamb.png',
+    src: 'img/logo-sisamb.webp',
     alt: 'SISAMB',
     invert: true,
   },
@@ -48,7 +81,7 @@ const FOOTER_LOGOS: Record<
 // address that was already used here before per-brand emails existed.
 const FOOTER_EMAILS: Record<FooterTheme, string> = {
   tonomei: 'tonomei@catecsolucoes.com.br',
-  catec: 'contato@tonomei.com.br',
+  catec: 'contato@catecsolucoes.com.br',
   gestao: 'contato@tonomei.com.br',
   sisamb: 'sisamb.eco@catecsolucoes.com.br',
 };
@@ -73,7 +106,7 @@ export class FooterComponent {
 
   // Pre-built WhatsApp link with the default contact message.
   readonly whatsappUrl =
-    'https://api.whatsapp.com/send/?phone=5585998049463&text=' +
+    'https://api.whatsapp.com/send/?phone=5585996157126&text=' +
     encodeURIComponent(
       'Olá! Gostaria de tirar algumas dúvidas sobre os serviços da CATEC Soluções.',
     );
@@ -81,6 +114,16 @@ export class FooterComponent {
   // Returns the footer tagline for the current brand theme.
   get tagline(): string {
     return FOOTER_TAGLINES[this.theme];
+  }
+
+  // Returns the trust/legal bullet points for the current brand theme, if any.
+  get trustItems(): FooterTrustItem[] | null {
+    return FOOTER_TRUST_ITEMS[this.theme] ?? null;
+  }
+
+  // Returns the certification seals for the current brand theme, if any.
+  get badges(): FooterBadge[] | null {
+    return FOOTER_BADGES[this.theme] ?? null;
   }
 
   // Returns the contact e-mail for the current brand theme.

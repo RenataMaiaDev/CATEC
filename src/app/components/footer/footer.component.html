@@ -8,8 +8,31 @@
           [alt]="logo.alt"
           class="footer-logo"
           [class.footer-logo--invert]="logo.invert"
+          loading="lazy"
         />
-        <p class="footer-tagline">{{ tagline }}</p>
+        <p class="footer-tagline" *ngIf="!trustItems">{{ tagline }}</p>
+
+        <div class="footer-trust" *ngIf="trustItems">
+          <ul class="footer-trust-list">
+            <li *ngFor="let item of trustItems">
+              {{ item.text }}
+              <span *ngIf="item.note" class="footer-trust-note">{{
+                item.note
+              }}</span>
+            </li>
+          </ul>
+
+          <div class="footer-badges" *ngIf="badges">
+            <img
+              *ngFor="let item of badges"
+              [src]="item.src"
+              [alt]="item.alt"
+              class="footer-badge"
+              [class.footer-badge--sm]="item.small"
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
 
       <!-- Contact channels -->
@@ -23,7 +46,7 @@
             rel="noopener noreferrer"
           >
             <i class="fa-brands fa-whatsapp"></i>
-            <span>(85) 9 9804-9463</span>
+            <span>(85) 9 9615-7126</span>
           </a>
 
           <a class="footer-item" [href]="'mailto:' + email">

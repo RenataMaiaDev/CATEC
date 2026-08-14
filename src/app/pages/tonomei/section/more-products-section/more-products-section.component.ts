@@ -8,10 +8,10 @@ interface AdvantageItem {
   image: string;
 }
 
-// The 8 feature cards. Only 4 dedicated images exist, so pairs of
-// thematically-related features share the same lateral image. The images
-// are purely decorative here (the card text already conveys the meaning),
-// so they're rendered with an empty alt in the template.
+// The 7 feature cards, each paired with a thematically-matching lateral
+// image. The images are purely decorative here (the card text already
+// conveys the meaning), so they're rendered with an empty alt in the
+// template.
 const ADVANTAGES: AdvantageItem[] = [
   {
     icon: 'receipt_long',
@@ -25,7 +25,7 @@ const ADVANTAGES: AdvantageItem[] = [
     title: 'Declaração anual simplificada',
     description:
       'Cumpra a DASN-SIMEI direto pela plataforma, sem depender de terceiros.',
-    image: 'img-tonomei/DAS.webp',
+    image: 'img-tonomei/gastos.webp',
   },
   {
     icon: 'storefront',
@@ -39,7 +39,7 @@ const ADVANTAGES: AdvantageItem[] = [
     title: 'Controle de estoque',
     description:
       'Cadastre seus produtos e serviços e mantenha controle total de seus estoques e prazos de validade.',
-    image: 'img-tonomei/vitrine.webp',
+    image: 'img-tonomei/estoque.webp',
   },
   {
     icon: 'point_of_sale',
@@ -53,20 +53,13 @@ const ADVANTAGES: AdvantageItem[] = [
     title: 'Feiras e eventos',
     description:
       'Permite que você tenha acesso as feiras e eventos para vender seus produtos e serviços através de uma reserva simples e descomplicada.',
-    image: 'img-tonomei/vendas.webp',
+    image: 'img-tonomei/feira.webp',
   },
   {
     icon: 'school',
     title: 'Trilha do conhecimento',
     description:
       'Aqui, de qualquer lugar, você pode fazer seu curso, seu treinamento e melhorar ainda mais seu negócio.',
-    image: 'img-tonomei/curso.webp',
-  },
-  {
-    icon: 'verified',
-    title: 'Validação de documentos',
-    description:
-      'A ferramenta tônomei analisa e valida seus documentos, ou seja, sua validade, sua origem e demais itens de segurança.',
     image: 'img-tonomei/curso.webp',
   },
 ];

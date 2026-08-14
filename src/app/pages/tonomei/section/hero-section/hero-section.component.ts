@@ -12,14 +12,14 @@ import { TonomeiButtonComponent } from '../../components/tonomei-button/tonomei-
 export class HeroSectionComponent {
   // List of images for the rectangular carousel
   entrepreneurImages: string[] = [
-    'img-tonomei/vendedora.webp',
+    'img-tonomei/motoboy.webp',
     'img-tonomei/mecanico.webp',
     'img-tonomei/feirante.webp',
-    'img-tonomei/queijeiro.webp',
+    'img-tonomei/mercado.webp',
     'img-tonomei/barbeiro.webp',
     'img-tonomei/pedreiro.webp',
     'img-tonomei/padeiro.webp',
-    'img-tonomei/marceneiro.webp',
+    'img-tonomei/manicure.webp',
     'img-tonomei/pipoqueiro.webp',
     'img-tonomei/pescador.webp',
   ];
