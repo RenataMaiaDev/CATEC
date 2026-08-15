@@ -1,0 +1,99 @@
+.sisamb-card {
+  background: var(--white);
+  padding: 36px 28px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  text-align: center;
+  border: 1px solid #b0b1b45e;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .icon-wrapper {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(0, 194, 157, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    color: var(--primary-sisamb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary-sisamb);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .card-description {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    text-align: center;
+    align-self: stretch;
+    width: 100%;
+  }
+
+  .card-bullets {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    text-align: left;
+    align-self: stretch;
+    width: 100%;
+
+    li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+
+      &::before {
+        content: "check_circle";
+        font-family: "Material Icons";
+        font-weight: normal;
+        text-transform: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1rem;
+        color: var(--primary-sisamb);
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<div class="sisamb-card">
+  <div class="card-content">
+    @if (icon()) {
+      <div class="icon-wrapper">
+        <span class="material-icons card-icon">{{ icon() }}</span>
+      </div>
+    }
+    <h3 class="card-title">{{ title() }}</h3>
+    <p class="card-description">{{ description() }}</p>
+
+    @if (bullets().length > 0) {
+      <ul class="card-bullets">
+        @for (item of bullets(); track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    }
+  </div>
+</div>
