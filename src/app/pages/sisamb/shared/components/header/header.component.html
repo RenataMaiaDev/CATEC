@@ -1,0 +1,88 @@
+<header class="header" [class.menu-open]="isMenuOpen()">
+  <div class="header-container">
+    <!-- Logo -->
+    <a
+      href="#sisamb-inicio"
+      class="logo"
+      (click)="setActiveSection('sisamb-inicio', $event)"
+    >
+      <img src="img/logo-sisamb.webp" alt="SISAMB" class="logo-img" />
+    </a>
+
+    <!-- Navigation Menu Desktop -->
+    <nav class="nav-menu">
+      <a
+        href="#sisamb-inicio"
+        class="nav-link"
+        [class.active]="activeSection() === 'sisamb-inicio'"
+        (click)="setActiveSection('sisamb-inicio', $event)"
+        >INÍCIO</a
+      >
+
+      <a
+        href="#sisamb-sobre"
+        class="nav-link"
+        [class.active]="activeSection() === 'sisamb-sobre'"
+        (click)="setActiveSection('sisamb-sobre', $event)"
+        >SOBRE</a
+      >
+
+      <a
+        href="#sisamb-modulos"
+        class="nav-link"
+        [class.active]="activeSection() === 'sisamb-modulos'"
+        (click)="setActiveSection('sisamb-modulos', $event)"
+        >MÓDULOS</a
+      >
+
+      <a
+        href="#sisamb-recursos"
+        class="nav-link"
+        [class.active]="activeSection() === 'sisamb-recursos'"
+        (click)="setActiveSection('sisamb-recursos', $event)"
+        >RECURSOS</a
+      >
+    </nav>
+
+    <!-- Mobile Hamburger Button -->
+    <button
+      class="hamburger-btn"
+      (click)="toggleMenu()"
+      aria-label="Menu de navegação"
+    >
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <!-- Expanded Mobile Menu -->
+    <div class="mobile-menu">
+      <nav class="mobile-nav">
+        <a
+          href="#sisamb-inicio"
+          class="mobile-link"
+          (click)="setActiveSection('sisamb-inicio', $event)"
+          >INÍCIO</a
+        >
+        <a
+          href="#sisamb-sobre"
+          class="mobile-link"
+          (click)="setActiveSection('sisamb-sobre', $event)"
+          >SOBRE</a
+        >
+        <a
+          href="#sisamb-modulos"
+          class="mobile-link"
+          (click)="setActiveSection('sisamb-modulos', $event)"
+          >MÓDULOS</a
+        >
+        <a
+          href="#sisamb-recursos"
+          class="mobile-link"
+          (click)="setActiveSection('sisamb-recursos', $event)"
+          >RECURSOS</a
+        >
+      </nav>
+    </div>
+  </div>
+</header>
