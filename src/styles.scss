@@ -22,6 +22,7 @@
   // --- DESIGN TOKENS (SISAMB)
   --primary-sisamb: #00c29d; // Vibrant emerald green
   --primary-hover-sisamb: #00a082;
+  --primary-sisamb-text: #00795f; // Darker emerald for text/highlights — passes WCAG AA (~5.3:1 on white), unlike the raw --primary-sisamb (2.28:1)
   --secondary-sisamb: #2a2f35; // Slate gray/graphite
 
   // GLOBAL
@@ -213,7 +214,7 @@ body.theme-sisamb,
 }
 
 .section-badge--sisamb {
-  color: var(--primary-sisamb);
+  color: var(--primary-sisamb-text);
 }
 
 .section-title--sisamb {
