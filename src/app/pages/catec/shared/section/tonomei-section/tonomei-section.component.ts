@@ -19,9 +19,10 @@ interface Slide {
   icon: string;
   image: string;
   logo: string;
+  // Internal route (e.g. '/tonomei') or an external URL (opened in a new tab).
   route: string;
-  // Whether the CTA navigates to the product's route. SISAMB and Gestão Una
-  // aren't live yet, so their CTA is inert for now.
+  // Whether the CTA navigates to the product's route. Gestão Una isn't live
+  // yet, so its CTA is inert for now.
   clickable: boolean;
 }
 
@@ -74,8 +75,8 @@ export class TonomeiSectionComponent {
       icon: 'eco',
       image: 'img/sisamb.webp',
       logo: 'img/logo-sisamb.webp',
-      route: '/sisamb',
-      clickable: false,
+      route: 'https://sisamb.eco.br/',
+      clickable: true,
     },
     {
       id: 'gestao',
@@ -160,8 +161,15 @@ export class TonomeiSectionComponent {
   }
 
   // Navigates to the selected product's route, if its CTA is clickable.
+  // External URLs (http/https) open in a new tab; internal routes navigate in-app.
   openSystemPage(slide: Slide): void {
     if (!slide.clickable) return;
+
+    if (slide.route.startsWith('http')) {
+      window.open(slide.route, '_blank', 'noopener,noreferrer');
+      return;
+    }
+
     this.router.navigate([slide.route]);
   }
 }
