@@ -1,0 +1,20 @@
+<section class="platform-features-section" id="sisamb-recursos">
+  <div class="section-container text-center">
+    <span class="section-badge">Recursos da plataforma</span>
+    <h2 class="section-title">
+      Uma plataforma completa, pensada para a
+      <span class="highlight">gestão pública</span>
+    </h2>
+
+    <div class="features-grid" #featuresGrid>
+      @for (feature of features; track feature.label) {
+        <div class="feature-chip">
+          <span class="material-icons feature-chip-icon">{{
+            feature.icon
+          }}</span>
+          <span class="feature-chip-label">{{ feature.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
