@@ -1,0 +1,54 @@
+<section class="hero-section" id="sisamb-inicio">
+  <div class="hero-container">
+    <!-- Left side: Text and CTA -->
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Gestão ambiental pública, simplificada e
+        <span class="highlight">100% digital</span>
+      </h1>
+      <p class="hero-subtitle">
+        O SISAMB leva a gestão ambiental do seu município, estado ou
+        consórcio para o digital: menos deslocamentos, mais transparência e
+        processos automatizados com inteligência artificial, do protocolo à
+        emissão da licença.
+      </p>
+
+      <div class="hero-actions">
+        <app-button variant="primary" (click)="abrirWhatsApp()">
+          Fale Conosco <i class="fa-solid fa-arrow-right"></i>
+        </app-button>
+      </div>
+    </div>
+
+    <!-- Right side: Main image -->
+    <div class="hero-image-wrapper">
+      <img src="img/sisamb.webp" alt="SISAMB" class="hero-img" />
+    </div>
+  </div>
+
+  <!-- Floating card of differentiators -->
+  <div class="hero-features-container">
+    <div class="hero-features-card" #featuresCard>
+      <app-card
+        icon="cloud_done"
+        title="100% Digital"
+        description="Elimina a necessidade de deslocamentos presenciais, com serviços digitais completos do início ao fim."
+      >
+      </app-card>
+
+      <app-card
+        icon="smart_toy"
+        title="IA em cada etapa"
+        description="Chatbot inteligente e análise automática de documentos agilizam cada solicitação."
+      >
+      </app-card>
+
+      <app-card
+        icon="visibility"
+        title="Transparência total"
+        description="Rastreabilidade completa dos processos, com clareza em cada decisão."
+      >
+      </app-card>
+    </div>
+  </div>
+</section>
