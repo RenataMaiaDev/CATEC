@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AboutSectionComponent } from '../shared/section/about-section/about-section.component';
 import { HeroSectionComponent } from '../shared/section/hero-section/hero-section.component';
 import { TonomeiSectionComponent } from '../shared/section/tonomei-section/tonomei-section.component';
+import { MoreProductsSectionComponent } from '../shared/section/more-products-section/more-products-section.component';
 import { HeaderComponent } from '../shared/components/header/header.component';
 import { FooterComponent } from '../../../components/footer/footer.component';
 
@@ -13,6 +14,7 @@ import { FooterComponent } from '../../../components/footer/footer.component';
     HeroSectionComponent,
     AboutSectionComponent,
     TonomeiSectionComponent,
+    MoreProductsSectionComponent,
     FooterComponent,
   ],
   templateUrl: './home.page.html',
