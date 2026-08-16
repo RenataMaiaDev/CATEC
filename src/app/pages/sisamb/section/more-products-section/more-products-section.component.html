@@ -1,48 +1,37 @@
 <section class="modules-section" id="sisamb-modulos">
   <div class="section-container text-center">
-    <span class="section-badge section-badge--sisamb">Módulos</span>
-    <h2 class="section-title">
-      Tudo o que sua gestão ambiental precisa, em
-      <span class="highlight">um só lugar</span>
+    <span class="section-badge section-badge--sisamb">É por isso que existe o SISAMB</span>
+    <h2 class="section-title section-title--sisamb">
+      Um único sistema
+      <br />
+      <span class="highlight">resolve esses gargalos</span>
     </h2>
     <p class="section-subtitle">
-      Cada módulo do SISAMB foi pensado para uma parte específica do processo
-      — do primeiro contato do cidadão até a homologação final pelo gestor.
+      Do primeiro contato do cidadão até a decisão final do fiscal, tudo
+      acontece na mesma plataforma — sem papel, sem fila, sem retrabalho.
+    </p>
+    <p class="modules-hint">
+      <span class="material-icons">touch_app</span>
+      Passe o mouse sobre cada módulo para ver os detalhes
     </p>
 
-    <div class="modules-grid" #modulesGrid>
-      <app-card
-        icon="support_agent"
-        title="Atendimento ao Cidadão"
-        description="Chatbot com inteligência artificial que orienta o cidadão em cada etapa, reduz dúvidas e facilita o preenchimento correto das solicitações — com linguagem simples e feedback imediato."
-        [bullets]="[
-          'Formulários online',
-          'IA para análise e verificação de documentos',
-          'Acompanhamento de processos na própria plataforma',
-          'Central de notificações'
-        ]"
-      >
-      </app-card>
-
-      <app-card
-        icon="fact_check"
-        title="Gestão de Processos"
-        description="Ferramentas para o gestor distribuir tarefas, acompanhar prazos e homologar processos com clareza em cada etapa."
-        [bullets]="[
-          'Distribuição de tarefas pelo gestor',
-          'Acompanhamento e gestão de prazos',
-          'Visualização dos documentos após triagem',
-          'Homologação (aprovação e rejeição)'
-        ]"
-      >
-      </app-card>
-
-      <app-card
-        icon="school"
-        title="Cursos & Treinamentos"
-        description="Módulo dedicado à capacitação contínua dos agentes envolvidos, direto na plataforma."
-      >
-      </app-card>
+    <div class="modules-grid">
+      @for (modulo of modulos; track modulo.name) {
+        <div class="module-tile">
+          <div class="module-tile-face">
+            <span class="module-icon material-icons">{{ modulo.icon }}</span>
+            <h3 class="module-name">{{ modulo.name }}</h3>
+            <p class="module-tagline">{{ modulo.tagline }}</p>
+          </div>
+          <div class="module-tile-detail">
+            <span class="module-icon module-icon--sm material-icons">{{
+              modulo.icon
+            }}</span>
+            <h3 class="module-name">{{ modulo.name }}</h3>
+            <p class="module-description">{{ modulo.description }}</p>
+          </div>
+        </div>
+      }
     </div>
   </div>
 </section>

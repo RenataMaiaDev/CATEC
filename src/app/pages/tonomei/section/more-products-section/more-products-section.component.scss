@@ -1,7 +1,7 @@
 .more-products-section {
   width: 100%;
   background: #fffefe;
-  padding: 60px 24px 0 24px;
+  padding: 64px 24px;
   box-sizing: border-box;
   scroll-margin-top: 80px;
 
@@ -14,225 +14,175 @@
   }
 
   @media (max-width: 768px) {
-    padding: 40px 16px 0 16px;
+    padding: 48px 16px;
   }
 }
 
-/* CARROSSEL: imagem sincronizada (1/2) + card ativo (1/2), navegação
-   apenas pelos pontos indicadores */
-.advantages-wrapper {
-  width: 100%;
-  margin: 48px 0 0 0;
+.advantages-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  color: var(--accent-tonomei);
+  font-weight: 600;
+
+  .material-icons {
+    font-size: 1rem;
+  }
+
+  // The hint only makes sense where hover actually exists.
+  @media (hover: none) {
+    display: none;
+  }
 }
 
-.advantages-carousel {
-  display: flex;
-  align-items: center;
-  gap: 44px;
-  width: 100%;
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-sizing: border-box;
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 40px auto 48px auto;
 
   @media (max-width: 900px) {
-    gap: 32px;
-    padding: 28px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 620px) {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 20px;
-    padding: 22px;
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
   }
 }
 
-.advantages-media {
+.advantage-tile {
   position: relative;
-  display: grid;
-  flex: 1;
-  height: 340px;
-  border-radius: var(--radius-md);
+  height: 190px;
+  border-radius: 18px;
   overflow: hidden;
+  text-align: left;
+  box-shadow:
+    0 22px 40px -16px rgba(17, 6, 39, 0.32),
+    0 8px 16px -8px rgba(17, 6, 39, 0.2);
+  cursor: default;
+  transition: box-shadow 0.3s ease;
 
-  @media (max-width: 900px) {
-    height: 300px;
-  }
-
-  @media (max-width: 620px) {
-    height: 220px;
-  }
-}
-
-.advantages-media-img {
-  grid-area: 1 / 1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 25%;
-  opacity: 0;
-  transform: scale(1.06);
-  transition:
-    opacity 0.6s ease,
-    transform 6s ease;
-
-  &.is-active {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 1;
+  @media (hover: hover) {
+    &:hover {
+      box-shadow:
+        0 28px 48px -14px rgba(17, 6, 39, 0.4),
+        0 10px 20px -8px rgba(17, 6, 39, 0.24);
+    }
   }
 }
 
-.advantages-card {
+.advantage-tile-face,
+.advantage-tile-detail {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  flex: 1;
-  height: 340px;
-  text-align: center;
-
-  @media (max-width: 900px) {
-    height: 300px;
-  }
-
-  @media (max-width: 620px) {
-    height: auto;
-    min-height: 220px;
-  }
-}
-
-.advantages-card-stack {
-  position: relative;
-  display: grid;
-  flex: 1;
-  min-height: 0;
-}
-
-.advantages-card-item {
-  grid-area: 1 / 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  opacity: 0;
-  transform: translateY(12px);
   transition:
     opacity 0.35s ease,
     transform 0.35s ease;
-  pointer-events: none;
-  overflow: hidden;
-  box-sizing: border-box;
+}
 
-  &.is-active {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-    z-index: 1;
+.advantage-tile-face {
+  background: var(--bg-light);
+  opacity: 1;
+  transform: translateY(0);
+  justify-content: center;
+}
+
+.advantage-tile-detail {
+  background: var(--primary-tonomei);
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(8px);
+  justify-content: center;
+
+  .advantage-title {
+    color: var(--white);
   }
+}
 
-  .icon-wrapper {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    border-radius: 50px;
-    background-color: rgba(0, 181, 163, 0.06);
-    border: 1px solid rgba(0, 181, 163, 0.28);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 18px;
-  }
+.advantage-icon {
+  color: var(--accent-tonomei);
+  font-size: 1.8rem;
+  margin-bottom: 12px;
 
-  .card-icon {
+  &--sm {
+    color: var(--white);
     font-size: 1.3rem;
-    color: var(--accent-tonomei);
+    margin-bottom: 8px;
+    opacity: 0.85;
   }
+}
 
-  .card-text {
-    width: 100%;
-    min-width: 0;
-  }
+.advantage-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--secondary-catec);
+  margin-bottom: 4px;
+}
 
-  .card-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.015em;
-    color: var(--secondary-catec);
-    margin-bottom: 12px;
+.advantage-description {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+}
 
-    @media (max-width: 576px) {
-      font-size: 1.2rem;
+// Hover-reveal — only where a real pointer/hover exists.
+@media (hover: hover) {
+  .advantage-tile:hover {
+    .advantage-tile-face {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    .advantage-tile-detail {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
-
-  .card-description {
-    font-size: 0.98rem;
-    line-height: 1.65;
-    color: var(--text-muted);
-    text-align: center;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
 }
 
-/* PONTOS INDICADORES — botão clicável de 24x24 (alvo mínimo acessível),
-   com o ponto visível de 9px desenhado via ::before */
-.advantages-dots {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-  margin: 20px 0 48px 0;
-}
-
-.advantages-dot {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: none;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: #cbd5e1;
-    opacity: 0.6;
-    transform: translate(-50%, -50%);
-    transition:
-      background-color 0.25s ease,
-      opacity 0.25s ease,
-      transform 0.25s ease;
+// Touch devices: no hover, so show the description directly instead of
+// hiding it behind an interaction the device can't perform well.
+@media (hover: none) {
+  .advantage-tile {
+    height: auto;
+    position: relative;
   }
 
-  &:hover::before {
-    opacity: 1;
-    background-color: rgba(0, 181, 163, 0.5);
+  .advantage-tile-face {
+    position: relative;
+    inset: auto;
   }
 
-  &.is-active::before {
-    width: 8px;
-    height: 8px;
+  .advantage-tile-detail {
+    position: relative;
+    inset: auto;
     opacity: 1;
-    background-color: var(--accent-tonomei);
+    transform: none;
+    padding-top: 0;
+    background: none;
+    color: var(--secondary-catec);
+
+    .advantage-title,
+    .advantage-icon--sm {
+      display: none;
+    }
+
+    .advantage-description {
+      color: var(--text-muted);
+    }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .advantages-media-img,
-  .advantages-card-item,
-  .advantages-dot::before {
+  .advantage-tile-face,
+  .advantage-tile-detail {
     transition: none;
   }
 }
@@ -241,6 +191,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  padding-bottom: 48px;
 
   @media (max-width: 480px) {
     app-tonomei-button {

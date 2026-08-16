@@ -11,68 +11,28 @@
       Tudo que precisa num só lugar e que esteja na palma de sua mão de
       forma fácil, intuitiva, moderna e organizada.
     </p>
+    <p class="advantages-hint">
+      <span class="material-icons">touch_app</span>
+      Passe o mouse sobre cada cartão para ver os detalhes
+    </p>
 
-    <!-- Carrossel: imagem sincronizada (1/2) + card ativo (1/2). Autoplay
-         pausa em hover, foco por teclado e toque, para sempre existir uma
-         forma de parar o conteúdo (WCAG 2.2.2). -->
-    <div
-      class="advantages-wrapper"
-      (mouseenter)="pauseAutoplay()"
-      (mouseleave)="resumeAutoplay()"
-      (focusin)="pauseAutoplay()"
-      (focusout)="resumeAutoplay()"
-      (touchstart)="pauseAutoplay()"
-      (touchend)="resumeAutoplay()"
-    >
-      <div class="advantages-carousel">
-        <div class="advantages-media">
-          @for (item of advantages; track $index; let i = $index) {
-            <img
-              [src]="item.image"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              class="advantages-media-img"
-              [class.is-active]="i === activeIndex()"
-              [attr.aria-hidden]="i === activeIndex() ? null : 'true'"
-            />
-          }
-        </div>
-
-        <div class="advantages-card">
-          <div class="advantages-card-stack">
-            @for (item of advantages; track $index; let i = $index) {
-              <div
-                class="advantages-card-item"
-                [class.is-active]="i === activeIndex()"
-                [attr.aria-hidden]="i === activeIndex() ? null : 'true'"
-              >
-                <div class="icon-wrapper">
-                  <i class="material-icons card-icon">{{ item.icon }}</i>
-                </div>
-                <div class="card-text">
-                  <h3 class="card-title">{{ item.title }}</h3>
-                  <p class="card-description">{{ item.description }}</p>
-                </div>
-              </div>
-            }
+    <!-- Grade de vantagens com revelação no hover -->
+    <div class="advantages-grid">
+      @for (item of advantages; track item.title) {
+        <div class="advantage-tile">
+          <div class="advantage-tile-face">
+            <span class="advantage-icon material-icons">{{ item.icon }}</span>
+            <h3 class="advantage-title">{{ item.title }}</h3>
+          </div>
+          <div class="advantage-tile-detail">
+            <span class="advantage-icon advantage-icon--sm material-icons">{{
+              item.icon
+            }}</span>
+            <h3 class="advantage-title">{{ item.title }}</h3>
+            <p class="advantage-description">{{ item.description }}</p>
           </div>
         </div>
-      </div>
-
-      <!-- Pontos indicadores -->
-      <div class="advantages-dots">
-        @for (item of advantages; track $index; let i = $index) {
-          <button
-            type="button"
-            class="advantages-dot"
-            [class.is-active]="i === activeIndex()"
-            [attr.aria-label]="'Ver ' + item.title"
-            [attr.aria-current]="i === activeIndex() ? 'true' : null"
-            (click)="goTo(i)"
-          ></button>
-        }
-      </div>
+      }
     </div>
 
     <!-- Botão Principal -->

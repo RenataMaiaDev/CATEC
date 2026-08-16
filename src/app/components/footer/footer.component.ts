@@ -11,7 +11,7 @@ const FOOTER_TAGLINES: Record<FooterTheme, string> = {
   tonomei: '',
   catec: 'Gestão Inovadora para os Empreendedores do Brasil',
   gestao: 'Gestão Inovadora para os Empreendedores do Brasil',
-  sisamb: 'Gestão Inovadora para os Empreendedores do Brasil',
+  sisamb: 'Gestão ambiental pública, moderna e sem papel',
 };
 
 export interface FooterTrustItem {
@@ -19,12 +19,18 @@ export interface FooterTrustItem {
   note?: string;
 }
 
-// Trust/legal bullet points shown under the brand logo, per brand. Only
-// tônomei has these today (patent + certification), rendered as a bulleted
-// list instead of the plain-text tagline; other brands fall back to it.
+// Trust/legal bullet points shown under the brand logo, per brand. Rendered
+// as a bulleted list alongside the tagline (when both are present).
 const FOOTER_TRUST_ITEMS: Partial<Record<FooterTheme, FooterTrustItem[]>> = {
   tonomei: [
     { text: 'O tônomei é patenteado pelo INPI' },
+    {
+      text: 'O sistema possui Certificação pela ABES',
+      note: '(em todo o território nacional)',
+    },
+  ],
+  sisamb: [
+    { text: 'O SISAMB é patenteado pelo INPI' },
     {
       text: 'O sistema possui Certificação pela ABES',
       note: '(em todo o território nacional)',
@@ -38,12 +44,16 @@ export interface FooterBadge {
   small?: boolean;
 }
 
-// Certification seals shown next to the trust list, per brand. Only
-// tônomei has these today (INPI patent seal + ABES certification seal).
-// The INPI seal is a compact circular mark, so it's rendered a bit smaller
-// than the wider ABES wordmark to look visually balanced next to it.
+// Certification seals shown next to the trust list, per brand (INPI patent
+// seal + ABES certification seal — the same generic seal assets across
+// brands). The INPI seal is a compact circular mark, so it's rendered a bit
+// smaller than the wider ABES wordmark to look visually balanced next to it.
 const FOOTER_BADGES: Partial<Record<FooterTheme, FooterBadge[]>> = {
   tonomei: [
+    { src: 'img-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
+    { src: 'img-tonomei/ABES.webp', alt: 'Selo ABES' },
+  ],
+  sisamb: [
     { src: 'img-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
     { src: 'img-tonomei/ABES.webp', alt: 'Selo ABES' },
   ],

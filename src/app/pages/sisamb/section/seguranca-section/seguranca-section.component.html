@@ -1,0 +1,44 @@
+<section class="seguranca-section" id="sisamb-seguranca">
+  <div class="section-container">
+    <div class="seguranca-layout">
+      <div class="seguranca-info">
+        <span class="section-badge section-badge--sisamb">Segurança e confiabilidade</span>
+        <h2 class="section-title section-title--sisamb">
+          Feito para operar com o
+          <span class="highlight">rigor do setor público</span>.
+        </h2>
+        <p class="section-subtitle">
+          Da hospedagem ao controle de acesso, cada camada do SISAMB foi
+          pensada para proteger dados sensíveis e atender às exigências
+          legais de quem trabalha com informação pública.
+        </p>
+      </div>
+
+      <aside class="seguranca-cta">
+        <h3 class="cta-title">Traga o SISAMB para a sua gestão</h3>
+        <p class="cta-subtitle">
+          Nossa equipe apresenta a plataforma e ajuda a planejar a
+          implantação, seja num município, num estado ou num ministério.
+        </p>
+
+        <app-button variant="primary" (click)="abrirWhatsApp()">
+          <i class="fa-brands fa-whatsapp"></i>
+          Conversar agora pelo WhatsApp
+        </app-button>
+
+        <p class="cta-note">Atendimento ágil · Time especializado · Sem compromisso</p>
+      </aside>
+    </div>
+  </div>
+
+  <div class="seguranca-marquee">
+    <div class="marquee-track">
+      @for (item of itensLoop; track $index) {
+        <span class="marquee-pill" [attr.aria-hidden]="$index >= itens.length ? 'true' : null">
+          <span class="material-icons">check_circle</span>
+          {{ item }}
+        </span>
+      }
+    </div>
+  </div>
+</section>

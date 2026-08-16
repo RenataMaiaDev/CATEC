@@ -10,7 +10,7 @@
           [class.footer-logo--invert]="logo.invert"
           loading="lazy"
         />
-        <p class="footer-tagline" *ngIf="!trustItems">{{ tagline }}</p>
+        <p class="footer-tagline" *ngIf="tagline">{{ tagline }}</p>
 
         <div class="footer-trust" *ngIf="trustItems">
           <ul class="footer-trust-list">
@@ -77,8 +77,11 @@
         </div>
       </div>
 
-      <!-- App store badges (tônomei only — the only brand with a published app) -->
-      <div class="footer-col" *ngIf="theme === 'tonomei'">
+      <!-- App store badges (tônomei and SISAMB — brands with a published app) -->
+      <div
+        class="footer-col"
+        *ngIf="theme === 'tonomei' || theme === 'sisamb'"
+      >
         <p class="footer-eyebrow">Baixe o app</p>
         <div class="footer-stores">
           <!-- TODO: replace "#" with the real Google Play listing URL once published -->

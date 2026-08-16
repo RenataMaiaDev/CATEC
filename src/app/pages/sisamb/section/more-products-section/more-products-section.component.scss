@@ -1,100 +1,193 @@
 .modules-section {
   width: 100%;
-  background-color: var(--bg-light, #f8fafc);
-  padding: 30px 24px;
+  background: var(--white);
+  padding: 64px 24px;
   box-sizing: border-box;
   scroll-margin-top: 80px;
 
-  .highlight {
-    color: var(--primary-sisamb-text);
+  .section-title {
+    font-size: 2rem;
+
+    .highlight {
+      color: var(--primary-sisamb-text);
+    }
   }
 
   .section-subtitle {
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 640px;
   }
 
   @media (max-width: 768px) {
-    padding: 30px 16px;
+    padding: 48px 16px;
+  }
+}
+
+.modules-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: -24px;
+  margin-bottom: 32px;
+  font-size: 0.8rem;
+  color: var(--primary-sisamb-text);
+  font-weight: 600;
+
+  .material-icons {
+    font-size: 1rem;
+  }
+
+  // The hint only makes sense where hover actually exists.
+  @media (hover: none) {
+    display: none;
   }
 }
 
 .modules-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  width: 100%;
+  gap: 20px;
   max-width: 1100px;
-  margin: 40px auto 0 auto;
+  margin: 0 auto;
 
   @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 560px) {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
+}
 
-  app-card {
-    display: block;
-    opacity: 0;
-    transform: translateY(32px);
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
-  }
+.module-tile {
+  position: relative;
+  height: 190px;
+  border-radius: 18px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow:
+    0 22px 40px -16px rgba(20, 40, 35, 0.32),
+    0 8px 16px -8px rgba(20, 40, 35, 0.2);
+  cursor: default;
+  transition: box-shadow 0.3s ease;
 
-  &.in-view app-card {
-    opacity: 1;
-    transform: translateY(0);
-    animation: module-card-float 6s cubic-bezier(0.445, 0.05, 0.55, 0.95)
-      infinite;
-
-    @for $i from 1 through 3 {
-      &:nth-child(#{$i}) {
-        transition-delay: #{($i - 1) * 0.12}s;
-        animation-delay: #{0.6 + ($i - 1) * 0.4}s;
-      }
-    }
-
+  @media (hover: hover) {
     &:hover {
-      animation-play-state: paused;
-    }
-  }
-
-  @keyframes module-card-float {
-    0%,
-    100% {
-      transform: translateY(0) rotate(0deg);
-    }
-    50% {
-      transform: translateY(-7px) rotate(0.6deg);
-    }
-  }
-
-  ::ng-deep .sisamb-card {
-    transition:
-      transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1),
-      box-shadow 0.4s ease,
-      border-color 0.4s ease;
-
-    &:hover {
-      transform: translateY(-10px) scale(1.02);
-      border-color: rgba(0, 194, 157, 0.35);
       box-shadow:
-        0 20px 32px -14px rgba(0, 194, 157, 0.3),
-        var(--shadow-lg);
+        0 28px 48px -14px rgba(20, 40, 35, 0.4),
+        0 10px 20px -8px rgba(20, 40, 35, 0.24);
     }
   }
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    app-card {
-      opacity: 1;
-      transform: none;
-      transition: none;
-      animation: none;
+.module-tile-face,
+.module-tile-detail {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.module-tile-face {
+  background: var(--bg-light);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.module-tile-detail {
+  background: linear-gradient(
+    140deg,
+    var(--primary-sisamb-text) 0%,
+    var(--secondary-sisamb) 100%
+  );
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(8px);
+  justify-content: center;
+
+  .module-name {
+    color: var(--white);
+  }
+}
+
+.module-icon {
+  color: var(--primary-sisamb-text);
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+
+  &--sm {
+    color: var(--white);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    opacity: 0.85;
+  }
+}
+
+.module-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--secondary-sisamb);
+  margin-bottom: 4px;
+}
+
+.module-tagline {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.module-description {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+// Hover-reveal — only where a real pointer/hover exists.
+@media (hover: hover) {
+  .module-tile:hover {
+    .module-tile-face {
+      opacity: 0;
+      transform: translateY(-8px);
     }
 
-    ::ng-deep .sisamb-card:hover {
-      transform: none;
+    .module-tile-detail {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Touch devices: no hover, so show the description directly instead of
+// hiding it behind an interaction the device can't perform well.
+@media (hover: none) {
+  .module-tile {
+    height: auto;
+    position: relative;
+  }
+
+  .module-tile-face {
+    position: relative;
+    inset: auto;
+  }
+
+  .module-tile-detail {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    transform: none;
+    padding-top: 0;
+    background: none;
+    color: var(--secondary-sisamb);
+
+    .module-name,
+    .module-icon--sm {
+      display: none;
+    }
+
+    .module-description {
+      color: var(--text-muted);
     }
   }
 }

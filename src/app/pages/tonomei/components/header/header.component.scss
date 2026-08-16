@@ -138,7 +138,10 @@
   width: 100%;
   height: calc(100vh - 60px);
   box-shadow: var(--shadow-md);
-  z-index: 999;
+  // Above the cookie-consent banner (z-index: 1000) so the open mobile menu
+  // — which already spans down to the bottom of the viewport — fully covers
+  // it instead of the banner poking out on top of the nav links.
+  z-index: 1001;
   overflow-y: auto;
 }
 

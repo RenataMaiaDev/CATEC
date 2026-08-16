@@ -5,9 +5,10 @@ import {
   viewChild,
 } from '@angular/core';
 
-interface PlatformFeature {
+interface Beneficio {
   icon: string;
-  label: string;
+  title: string;
+  description: string;
 }
 
 @Component({
@@ -17,47 +18,84 @@ interface PlatformFeature {
   templateUrl: './platform-features-section.component.html',
   styleUrl: './platform-features-section.component.scss',
 })
-// "Recursos da plataforma" section: a compact grid of platform-wide capabilities.
+// "Por que o SISAMB": what genuinely changes in the secretaria after rollout.
 export class PlatformFeaturesSectionComponent {
-  private readonly featuresGrid =
-    viewChild<ElementRef<HTMLElement>>('featuresGrid');
+  private readonly grid = viewChild<ElementRef<HTMLElement>>('grid');
 
-  readonly features: PlatformFeature[] = [
-    { icon: 'smart_toy', label: 'Inteligência Artificial em cada etapa' },
-    { icon: 'cloud_done', label: 'Histórico de processos em nuvem' },
-    { icon: 'summarize', label: 'Relatórios on-line e em PDF' },
-    { icon: 'notifications_active', label: 'Notificações automáticas por prazo' },
-    { icon: 'draw', label: 'Assinatura eletrônica para todos os usuários' },
-    { icon: 'dashboard', label: 'Dashboard com painéis analíticos e sintéticos' },
-    { icon: 'wifi_off', label: 'Acesso e procedimentos disponíveis offline' },
-    { icon: 'verified', label: 'Emissão de licenças direto na plataforma' },
-    { icon: 'badge', label: 'Cadastro unificado dos agentes envolvidos' },
-    { icon: 'gavel', label: 'Leis atualizadas e resumidas para fácil compreensão' },
+  readonly beneficios: Beneficio[] = [
+    {
+      icon: 'event_busy',
+      title: 'Fim das filas presenciais',
+      description:
+        'Cidadão resolve tudo pelo portal, sem precisar ir até a secretaria',
+    },
+    {
+      icon: 'bolt',
+      title: 'Processos até 5x mais rápidos',
+      description:
+        'Curadoria automática elimina o gargalo na triagem dos documentos',
+    },
+    {
+      icon: 'visibility',
+      title: 'Transparência para o cidadão',
+      description:
+        'Acompanhamento em tempo real via notificações e painel próprio',
+    },
+    {
+      icon: 'dashboard',
+      title: 'Gestores com visão completa',
+      description:
+        'Dashboards com indicadores, prazos e histórico de tramitação',
+    },
+    {
+      icon: 'task_alt',
+      title: 'Menos retrabalho para fiscais',
+      description:
+        'A IA faz a análise prévia dos documentos antes do parecer técnico',
+    },
+    {
+      icon: 'tune',
+      title: 'Adaptado ao seu município',
+      description:
+        'Configuração flexível para a legislação e os processos locais',
+    },
+    {
+      icon: 'eco',
+      title: 'Economia de papel e custos',
+      description:
+        'Eliminação do uso de papel e dos custos de armazenamento físico',
+    },
+    {
+      icon: 'workspace_premium',
+      title: 'Imagem moderna da gestão',
+      description:
+        'Sua prefeitura se posiciona como referência em inovação pública',
+    },
   ];
 
   constructor() {
     afterNextRender(() => {
-      const grid = this.featuresGrid()?.nativeElement;
-      if (!grid) return;
+      const el = this.grid()?.nativeElement;
+      if (!el) return;
 
       const prefersReducedMotion = window.matchMedia(
         '(prefers-reduced-motion: reduce)',
       ).matches;
       if (prefersReducedMotion) {
-        grid.classList.add('in-view');
+        el.classList.add('in-view');
         return;
       }
 
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            grid.classList.add('in-view');
+            el.classList.add('in-view');
             observer.disconnect();
           }
         },
-        { threshold: 0.2 },
+        { threshold: 0.15 },
       );
-      observer.observe(grid);
+      observer.observe(el);
     });
   }
 }

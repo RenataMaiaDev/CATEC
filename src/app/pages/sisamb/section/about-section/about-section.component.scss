@@ -1,13 +1,13 @@
 .about-section {
   width: 100%;
   background: var(--white);
-  padding: 30px 0;
+  padding: 64px 0;
   position: relative;
   overflow: hidden;
   scroll-margin-top: 80px;
 
   @media (max-width: 968px) {
-    padding: 10px 0;
+    padding: 48px 0;
   }
 }
 
@@ -75,69 +75,6 @@
     @media (max-width: 576px) {
       font-size: 1rem;
       margin-bottom: 24px;
-    }
-  }
-}
-
-.about-features-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-
-  @media (max-width: 900px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
-
-  app-card {
-    display: block;
-    opacity: 0;
-    transform: translateY(24px);
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
-  }
-
-  &.in-view app-card {
-    opacity: 1;
-    transform: translateY(0);
-    animation: feature-card-float 6s cubic-bezier(0.445, 0.05, 0.55, 0.95)
-      infinite;
-
-    @for $i from 1 through 4 {
-      &:nth-child(#{$i}) {
-        transition-delay: #{($i - 1) * 0.1}s;
-        animation-delay: #{0.6 + ($i - 1) * 0.3}s;
-      }
-    }
-
-    &:hover {
-      animation-play-state: paused;
-    }
-  }
-
-  @keyframes feature-card-float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-6px);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    app-card {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-
-    &.in-view app-card {
-      animation: none;
     }
   }
 }

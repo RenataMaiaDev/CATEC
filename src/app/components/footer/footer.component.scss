@@ -36,8 +36,9 @@
   grid-template-columns: 1.2fr 1fr 1fr;
   gap: 32px;
 
-  // tônomei adds a fourth column for the app store badges.
-  .footer--tonomei & {
+  // tônomei and SISAMB add a fourth column for the app store badges.
+  .footer--tonomei &,
+  .footer--sisamb & {
     grid-template-columns: 1.2fr 1fr 1fr 1fr;
   }
 }

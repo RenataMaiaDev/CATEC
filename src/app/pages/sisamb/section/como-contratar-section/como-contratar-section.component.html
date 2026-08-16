@@ -1,0 +1,45 @@
+<section class="contratar-section" id="sisamb-contratar">
+  <div class="contratar-container">
+    <!-- Badge sits above everything in the section -->
+    <span class="section-badge section-badge--sisamb">Como contratar</span>
+
+    <div class="contratar-row">
+      <!-- Left: intro text, beside the timeline -->
+      <div class="contratar-intro">
+        <h2 class="section-title section-title--sisamb intro-title">
+          Do primeiro contato ao
+          <span class="highlight">sistema funcionando</span>
+        </h2>
+
+        <span class="intro-divider" aria-hidden="true"></span>
+
+        <p class="section-subtitle intro-subtitle">
+          Um processo simples, pensado para a realidade do setor público.
+        </p>
+      </div>
+
+      <!-- Right: vertical timeline — the real hiring process, one card per step -->
+      <div class="passos-timeline" #timeline>
+        @for (passo of passos; track passo.numero) {
+          <div class="passo-item">
+            <div class="passo-marker">
+              <span class="passo-icon material-icons">{{ passo.icon }}</span>
+            </div>
+
+            <div class="passo-card">
+              <span class="passo-card-numero">{{ passo.numero }}</span>
+              <h3 class="passo-title">{{ passo.title }}</h3>
+              <p class="passo-description">{{ passo.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Email sits at the very end of the section -->
+    <p class="contratar-email">
+      Prefere o e-mail? Fale com a gente em
+      <a [href]="'mailto:' + email">{{ email }}</a>
+    </p>
+  </div>
+</section>

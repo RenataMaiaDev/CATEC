@@ -1,18 +1,24 @@
 <section class="platform-features-section" id="sisamb-recursos">
   <div class="section-container text-center">
-    <span class="section-badge section-badge--sisamb">Recursos da plataforma</span>
-    <h2 class="section-title">
-      Uma plataforma completa, pensada para a
-      <span class="highlight">gestão pública</span>
+    <span class="section-badge section-badge--sisamb">Por que o SISAMB</span>
+    <h2 class="section-title section-title--sisamb">
+      O que muda com o
+      <span class="highlight">SISAMB</span>
     </h2>
+    <p class="section-subtitle">
+      O que muda de verdade na sua secretaria depois da implantação do
+      sistema.
+    </p>
 
-    <div class="features-grid" #featuresGrid>
-      @for (feature of features; track feature.label) {
-        <div class="feature-chip">
-          <span class="material-icons feature-chip-icon">{{
-            feature.icon
-          }}</span>
-          <span class="feature-chip-label">{{ feature.label }}</span>
+    <div class="beneficios-network" #grid>
+      <div class="network-spine" aria-hidden="true"></div>
+      @for (item of beneficios; track item.title) {
+        <div class="beneficio-node">
+          <span class="node-dot material-icons">{{ item.icon }}</span>
+          <div class="node-text">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+          </div>
         </div>
       }
     </div>
