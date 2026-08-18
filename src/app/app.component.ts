@@ -5,8 +5,6 @@ import { TermsModalComponent } from './components/terms-modal/terms-modal.compon
 import { TermsModalService } from './components/terms-modal/terms-modal.service';
 import { PrivacyModalComponent } from './components/privacy-modal/privacy-modal.component';
 import { PrivacyModalService } from './components/privacy-modal/privacy-modal.service';
-import { OrcamentoModalComponent } from './pages/catec/shared/components/orcamento-modal/orcamento-modal.component';
-import { OrcamentoService } from './pages/catec/shared/components/orcamento-modal/orcamento.service';
 import { CookieConsentComponent } from './components/cookie-consent/cookie-consent.component';
 
 @Component({
@@ -16,7 +14,6 @@ import { CookieConsentComponent } from './components/cookie-consent/cookie-conse
   imports: [
     RouterOutlet,
     WhatsappButtonComponent,
-    OrcamentoModalComponent,
     TermsModalComponent,
     PrivacyModalComponent,
     CookieConsentComponent,
@@ -25,10 +22,9 @@ import { CookieConsentComponent } from './components/cookie-consent/cookie-conse
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'catec';
+  title = 'tonomei';
 
   // Services drive the @defer blocks that lazy-load each modal.
-  protected readonly orcamentoService = inject(OrcamentoService);
   protected readonly termsModalService = inject(TermsModalService);
   protected readonly privacyModalService = inject(PrivacyModalService);
 }

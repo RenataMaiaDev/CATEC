@@ -1,6 +1,6 @@
 import { Component, effect, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { ButtonComponent } from '../../pages/catec/shared/components/button/button.component';
+import { ButtonComponent } from '../button/button.component';
 import { PrivacyContentComponent } from '../../pages/legal/privacy-policy/privacy-content.component';
 import { PrivacyModalService } from './privacy-modal.service';
 

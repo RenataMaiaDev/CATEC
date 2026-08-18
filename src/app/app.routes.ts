@@ -1,28 +1,14 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  // Main / root route (Catec LP)
+  // Main / root route (tônomei LP)
   {
     path: '',
     loadComponent: () =>
-      import('./pages/catec/home/home.page').then((m) => m.HomePage),
+      import('./pages/tonomei/home/home.page').then((m) => m.HomePage),
   },
 
-  // SISAMB route
-  {
-    path: 'sisamb',
-    loadComponent: () =>
-      import('./pages/sisamb/home/home.page').then((m) => m.HomePage),
-  },
-
-  // Gestão Una route
-  {
-    path: 'gestao-una',
-    loadComponent: () =>
-      import('./pages/gestao-una/home/home.page').then((m) => m.HomePage),
-  },
-
-  // tônomei route
+  // tônomei route (kept as an alias of root)
   {
     path: 'tonomei',
     loadComponent: () =>
