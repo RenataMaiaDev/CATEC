@@ -1,6 +1,5 @@
-import { Component, signal, HostListener, inject } from '@angular/core';
+import { Component, signal, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +9,6 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  private router = inject(Router);
-
   isMenuOpen = signal<boolean>(false);
   isDropdownOpen = signal<boolean>(false);
   isScrolled = signal<boolean>(false);
@@ -38,19 +35,6 @@ export class HeaderComponent {
     this.activeSection.set(sectionId);
     this.closeMenu();
 
-    // 1. REDIRECT TO CATEC (only when clicking the 'inicio' / CATEC link)
-    if (sectionId === 'inicio') {
-      const isHome =
-        this.router.url === '/' || this.router.url.startsWith('/#');
-      if (isHome) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        this.router.navigate(['/']); // Redirects to CATEC
-      }
-      return;
-    }
-
-    // 2. OTHER TÔNOMEI BUTTONS (scroll strictly within the current page)
     this.scrollToElement(sectionId);
   }
 
