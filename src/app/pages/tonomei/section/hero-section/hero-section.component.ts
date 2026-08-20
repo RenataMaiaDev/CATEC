@@ -12,16 +12,16 @@ import { TonomeiButtonComponent } from '../../components/tonomei-button/tonomei-
 export class HeroSectionComponent {
   // List of images for the rectangular carousel
   entrepreneurImages: string[] = [
-    'img-tonomei/motoboy.webp',
-    'img-tonomei/mecanico.webp',
-    'img-tonomei/feirante.webp',
-    'img-tonomei/mercado.webp',
-    'img-tonomei/barbeiro.webp',
-    'img-tonomei/pedreiro.webp',
-    'img-tonomei/padeiro.webp',
-    'img-tonomei/manicure.webp',
-    'img-tonomei/pipoqueiro.webp',
-    'img-tonomei/pescador.webp',
+    'images-tonomei/motoboy.webp',
+    'images-tonomei/mecanico.webp',
+    'images-tonomei/feirante.webp',
+    'images-tonomei/mercado.webp',
+    'images-tonomei/barbeiro.webp',
+    'images-tonomei/pedreiro.webp',
+    'images-tonomei/padeiro.webp',
+    'images-tonomei/manicure.webp',
+    'images-tonomei/pipoqueiro.webp',
+    'images-tonomei/pescador.webp',
   ];
 
   // Opens the given URL in a new tab.

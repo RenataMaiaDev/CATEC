@@ -50,8 +50,8 @@ export interface FooterBadge {
 // smaller than the wider ABES wordmark to look visually balanced next to it.
 const FOOTER_BADGES: Partial<Record<FooterTheme, FooterBadge[]>> = {
   tonomei: [
-    { src: 'img-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
-    { src: 'img-tonomei/ABES.webp', alt: 'Selo ABES' },
+    { src: 'images-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
+    { src: 'images-tonomei/ABES.webp', alt: 'Selo ABES' },
   ],
   sisamb: [
     { src: 'img-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
@@ -68,19 +68,19 @@ const FOOTER_LOGOS: Record<
   FooterTheme,
   { src: string; alt: string; invert: boolean }
 > = {
-  tonomei: { src: 'img-tonomei/logo.webp', alt: 'tônomei', invert: false },
+  tonomei: { src: 'images-tonomei/logo.webp', alt: 'tônomei', invert: false },
   catec: {
-    src: 'img/logo-catec-solucoes1.webp',
+    src: 'images/logo-catec-solucoes1.webp',
     alt: 'CATEC Soluções',
     invert: false,
   },
   gestao: {
-    src: 'img/logo-gestao-una.webp',
+    src: 'images/logo-gestao-una.webp',
     alt: 'Gestão Una',
     invert: true,
   },
   sisamb: {
-    src: 'img/logo-sisamb.webp',
+    src: 'images/logo-sisamb.webp',
     alt: 'SISAMB',
     invert: true,
   },
