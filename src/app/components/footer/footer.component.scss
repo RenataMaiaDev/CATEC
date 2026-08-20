@@ -37,9 +37,15 @@
   gap: 32px;
 
   // tônomei and SISAMB add a fourth column for the app store badges.
-  .footer--tonomei &,
-  .footer--sisamb & {
-    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  // Gated to min-width so it never outranks the responsive overrides
+  // below — a themed descendant selector has higher specificity than
+  // a plain .footer-grid rule, which would otherwise win even inside
+  // a max-width media query and break the mobile/tablet layouts.
+  @media (min-width: 901px) {
+    .footer--tonomei &,
+    .footer--sisamb & {
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    }
   }
 }
 
@@ -96,6 +102,7 @@
 .footer-badges {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   gap: 22px;
 }
@@ -222,14 +229,36 @@ a.footer-item:hover {
   color: rgba(255, 255, 255, 0.45);
 }
 
+// Two-column layout on tablet, brand spans the full width
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
 // Single-column layout on mobile
-@media (max-width: 720px) {
+@media (max-width: 600px) {
+  .footer {
+    padding: 36px 18px 20px;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 28px;
   }
 
-  .footer-tagline {
+  .footer-tagline,
+  .footer-trust-list {
     max-width: none;
+  }
+
+  .footer-store-badge {
+    width: 100%;
+    max-width: 220px;
   }
 }
