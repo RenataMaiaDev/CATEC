@@ -6,11 +6,19 @@
       class="logo"
       (click)="setActiveSection('sisamb-inicio', $event)"
     >
-      <img src="img/logo-sisamb.webp" alt="SISAMB" class="logo-img" />
+      <img src="images/logo-sisamb.webp" alt="SISAMB" class="logo-img" />
     </a>
 
     <!-- Navigation Menu Desktop -->
     <nav class="nav-menu">
+      <a
+        href="#inicio"
+        class="nav-link"
+        [class.active]="activeSection() === 'inicio'"
+        (click)="setActiveSection('inicio', $event)"
+        >CATEC</a
+      >
+
       <a
         href="#sisamb-inicio"
         class="nav-link"
@@ -24,7 +32,7 @@
         class="nav-link"
         [class.active]="activeSection() === 'sisamb-sobre'"
         (click)="setActiveSection('sisamb-sobre', $event)"
-        >SOBRE</a
+        >Sobre o SISAMB</a
       >
 
       <a
@@ -32,7 +40,7 @@
         class="nav-link"
         [class.active]="activeSection() === 'sisamb-problema'"
         (click)="setActiveSection('sisamb-problema', $event)"
-        >A realidade sem o SISAMB</a
+        >Sem o SISAMB</a
       >
 
       <a
@@ -40,7 +48,7 @@
         class="nav-link"
         [class.active]="activeSection() === 'sisamb-modulos'"
         (click)="setActiveSection('sisamb-modulos', $event)"
-        >MÓDULOS</a
+        >Por isso existe o SISAMB</a
       >
 
       <a
@@ -48,7 +56,7 @@
         class="nav-link"
         [class.active]="activeSection() === 'sisamb-contratar'"
         (click)="setActiveSection('sisamb-contratar', $event)"
-        >COMO CONTRATAR</a
+        >Como contratar</a
       >
 
       <!-- SISAMB login link, styled like the other nav items -->
@@ -78,6 +86,12 @@
     <div class="mobile-menu">
       <nav class="mobile-nav">
         <a
+          href="#inicio"
+          class="mobile-link"
+          (click)="setActiveSection('inicio', $event)"
+          >CATEC</a
+        >
+        <a
           href="#sisamb-inicio"
           class="mobile-link"
           (click)="setActiveSection('sisamb-inicio', $event)"
@@ -87,25 +101,25 @@
           href="#sisamb-sobre"
           class="mobile-link"
           (click)="setActiveSection('sisamb-sobre', $event)"
-          >SOBRE</a
+          >Sobre o SISAMB</a
         >
         <a
           href="#sisamb-problema"
           class="mobile-link"
           (click)="setActiveSection('sisamb-problema', $event)"
-          >A realidade sem o SISAMB</a
+          >Sem o SISAMB</a
         >
         <a
           href="#sisamb-modulos"
           class="mobile-link"
           (click)="setActiveSection('sisamb-modulos', $event)"
-          >MÓDULOS</a
+          >Por isso existe o SISAMB</a
         >
         <a
           href="#sisamb-contratar"
           class="mobile-link"
           (click)="setActiveSection('sisamb-contratar', $event)"
-          >COMO CONTRATAR</a
+          >Como contratar</a
         >
         <!-- SISAMB login link (mobile, same style) -->
         <a

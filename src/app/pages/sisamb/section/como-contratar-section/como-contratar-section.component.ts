@@ -12,8 +12,6 @@ interface Passo {
   description: string;
 }
 
-const SISAMB_EMAIL = 'sisamb.eco@catecsolucoes.com.br';
-
 @Component({
   selector: 'app-como-contratar-section',
   standalone: true,
@@ -25,8 +23,6 @@ const SISAMB_EMAIL = 'sisamb.eco@catecsolucoes.com.br';
 // an editorial intro (left) + vertical timeline (right).
 export class ComoContratarSectionComponent {
   private readonly timeline = viewChild<ElementRef<HTMLElement>>('timeline');
-
-  readonly email = SISAMB_EMAIL;
 
   readonly passos: Passo[] = [
     {

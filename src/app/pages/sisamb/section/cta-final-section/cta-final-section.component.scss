@@ -5,13 +5,13 @@
     var(--secondary-sisamb) 0%,
     var(--primary-sisamb-text) 140%
   );
-  padding: 72px 24px;
+  padding: 30px 24px 0;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
 
   @media (max-width: 768px) {
-    padding: 52px 20px;
+    padding: 30px 20px 0;
   }
 }
 

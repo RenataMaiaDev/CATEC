@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 
 interface Modulo {
   icon: string;
@@ -10,7 +11,7 @@ interface Modulo {
 @Component({
   selector: 'app-more-products-section',
   standalone: true,
-  imports: [],
+  imports: [ButtonComponent],
   templateUrl: './more-products-section.component.html',
   styleUrl: './more-products-section.component.scss',
 })
@@ -60,4 +61,12 @@ export class MoreProductsSectionComponent {
         'Ajuste usuários, permissões e regras do município sem depender de programação.',
     },
   ];
+
+  // Scrolls to "como contratar" — the natural next step after seeing the modules.
+  scrollToContratar(event: Event): void {
+    event.preventDefault();
+    document
+      .getElementById('sisamb-contratar')
+      ?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

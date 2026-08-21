@@ -1,13 +1,13 @@
 .acesso-section {
   width: 100%;
   background: var(--white);
-  padding: 56px 24px;
+  padding: 30px 24px 0;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
 
   @media (max-width: 768px) {
-    padding: 40px 16px;
+    padding: 30px 16px 0;
   }
 }
 

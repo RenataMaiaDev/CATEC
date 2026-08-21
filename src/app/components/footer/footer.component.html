@@ -77,11 +77,8 @@
         </div>
       </div>
 
-      <!-- App store badges (tônomei and SISAMB — brands with a published app) -->
-      <div
-        class="footer-col"
-        *ngIf="theme === 'tonomei' || theme === 'sisamb'"
-      >
+      <!-- App store badges (tônomei — the only brand with a published app) -->
+      <div class="footer-col" *ngIf="theme === 'tonomei'">
         <p class="footer-eyebrow">Baixe o app</p>
         <div class="footer-stores">
           <!-- TODO: replace "#" with the real Google Play listing URL once published -->

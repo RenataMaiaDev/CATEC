@@ -29,13 +29,6 @@ const FOOTER_TRUST_ITEMS: Partial<Record<FooterTheme, FooterTrustItem[]>> = {
       note: '(em todo o território nacional)',
     },
   ],
-  sisamb: [
-    { text: 'O SISAMB é patenteado pelo INPI' },
-    {
-      text: 'O sistema possui Certificação pela ABES',
-      note: '(em todo o território nacional)',
-    },
-  ],
 };
 
 export interface FooterBadge {
@@ -52,10 +45,6 @@ const FOOTER_BADGES: Partial<Record<FooterTheme, FooterBadge[]>> = {
   tonomei: [
     { src: 'images-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
     { src: 'images-tonomei/ABES.webp', alt: 'Selo ABES' },
-  ],
-  sisamb: [
-    { src: 'img-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
-    { src: 'img-tonomei/ABES.webp', alt: 'Selo ABES' },
   ],
 };
 

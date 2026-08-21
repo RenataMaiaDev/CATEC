@@ -75,7 +75,7 @@ export class TonomeiSectionComponent {
       icon: 'eco',
       image: 'images/sisamb.webp',
       logo: 'images/logo-sisamb.webp',
-      route: 'https://sisamb.eco.br/',
+      route: '/sisamb',
       clickable: true,
     },
     {

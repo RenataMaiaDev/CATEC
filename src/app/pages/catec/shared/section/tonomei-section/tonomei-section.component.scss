@@ -1,13 +1,13 @@
 .tonomei-section {
   width: 100%;
   background: #fffefe;
-  padding: 64px 0;
+  padding: 30px 0 0;
   position: relative;
   overflow: hidden;
   scroll-margin-top: 80px;
 
   @media (max-width: 576px) {
-    padding: 48px 0;
+    padding: 30px 0 0;
   }
 }
 
@@ -318,6 +318,17 @@
       width: 28px;
       border-radius: 10px;
       background-color: var(--primary-catec);
+    }
+  }
+}
+
+/* SISAMB slide CTA — green to match SISAMB's own brand color instead of the default CATEC orange */
+.showcase-cta--sisamb {
+  ::ng-deep .btn.primary {
+    background-color: var(--primary-sisamb);
+
+    &:hover {
+      background-color: var(--primary-hover-sisamb);
     }
   }
 }

@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +9,21 @@ import { Component, signal } from '@angular/core';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  private router = inject(Router);
+
   isMenuOpen = signal<boolean>(false);
   activeSection = signal<string>('sisamb-inicio');
 
   setActiveSection(sectionId: string, event: Event): void {
     event.preventDefault();
+
+    // Redirects back to the CATEC LP instead of scrolling within the page.
+    if (sectionId === 'inicio') {
+      this.closeMenu();
+      this.router.navigate(['/']);
+      return;
+    }
+
     this.activeSection.set(sectionId);
     this.closeMenu();
     this.scrollToElement(sectionId);

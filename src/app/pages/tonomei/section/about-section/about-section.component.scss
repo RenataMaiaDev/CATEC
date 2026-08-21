@@ -1,7 +1,7 @@
 .about-section {
   width: 100%;
   background: #fffefe;
-  padding: 64px 0;
+  padding: 30px 0 0;
   position: relative;
   overflow: hidden;
   scroll-margin-top: 80px;
@@ -32,7 +32,7 @@
   }
 
   @media (max-width: 968px) {
-    padding: 48px 0;
+    padding: 30px 0 0;
     position: relative;
     overflow: hidden;
   }
