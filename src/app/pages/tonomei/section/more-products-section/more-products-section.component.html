@@ -19,30 +19,27 @@
     <!-- Grade de vantagens com revelação no hover -->
     <div class="advantages-grid">
       @for (item of advantages; track item.title) {
-        <div class="advantage-tile">
-          <div class="advantage-tile-face">
-            <span class="advantage-icon material-icons">{{ item.icon }}</span>
-            <h3 class="advantage-title">{{ item.title }}</h3>
-          </div>
-          <div class="advantage-tile-detail">
-            <span class="advantage-icon advantage-icon--sm material-icons">{{
-              item.icon
-            }}</span>
-            <h3 class="advantage-title">{{ item.title }}</h3>
-            <p class="advantage-description">{{ item.description }}</p>
-          </div>
+      <div class="advantage-tile">
+        <div class="advantage-tile-face">
+          <span class="advantage-icon material-icons">{{ item.icon }}</span>
+          <h3 class="advantage-title">{{ item.title }}</h3>
         </div>
+        <div class="advantage-tile-detail">
+          <span class="advantage-icon advantage-icon--sm material-icons">{{
+            item.icon
+            }}</span>
+          <h3 class="advantage-title">{{ item.title }}</h3>
+          <p class="advantage-description">{{ item.description }}</p>
+        </div>
+      </div>
       }
     </div>
 
     <!-- Botão Principal -->
     <div class="more-products-actions">
-      <app-tonomei-button
-        variant="primary"
-        (click)="
-          navigateTo('https://backendjava.catecsolucoes.com.br/tonomei/login-demo')
-        "
-      >
+      <app-tonomei-button variant="primary" (click)="
+          navigateTo('https://tonomei.com.br/app/login-demo')
+        ">
         Crie sua Conta Aqui!
         <i class="fa-solid fa-arrow-right"></i>
       </app-tonomei-button>

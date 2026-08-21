@@ -20,12 +20,9 @@
 
       <!-- Botão de Ação -->
       <div class="hero-actions">
-        <app-tonomei-button
-          variant="primary"
-          (click)="
-            navigateTo('https://backendjava.catecsolucoes.com.br/tonomei/login-demo')
-          "
-        >
+        <app-tonomei-button variant="primary" (click)="
+            navigateTo('https://tonomei.com.br/app/login-demo')
+          ">
           Crie sua Conta Aqui!
         </app-tonomei-button>
       </div>
@@ -82,12 +79,8 @@
       <div class="bg-arch"></div>
 
       <!-- Imagem da Empreendedora -->
-      <img
-        src="images-tonomei/boleira.webp"
-        alt="Empreendedora utilizando a plataforma tônomei"
-        class="main-person-img"
-        fetchpriority="high"
-      />
+      <img src="images-tonomei/boleira.webp" alt="Empreendedora utilizando a plataforma tônomei" class="main-person-img"
+        fetchpriority="high" />
 
       <!-- Card Flutuante Inferior -->
       <div class="floating-card card-bottom">
@@ -106,12 +99,12 @@
   <div class="entrepreneurs-ticker-wrapper">
     <div class="ticker-track">
       @for (
-        image of entrepreneurImages.concat(entrepreneurImages);
-        track $index
+      image of entrepreneurImages.concat(entrepreneurImages);
+      track $index
       ) {
-        <div class="ticker-card-rectangle">
-          <img [src]="image" alt="Empreendedor tônomei" loading="lazy" />
-        </div>
+      <div class="ticker-card-rectangle">
+        <img [src]="image" alt="Empreendedor tônomei" loading="lazy" />
+      </div>
       }
     </div>
   </div>

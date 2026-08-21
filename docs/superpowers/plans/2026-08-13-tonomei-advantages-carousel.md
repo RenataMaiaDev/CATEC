@@ -276,7 +276,7 @@ Replace the full contents of `src/app/pages/tonomei/section/more-products-sectio
       <app-tonomei-button
         variant="primary"
         (click)="
-          navigateTo('https://backendjava.catecsolucoes.com.br/tonomei/demo')
+          navigateTo('https://tonomei.com.br/app/login-demo')
         "
       >
         Crie sua Conta Aqui!
