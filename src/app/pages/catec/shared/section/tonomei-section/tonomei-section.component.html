@@ -81,9 +81,9 @@
               <div class="showcase-actions">
                 <!-- Wrapper that ensures the click is captured and the redirect happens -->
                 <div
+                  class="showcase-cta-wrapper"
                   (click)="openSystemPage(slide)"
                   [style.cursor]="slide.clickable ? 'pointer' : 'default'"
-                  style="display: inline-block"
                 >
                   <app-catec-button variant="primary">
                     Experimente o {{ slide.button }}
