@@ -1,0 +1,6 @@
+{
+  "outputDirectory": "dist/catec",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
