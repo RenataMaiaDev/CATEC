@@ -3,7 +3,7 @@
   width: 100%;
   overflow: hidden;
   background: var(--bg-light);
-  padding: 0 24px 96px;
+  padding: 20px 24px 96px;
   min-height: 80vh;
   display: flex;
   align-items: center;
@@ -12,11 +12,11 @@
 
   @media (max-width: 1024px) {
     min-height: auto;
-    padding: 0 20px 88px;
+    padding: 20px 20px 88px;
   }
 
   @media (max-width: 576px) {
-    padding: 0 16px 72px;
+    padding: 20px 16px 72px;
   }
 }
 
