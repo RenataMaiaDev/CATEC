@@ -97,7 +97,7 @@ module.exports = async function handler(req, res) {
 
     await transporter.sendMail({
       from: `"Formulário CATEC" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
+      to: process.env.MAIL_TO || process.env.GMAIL_USER,
       replyTo: email,
       subject: `Nova solicitação de orçamento - ${nome}`,
       text: linhas.map(([campo, valor]) => `${campo}: ${valor}`).join('\n'),
