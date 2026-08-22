@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 
 @Component({
-  selector: 'app-button',
+  selector: 'app-sisamb-button',
   standalone: true,
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
