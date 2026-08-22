@@ -322,17 +322,6 @@
   }
 }
 
-/* SISAMB slide CTA — green to match SISAMB's own brand color instead of the default CATEC orange */
-.showcase-cta--sisamb {
-  ::ng-deep .btn.primary {
-    background-color: var(--primary-sisamb);
-
-    &:hover {
-      background-color: var(--primary-hover-sisamb);
-    }
-  }
-}
-
 /* SMOOTH ENTRANCE ANIMATION */
 .animated-fade-in {
   animation: fadeIn 0.35s ease-in-out;
