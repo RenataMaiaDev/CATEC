@@ -28,10 +28,6 @@
         class="orcamento-form"
         (ngSubmit)="enviar()"
       >
-        <!-- TODO: TEST email. Replace with contato@catecsolucoes.com.br before going to production. -->
-        <input type="hidden" name="to_email" value="renataaugustomaia@gmail.com" />
-        <input type="hidden" name="tipo_pessoa" [value]="tipoPessoa()" />
-
         <!-- SECTION: IDENTIFICATION -->
         <section class="form-section">
           <h4 class="form-section-title">
@@ -200,10 +196,6 @@
                   [ngModelOptions]="{ standalone: true }"
                 />
               </div>
-              <!-- The input above has no [name] on purpose: the native value of
-                   type="date" is ISO (YYYY-MM-DD). What actually gets sent is
-                   this hidden field, already converted to BR format. -->
-              <input type="hidden" name="data_preferida" [value]="dataPreferidaBr" />
             </div>
 
             <div class="form-field">

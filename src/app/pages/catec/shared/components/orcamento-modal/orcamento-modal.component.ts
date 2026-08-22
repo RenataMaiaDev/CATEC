@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild, effect, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import emailjs from '@emailjs/browser';
 import { ButtonComponent } from '../button/button.component';
 import { OrcamentoService } from './orcamento.service';
 
@@ -9,14 +8,9 @@ type TipoPessoa = 'fisica' | 'juridica';
 type StatusEnvio = 'idle' | 'enviando' | 'sucesso' | 'erro';
 type Toast = { tipo: 'sucesso' | 'erro'; mensagem: string };
 
-// TODO: TEST credentials (personal account). Replace with CATEC's final credentials before going to production.
-const EMAILJS_SERVICE_ID = 'service_c0rs4th';
-const EMAILJS_TEMPLATE_ID = 'template_f0vnyhp';
-const EMAILJS_PUBLIC_KEY = 'lkJzopXB5M7ekUZFm';
-
 const DURACAO_TOAST_MS = 5000;
 
-// Quote request modal: form, validation and submission via EmailJS.
+// Quote request modal: form, validation and submission via the /api/send-email backend.
 @Component({
   selector: 'app-orcamento-modal',
   standalone: true,
@@ -154,7 +148,7 @@ export class OrcamentoModalComponent {
     );
   }
 
-  // Validates and submits the form via EmailJS, then shows a success/error toast.
+  // Validates and submits the form to the backend, then shows a success/error toast.
   async enviar(): Promise<void> {
     this.tentouEnviar.set(true);
     if (!this.formularioValido || this.status() === 'enviando') {
@@ -164,12 +158,26 @@ export class OrcamentoModalComponent {
     this.status.set('enviando');
 
     try {
-      await emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        this.formRef.nativeElement,
-        { publicKey: EMAILJS_PUBLIC_KEY },
-      );
+      const resposta = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome: this.nome,
+          documento: this.documento,
+          tipoPessoa: this.tipoPessoa(),
+          endereco: this.endereco,
+          email: this.email,
+          telefone: this.telefone,
+          dataPreferida: this.dataPreferidaBr,
+          horaPreferida: this.horaPreferida,
+          descricao: this.descricao,
+        }),
+      });
+
+      if (!resposta.ok) {
+        throw new Error(`Falha no envio: ${resposta.status}`);
+      }
+
       this.status.set('sucesso');
       this.fechar();
       this.reiniciar();

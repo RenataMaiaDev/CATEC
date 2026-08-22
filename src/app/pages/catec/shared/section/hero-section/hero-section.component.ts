@@ -52,8 +52,7 @@ export class HeroSectionComponent {
     });
   }
 
-  // Opens the quote request modal. Currently unused by this section's CTA
-  // (which points to WhatsApp instead) but kept wired up for a future switch back.
+  // Opens the quote request modal.
   abrirOrcamento(): void {
     this.orcamentoService.abrir();
   }
