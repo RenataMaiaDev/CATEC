@@ -1,5 +1,6 @@
 const { enviarEmail, isValidEmail, paraAnexoNodemailer, escapeHtml } = require('./_lib/mailer');
-const LOGO_CATEC_BASE64 = require('./logo-catec-base64');
+
+const LOGO_CATEC_URL = 'https://catec.vercel.app/images/logo-catec-email.png';
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -55,7 +56,7 @@ module.exports = async function handler(req, res) {
       <div style="max-width: 500px; margin: 0 auto; font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; border: 1px solid #e2e2e2; border-radius: 12px; overflow: hidden;">
         <div style="background-color: #131a2b; color: #ffffff; padding: 20px 24px;">
           <img
-            src="cid:catec-logo"
+            src="${LOGO_CATEC_URL}"
             alt="CATEC Soluções"
             width="140"
             height="53"
@@ -129,17 +130,7 @@ module.exports = async function handler(req, res) {
       subject: `Nova solicitação recebida pelo site - ${name}`,
       text: linhas.map(([campo, valor]) => `${campo}: ${valor}`).join('\n'),
       html,
-      attachments: [
-        {
-          filename: 'catec-logo.png',
-          content: LOGO_CATEC_BASE64,
-          encoding: 'base64',
-          contentType: 'image/png',
-          cid: 'catec-logo',
-          contentDisposition: 'inline',
-        },
-        ...attachments,
-      ],
+      attachments,
     });
 
     return res.status(200).json({ success: true });

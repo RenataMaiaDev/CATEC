@@ -1,5 +1,6 @@
 const { enviarEmail, isValidEmail, paraAnexoNodemailer, escapeHtml } = require('./_lib/mailer');
-const LOGO_SISAMB_BASE64 = require('./logo-sisamb-base64');
+
+const LOGO_SISAMB_URL = 'https://catec.vercel.app/images/logo-sisamb-email.png';
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -55,7 +56,7 @@ module.exports = async function handler(req, res) {
       <div style="max-width: 500px; margin: 0 auto; font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; border: 1px solid #e2e2e2; border-radius: 12px; overflow: hidden;">
         <div style="background-color: #ffffff; padding: 20px 24px; border-bottom: 3px solid #00c29d;">
           <img
-            src="cid:sisamb-logo"
+            src="${LOGO_SISAMB_URL}"
             alt="SISAMB"
             width="140"
             height="47"
@@ -129,17 +130,7 @@ module.exports = async function handler(req, res) {
       subject: `Novo agendamento SISAMB - ${name}`,
       text: linhas.map(([campo, valor]) => `${campo}: ${valor}`).join('\n'),
       html,
-      attachments: [
-        {
-          filename: 'sisamb-logo.png',
-          content: LOGO_SISAMB_BASE64,
-          encoding: 'base64',
-          contentType: 'image/png',
-          cid: 'sisamb-logo',
-          contentDisposition: 'inline',
-        },
-        ...attachments,
-      ],
+      attachments,
     });
 
     return res.status(200).json({ success: true });
