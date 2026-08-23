@@ -7,8 +7,13 @@ import { OrcamentoService } from './orcamento.service';
 type TipoPessoa = 'fisica' | 'juridica';
 type StatusEnvio = 'idle' | 'enviando' | 'sucesso' | 'erro';
 type Toast = { tipo: 'sucesso' | 'erro'; mensagem: string };
+type TipoAnexo = 'imagem' | 'documento';
+type Anexo = { nome: string; tipo: string; base64: string };
 
 const DURACAO_TOAST_MS = 5000;
+// Kept well under Vercel's request body limit, since both files travel as
+// base64 (~33% larger) inside the same JSON payload as the rest of the form.
+const TAMANHO_MAX_ANEXO_BYTES = 3 * 1024 * 1024;
 
 // Quote request modal: form, validation and submission via the /api/send-email backend.
 @Component({
@@ -23,6 +28,7 @@ export class OrcamentoModalComponent {
 
   private readonly orcamentoService = inject(OrcamentoService);
   readonly isOpen = this.orcamentoService.isOpen;
+  readonly marca = this.orcamentoService.marca;
 
   tipoPessoa = signal<TipoPessoa>('fisica');
   status = signal<StatusEnvio>('idle');
@@ -38,6 +44,11 @@ export class OrcamentoModalComponent {
   descricao = '';
   dataPreferida = '';
   horaPreferida = '';
+
+  imagemArquivo = signal<File | null>(null);
+  documentoArquivo = signal<File | null>(null);
+  imagemErro = signal<string | null>(null);
+  documentoErro = signal<string | null>(null);
 
   readonly dataMinima = new Date().toISOString().split('T')[0];
 
@@ -99,6 +110,53 @@ export class OrcamentoModalComponent {
       .replace(/(\d{4})(\d{1,2})$/, '$1-$2');
   }
 
+  // Validates and stores a selected image or document, clearing it on error.
+  onArquivoSelecionado(event: Event, tipo: TipoAnexo): void {
+    const input = event.target as HTMLInputElement;
+    const arquivo = input.files?.[0] ?? null;
+    const arquivoSignal = tipo === 'imagem' ? this.imagemArquivo : this.documentoArquivo;
+    const erroSignal = tipo === 'imagem' ? this.imagemErro : this.documentoErro;
+
+    if (!arquivo) {
+      arquivoSignal.set(null);
+      erroSignal.set(null);
+      return;
+    }
+
+    if (arquivo.size > TAMANHO_MAX_ANEXO_BYTES) {
+      arquivoSignal.set(null);
+      erroSignal.set('Arquivo muito grande. Tamanho máximo: 3 MB.');
+      input.value = '';
+      return;
+    }
+
+    arquivoSignal.set(arquivo);
+    erroSignal.set(null);
+  }
+
+  // Reads a File as a base64 string (without the "data:...;base64," prefix).
+  private lerComoBase64(arquivo: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const resultado = reader.result as string;
+        resolve(resultado.split(',')[1] ?? '');
+      };
+      reader.onerror = () => reject(reader.error);
+      reader.readAsDataURL(arquivo);
+    });
+  }
+
+  // Converts a selected file into the { nome, tipo, base64 } shape the backend expects.
+  private async paraAnexo(arquivo: File | null): Promise<Anexo | null> {
+    if (!arquivo) return null;
+    return {
+      nome: arquivo.name,
+      tipo: arquivo.type || 'application/octet-stream',
+      base64: await this.lerComoBase64(arquivo),
+    };
+  }
+
   // Applies the phone mask, handling both 10 and 11-digit numbers.
   private mascararTelefone(digitosBrutos: string): string {
     const digitos = digitosBrutos.slice(0, 11);
@@ -158,19 +216,30 @@ export class OrcamentoModalComponent {
     this.status.set('enviando');
 
     try {
-      const resposta = await fetch('/api/send-email', {
+      const [anexoImagem, anexoDocumento] = await Promise.all([
+        this.paraAnexo(this.imagemArquivo()),
+        this.paraAnexo(this.documentoArquivo()),
+      ]);
+
+      const endpoint =
+        this.orcamentoService.marca() === 'sisamb'
+          ? '/api/send-email-sisamb'
+          : '/api/send-email';
+
+      const resposta = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          nome: this.nome,
-          documento: this.documento,
-          tipoPessoa: this.tipoPessoa(),
-          endereco: this.endereco,
+          name: this.nome,
+          document: this.documento,
+          address: this.endereco,
           email: this.email,
-          telefone: this.telefone,
-          dataPreferida: this.dataPreferidaBr,
-          horaPreferida: this.horaPreferida,
-          descricao: this.descricao,
+          phone: this.telefone,
+          preferredDate: this.dataPreferidaBr,
+          preferredTime: this.horaPreferida,
+          description: this.descricao,
+          anexoImagem,
+          anexoDocumento,
         }),
       });
 
@@ -212,6 +281,10 @@ export class OrcamentoModalComponent {
     this.descricao = '';
     this.dataPreferida = '';
     this.horaPreferida = '';
+    this.imagemArquivo.set(null);
+    this.documentoArquivo.set(null);
+    this.imagemErro.set(null);
+    this.documentoErro.set(null);
     this.tentouEnviar.set(false);
     this.status.set('idle');
     this.formRef?.nativeElement?.reset();

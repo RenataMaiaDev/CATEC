@@ -19,6 +19,48 @@ interface Modulo {
 export class MoreProductsSectionComponent {
   readonly modulos: Modulo[] = [
     {
+      icon: 'support_agent',
+      name: 'Central do Cidadão',
+      tagline: 'Atendimento 100% online',
+      description:
+        'O cidadão resolve tudo pela internet, com acompanhamento em tempo real de cada solicitação.',
+    },
+    {
+      icon: 'smart_toy',
+      name: 'Análise Inteligente',
+      tagline: 'Triagem automática de documentos',
+      description:
+        'A plataforma faz a primeira triagem dos documentos antes mesmo de chegarem ao fiscal.',
+    },
+    {
+      icon: 'dashboard',
+      name: 'Indicadores Gerenciais',
+      tagline: 'Visão geral em tempo real',
+      description:
+        'Prazos, equipe e indicadores num único painel, para decisões mais rápidas e embasadas.',
+    },
+    {
+      icon: 'fact_check',
+      name: 'Vistoria e Pareceres',
+      tagline: 'Fiscalização com rastreabilidade',
+      description:
+        'Fiscais analisam, decidem e registram cada etapa, com histórico completo e auditável.',
+    },
+    {
+      icon: 'groups',
+      name: 'Atendimento Presencial',
+      tagline: 'Organização da equipe interna',
+      description:
+        'A equipe interna abre e distribui processos entre os fiscais com poucos cliques.',
+    },
+    {
+      icon: 'settings',
+      name: 'Configurações do Sistema',
+      tagline: 'Personalização sem programar',
+      description:
+        'Ajuste usuários, permissões e regras do município sem depender de programação.',
+    },
+    {
       icon: 'auto_awesome',
       name: 'Assistente Virtual Dedicado',
       tagline: 'Tira-dúvidas sobre legislação ambiental',
@@ -83,11 +125,8 @@ export class MoreProductsSectionComponent {
     },
   ];
 
-  // Scrolls to "como contratar" — the natural next step after seeing the modules.
-  scrollToContratar(event: Event): void {
-    event.preventDefault();
-    document
-      .getElementById('sisamb-contratar')
-      ?.scrollIntoView({ behavior: 'smooth' });
+  // Opens the tônomei platform login in a new tab.
+  abrirLoginTonomei(): void {
+    window.open('https://tonomei.com.br/app/login-demo', '_blank', 'noopener,noreferrer');
   }
 }

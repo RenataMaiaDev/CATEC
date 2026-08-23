@@ -12,8 +12,8 @@
         />
         <p class="footer-tagline" *ngIf="tagline">{{ tagline }}</p>
 
-        <div class="footer-trust" *ngIf="trustItems">
-          <ul class="footer-trust-list">
+        <div class="footer-trust" *ngIf="trustItems || badges">
+          <ul class="footer-trust-list" *ngIf="trustItems">
             <li *ngFor="let item of trustItems">
               {{ item.text }}
               <span *ngIf="item.note" class="footer-trust-note">{{

@@ -1,7 +1,11 @@
 <!-- Quote request modal: multi-section form + success/error toast -->
 @if (isOpen()) {
   <div class="orcamento-overlay" (click)="fechar()">
-    <div class="orcamento-dialog" (click)="$event.stopPropagation()">
+    <div
+      class="orcamento-dialog"
+      [class.orcamento-dialog--sisamb]="marca() === 'sisamb'"
+      (click)="$event.stopPropagation()"
+    >
       <div class="orcamento-scroll">
       <header class="orcamento-header">
         <div class="orcamento-header-icon">
@@ -232,6 +236,52 @@
               [(ngModel)]="descricao"
               [ngModelOptions]="{ standalone: true }"
             ></textarea>
+          </div>
+        </section>
+
+        <!-- SECTION: ATTACHMENTS -->
+        <section class="form-section">
+          <h4 class="form-section-title">
+            <i class="material-icons">attach_file</i>
+            Anexos (opcional)
+          </h4>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="imagem">Imagem</label>
+              <div class="file-field">
+                <i class="material-icons">image</i>
+                <input
+                  id="imagem"
+                  type="file"
+                  accept="image/*"
+                  (change)="onArquivoSelecionado($event, 'imagem')"
+                />
+              </div>
+              @if (imagemErro()) {
+                <span class="field-error">{{ imagemErro() }}</span>
+              } @else if (imagemArquivo()) {
+                <span class="field-hint">{{ imagemArquivo()!.name }}</span>
+              }
+            </div>
+
+            <div class="form-field">
+              <label for="documentoAnexo">Documento</label>
+              <div class="file-field">
+                <i class="material-icons">description</i>
+                <input
+                  id="documentoAnexo"
+                  type="file"
+                  accept=".pdf,.doc,.docx,image/*"
+                  (change)="onArquivoSelecionado($event, 'documento')"
+                />
+              </div>
+              @if (documentoErro()) {
+                <span class="field-error">{{ documentoErro() }}</span>
+              } @else if (documentoArquivo()) {
+                <span class="field-hint">{{ documentoArquivo()!.name }}</span>
+              }
+            </div>
           </div>
         </section>
 

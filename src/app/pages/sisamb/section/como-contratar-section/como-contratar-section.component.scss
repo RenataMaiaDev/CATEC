@@ -31,7 +31,32 @@
   }
 }
 
-/* ============ TOP: CENTERED INTRO TEXT ============ */
+.contratar-row {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 32px;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+/* ============ RIGHT: INTRO TEXT + IMAGE ============ */
+.contratar-intro {
+  position: relative;
+  flex: 0 0 420px;
+  text-align: center;
+
+  @media (max-width: 900px) {
+    flex: 1 1 auto;
+  }
+}
+
 .intro-title {
   margin-top: 0;
   margin-bottom: 0;
@@ -49,15 +74,28 @@
 
 .intro-subtitle {
   text-align: center;
-  margin: 0 auto 40px;
-  max-width: 560px;
+  margin: 0 auto 24px;
+  max-width: 380px;
+
+  @media (max-width: 900px) {
+    max-width: 480px;
+  }
 }
 
-/* ============ BELOW: VERTICAL TIMELINE, CENTERED ============ */
-.passos-timeline {
+.intro-image {
+  display: block;
   width: 100%;
-  max-width: 560px;
+  max-width: 380px;
   margin: 0 auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px -14px rgba(20, 40, 35, 0.28);
+}
+
+/* ============ LEFT: VERTICAL TIMELINE ============ */
+.passos-timeline {
+  flex: 1 1 400px;
+  min-width: 0;
+  max-width: 480px;
   display: flex;
   flex-direction: column;
   text-align: left;

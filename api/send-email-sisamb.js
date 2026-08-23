@@ -1,5 +1,5 @@
 const { enviarEmail, isValidEmail, paraAnexoNodemailer, escapeHtml } = require('./_lib/mailer');
-const LOGO_CATEC_BASE64 = require('./logo-catec-base64');
+const LOGO_SISAMB_BASE64 = require('./logo-sisamb-base64');
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -53,43 +53,43 @@ module.exports = async function handler(req, res) {
 
     const html = `
       <div style="max-width: 500px; margin: 0 auto; font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; border: 1px solid #e2e2e2; border-radius: 12px; overflow: hidden;">
-        <div style="background-color: #131a2b; color: #ffffff; padding: 20px 24px;">
+        <div style="background-color: #ffffff; padding: 20px 24px; border-bottom: 3px solid #00c29d;">
           <img
-            src="cid:catec-logo"
-            alt="CATEC Soluções"
+            src="cid:sisamb-logo"
+            alt="SISAMB"
             width="140"
-            height="53"
-            style="display: block; width: 140px; height: 53px; margin: 0 0 8px;"
+            height="47"
+            style="display: block; width: 140px; height: 47px; margin: 0 0 8px;"
           />
-          <p style="margin: 0; font-size: 13px; color: #b9c0d0;">Nova solicitação recebida pelo site</p>
+          <p style="margin: 0; font-size: 13px; color: #64748b;">Novo agendamento recebido pelo site</p>
         </div>
 
         <div style="padding: 24px; background-color: #ffffff;">
           <p style="margin: 0 0 16px; font-size: 14px; color: #333333;">
-            Nova solicitação recebida pelo site, enviada por <strong>${escapeHtml(name)}</strong>.
+            Novo agendamento recebido pelo site, enviado por <strong>${escapeHtml(name)}</strong>.
           </p>
 
-          <div style="background-color: rgba(242, 101, 34, 0.06); border-radius: 10px; padding: 16px; margin-bottom: 16px;">
-            <div style="font-weight: 700; font-size: 15px; color: #131a2b; margin-bottom: 4px;">${escapeHtml(name)}</div>
-            ${document ? `<div style="font-size: 12px; color: #7a8296; margin-bottom: 12px;">Documento: ${escapeHtml(document)}</div>` : ''}
+          <div style="background-color: rgba(0, 194, 157, 0.08); border-radius: 10px; padding: 16px; margin-bottom: 16px;">
+            <div style="font-weight: 700; font-size: 15px; color: #2a2f35; margin-bottom: 4px;">${escapeHtml(name)}</div>
+            ${document ? `<div style="font-size: 12px; color: #64748b; margin-bottom: 12px;">Documento: ${escapeHtml(document)}</div>` : ''}
 
             <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
               ${
                 address
                   ? `
               <tr>
-                <td style="padding: 6px 0; color: #131a2b;"><strong>Endereço:</strong> ${escapeHtml(address)}</td>
+                <td style="padding: 6px 0; color: #2a2f35;"><strong>Endereço:</strong> ${escapeHtml(address)}</td>
               </tr>`
                   : ''
               }
               <tr>
-                <td style="padding: 6px 0; color: #131a2b;"><strong>E-mail:</strong> ${escapeHtml(email)}</td>
+                <td style="padding: 6px 0; color: #2a2f35;"><strong>E-mail:</strong> ${escapeHtml(email)}</td>
               </tr>
               ${
                 phone
                   ? `
               <tr>
-                <td style="padding: 6px 0; color: #131a2b;"><strong>Telefone:</strong> ${escapeHtml(phone)}</td>
+                <td style="padding: 6px 0; color: #2a2f35;"><strong>Telefone:</strong> ${escapeHtml(phone)}</td>
               </tr>`
                   : ''
               }
@@ -97,7 +97,7 @@ module.exports = async function handler(req, res) {
                 preferredDate
                   ? `
               <tr>
-                <td style="padding: 6px 0; color: #131a2b;"><strong>Data agendada:</strong> ${escapeHtml(preferredDate)}</td>
+                <td style="padding: 6px 0; color: #2a2f35;"><strong>Data agendada:</strong> ${escapeHtml(preferredDate)}</td>
               </tr>`
                   : ''
               }
@@ -105,7 +105,7 @@ module.exports = async function handler(req, res) {
                 preferredTime
                   ? `
               <tr>
-                <td style="padding: 6px 0; color: #131a2b;"><strong>Hora agendada:</strong> ${escapeHtml(preferredTime)}</td>
+                <td style="padding: 6px 0; color: #2a2f35;"><strong>Hora agendada:</strong> ${escapeHtml(preferredTime)}</td>
               </tr>`
                   : ''
               }
@@ -113,8 +113,8 @@ module.exports = async function handler(req, res) {
           </div>
 
           <div>
-            <p style="margin: 0 0 8px; font-size: 14px; font-weight: 700; color: #131a2b;">Descrição</p>
-            <div style="background-color: rgba(242, 101, 34, 0.06); border-left: 3px solid #131a2b; padding: 12px 16px; font-size: 14px; color: #333333; border-radius: 0 6px 6px 0;">
+            <p style="margin: 0 0 8px; font-size: 14px; font-weight: 700; color: #2a2f35;">Descrição</p>
+            <div style="background-color: rgba(0, 194, 157, 0.08); border-left: 3px solid #00795f; padding: 12px 16px; font-size: 14px; color: #333333; border-radius: 0 6px 6px 0;">
               ${escapeHtml(description)}
             </div>
           </div>
@@ -123,19 +123,19 @@ module.exports = async function handler(req, res) {
     `;
 
     await enviarEmail({
-      from: `"Formulário CATEC" <${process.env.GMAIL_USER}>`,
-      to: process.env.MAIL_TO || process.env.GMAIL_USER,
+      from: `"Formulário SISAMB" <${process.env.GMAIL_USER}>`,
+      to: process.env.MAIL_TO_SISAMB || process.env.MAIL_TO || process.env.GMAIL_USER,
       replyTo: email,
-      subject: `Nova solicitação recebida pelo site - ${name}`,
+      subject: `Novo agendamento SISAMB - ${name}`,
       text: linhas.map(([campo, valor]) => `${campo}: ${valor}`).join('\n'),
       html,
       attachments: [
         {
-          filename: 'catec-logo.png',
-          content: LOGO_CATEC_BASE64,
+          filename: 'sisamb-logo.png',
+          content: LOGO_SISAMB_BASE64,
           encoding: 'base64',
           contentType: 'image/png',
-          cid: 'catec-logo',
+          cid: 'sisamb-logo',
           contentDisposition: 'inline',
         },
         ...attachments,
@@ -144,7 +144,7 @@ module.exports = async function handler(req, res) {
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Erro ao enviar email:', error);
+    console.error('Erro ao enviar email do SISAMB:', error);
     return res.status(500).json({ error: 'Falha ao enviar email' });
   }
 };

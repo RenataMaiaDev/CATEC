@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 
+const SISAMB_LOGIN_URL = 'https://sisamb.eco.br/auth/login';
+
 @Component({
   selector: 'app-hero-section',
   standalone: true,
@@ -9,12 +11,8 @@ import { ButtonComponent } from '../../shared/components/button/button.component
   styleUrl: './hero-section.component.scss',
 })
 export class HeroSectionComponent {
-  // Scrolls to the módulos section — stands in for "watch the video" until a
-  // real product video exists.
-  scrollToModulos(event: Event): void {
-    event.preventDefault();
-    document
-      .getElementById('sisamb-modulos')
-      ?.scrollIntoView({ behavior: 'smooth' });
+  // Opens the SISAMB platform login in a new tab.
+  acessarSisamb(): void {
+    window.open(SISAMB_LOGIN_URL, '_blank', 'noopener,noreferrer');
   }
 }

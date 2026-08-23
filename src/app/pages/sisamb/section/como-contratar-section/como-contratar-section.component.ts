@@ -64,7 +64,7 @@ export class ComoContratarSectionComponent {
 
   // Opens the same quote-request form used on the catec LP.
   abrirAgendamento(): void {
-    this.orcamentoService.abrir();
+    this.orcamentoService.abrir('sisamb');
   }
 
   constructor() {

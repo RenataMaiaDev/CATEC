@@ -1,0 +1,9 @@
+<section class="image-ticker-wrapper">
+  <div class="ticker-track">
+    @for (image of images.concat(images); track $index) {
+      <div class="ticker-card-rectangle">
+        <img [src]="image" alt="Sisamb.Eco" loading="lazy" />
+      </div>
+    }
+  </div>
+</section>

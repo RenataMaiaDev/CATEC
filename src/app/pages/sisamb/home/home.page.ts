@@ -3,6 +3,7 @@ import { HeaderComponent } from '../shared/components/header/header.component';
 import { HeroSectionComponent } from '../section/hero-section/hero-section.component';
 import { AboutSectionComponent } from '../section/about-section/about-section.component';
 import { ProcessosSectionComponent } from '../section/processos-section/processos-section.component';
+import { ImageCarouselSectionComponent } from '../section/image-carousel-section/image-carousel-section.component';
 import { MoreProductsSectionComponent } from '../section/more-products-section/more-products-section.component';
 import { ComoContratarSectionComponent } from '../section/como-contratar-section/como-contratar-section.component';
 import { FooterComponent } from '../../../components/footer/footer.component';
@@ -14,9 +15,10 @@ import { FooterComponent } from '../../../components/footer/footer.component';
     HeaderComponent,
     HeroSectionComponent,
     AboutSectionComponent,
-    ProcessosSectionComponent,
+    ImageCarouselSectionComponent,
     MoreProductsSectionComponent,
     ComoContratarSectionComponent,
+    ProcessosSectionComponent,
     FooterComponent,
   ],
   templateUrl: './home.page.html',

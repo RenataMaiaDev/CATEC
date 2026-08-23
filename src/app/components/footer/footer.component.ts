@@ -46,6 +46,7 @@ const FOOTER_BADGES: Partial<Record<FooterTheme, FooterBadge[]>> = {
     { src: 'images-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
     { src: 'images-tonomei/ABES.webp', alt: 'Selo ABES' },
   ],
+  sisamb: [{ src: 'images-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true }],
 };
 
 // Per-brand logo shown in the footer, in place of the "CATEC Soluções" text.
@@ -70,7 +71,7 @@ const FOOTER_LOGOS: Record<
   },
   sisamb: {
     src: 'images/logo-sisamb.webp',
-    alt: 'SISAMB',
+    alt: 'Sisamb.Eco',
     invert: true,
   },
 };
