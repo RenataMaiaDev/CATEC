@@ -66,11 +66,11 @@ export class TonomeiSectionComponent {
     },
     {
       id: 'sisambe',
-      button: 'Sisamb.Eco',
+      button: 'Sisamb.eco',
       title: 'Transformação digital na gestão ambiental',
       subtitle: 'Cidades, Estados & Consórcios',
       description:
-        'O Sisamb.Eco leva a gestão ambiental do seu município, estado ou consórcio para o ambiente digital de forma leve, fácil e intuitiva. Simplifique processos, monitore indicadores ecológicos e modernize a administração pública ambiental.',
+        'O Sisamb.eco leva a gestão ambiental do seu município, estado ou consórcio para o ambiente digital de forma leve, fácil e intuitiva. Simplifique processos, monitore indicadores ecológicos e modernize a administração pública ambiental.',
       badge: 'Órgãos de Gestão Ambiental e Consórcios',
       icon: 'eco',
       image: 'images/sisamb.webp',

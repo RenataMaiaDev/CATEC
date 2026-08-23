@@ -71,7 +71,7 @@ const FOOTER_LOGOS: Record<
   },
   sisamb: {
     src: 'images/logo-sisamb.webp',
-    alt: 'Sisamb.Eco',
+    alt: 'Sisamb.eco',
     invert: true,
   },
 };
