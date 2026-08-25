@@ -1,14 +1,19 @@
 <section class="processos-section">
   <p class="processos-label">Processos gerenciados atualmente pela plataforma</p>
+  <div class="section-container text-center">
+    <p class="section-subtitle">
+      Um sistema feito sob medida para você. O Sisamb.eco evolui e
+      agora cria funções exclusivas baseadas na sua realidade.
+    </p>
 
-  <div class="marquee">
-    <div class="marquee-track">
-      @for (item of processosLoop; track $index) {
+
+    <div class="marquee">
+      <div class="marquee-track">
+        @for (item of processosLoop; track $index) {
         <span class="marquee-pill" [attr.aria-hidden]="$index >= processos.length ? 'true' : null">
           <span class="material-icons">check_circle</span>
           {{ item }}
         </span>
-      }
+        }
+      </div>
     </div>
-  </div>
-</section>
