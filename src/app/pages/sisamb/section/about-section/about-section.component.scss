@@ -170,7 +170,7 @@
 
     .label {
       font-size: 0.85rem;
-      color: #94a3b8;
+      color: #ffff;
       font-weight: 500;
 
       @media (max-width: 576px) {
@@ -181,10 +181,12 @@
 }
 
 @keyframes badge-float {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-6px);
   }
