@@ -1,19 +1,25 @@
 <section class="processos-section">
   <p class="processos-label">Processos gerenciados atualmente pela plataforma</p>
   <div class="section-container text-center">
-    <p class="section-subtitle">
-      Um sistema feito sob medida para você. O Sisamb.eco evolui e
-      agora cria funções exclusivas baseadas na sua realidade.
+    <h2 class="hero-title">
+      Inovação a seu serviço.
+      <span class="highlight">Funções personalizadas e feitas especialmente para atender suas necessidades.</span>
+    </h2>
+
+    <p class="hero-subtitle">
+      Mais do que um sistema pronto, o Sisamb.eco cria soluções e
+      funções exclusivas sob medida, moldadas perfeitamente para atender
+      às necessidades do seu dia a dia.
     </p>
+  </div>
 
-
-    <div class="marquee">
-      <div class="marquee-track">
-        @for (item of processosLoop; track $index) {
-        <span class="marquee-pill" [attr.aria-hidden]="$index >= processos.length ? 'true' : null">
-          <span class="material-icons">check_circle</span>
-          {{ item }}
-        </span>
-        }
-      </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      @for (item of processosLoop; track $index) {
+      <span class="marquee-pill" [attr.aria-hidden]="$index >= processos.length ? 'true' : null">
+        <span class="material-icons">check_circle</span>
+        {{ item }}
+      </span>
+      }
     </div>
+  </div>

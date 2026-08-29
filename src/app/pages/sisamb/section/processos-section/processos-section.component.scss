@@ -18,13 +18,11 @@
 .marquee {
   width: 100%;
   overflow: hidden;
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    #000 8%,
-    #000 92%,
-    transparent 100%
-  );
+  mask-image: linear-gradient(90deg,
+      transparent 0%,
+      #000 8%,
+      #000 92%,
+      transparent 100%);
 }
 
 .marquee-track {
@@ -63,8 +61,8 @@
   from {
     transform: translateX(0);
   }
+
   to {
-    // Exactly -25% since the list is rendered 4x — creates a seamless loop.
     transform: translateX(-25%);
   }
 }
@@ -74,5 +72,42 @@
     animation: none;
     flex-wrap: wrap;
     justify-content: center;
+  }
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+  color: var(--secondary-sisamb);
+  margin-bottom: 22px;
+
+  .highlight {
+    color: var(--primary-sisamb-text);  
+    background: linear-gradient(180deg, transparent 80%, rgba(0, 194, 157, 0.22) 55%);
+    padding: 0 1px;
+    border-radius: 1px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    
+    /* Sombra sutil, bem baixa e posicionada atrás do texto */
+    box-shadow: 0 1px 4px 0 rgba(0, 194, 157, 0.15);
+  
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -6px;
+      right: -6px;
+      bottom: 2px;
+      height: 12px;
+      background: rgba(0, 194, 157, 0.25) !important;
+      border-radius: 4px;
+      z-index: -1;
+
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
   }
 }
