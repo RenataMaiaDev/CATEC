@@ -1,30 +1,63 @@
 <header class="header" [class.menu-open]="isMenuOpen()">
   <div class="header-container">
     <!-- Logo -->
-    <a href="#" class="logo" (click)="closeMenu()">
-      <img src="images/logo-catec-solucoes.webp" alt="CATEC Soluções" class="logo-img">
+    <a
+      href="#gestao-inicio"
+      class="logo"
+      (click)="setActiveSection('gestao-inicio', $event)"
+    >
+      <img src="images/logo-gestao-una.webp" alt="Gestão Una" class="logo-img">
     </a>
 
     <!-- Desktop navigation menu -->
     <nav class="nav-menu">
-      <a href="#inicio" class="nav-link active">INÍCIO</a>
-      <a href="#quem-somos" class="nav-link">QUEM SOMOS</a>
-      <a href="#produto" class="nav-link">PRODUTO</a>
-      <a href="#outros-servicos" class="nav-link">OUTROS SERVIÇOS</a>
-      <a href="#contato" class="nav-link">CONTATO</a>
+      <a
+        href="/"
+        class="nav-link"
+        [class.active]="activeSection() === 'catec'"
+        (click)="setActiveSection('catec', $event)"
+        >CATEC</a
+      >
+      <a
+        href="#gestao-inicio"
+        class="nav-link"
+        [class.active]="activeSection() === 'gestao-inicio'"
+        (click)="setActiveSection('gestao-inicio', $event)"
+        >INÍCIO</a
+      >
+      <a
+        href="#gestao-sobre"
+        class="nav-link"
+        [class.active]="activeSection() === 'gestao-sobre'"
+        (click)="setActiveSection('gestao-sobre', $event)"
+        >SOBRE O GESTÃO UNA</a
+      >
+      <a
+        href="#gestao-modulos"
+        class="nav-link"
+        [class.active]="activeSection() === 'gestao-modulos'"
+        (click)="setActiveSection('gestao-modulos', $event)"
+        >PRINCIPAIS EIXOS</a
+      >
+      <a
+        href="#gestao-contato"
+        class="nav-link"
+        [class.active]="activeSection() === 'gestao-contato'"
+        (click)="setActiveSection('gestao-contato', $event)"
+        >CONTATO</a
+      >
 
-      <!-- Useful-links dropdown -->
-      <div class="dropdown-container" [class.open]="isDropdownOpen()">
-        <button class="nav-link dropdown-toggle" (click)="toggleDropdown($event)">
-          LINKS ÚTEIS
-          <i class="fa-solid fa-chevron-down arrow-icon"></i>
-        </button>
-        <div class="dropdown-menu">
-          <a href="#portal" class="dropdown-item" (click)="closeMenu()">Portal do Cliente</a>
-          <a href="#suporte" class="dropdown-item" (click)="closeMenu()">Suporte Técnico</a>
-          <a href="#transparencia" class="dropdown-item" (click)="closeMenu()">Portal da Transparência</a>
-        </div>
-      </div>
+      <!-- Gestão Una login link. TODO: replace "#" with the real platform login URL once available -->
+      <a
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-link"
+        (click)="$event.preventDefault()"
+      >
+        <i class="fa-solid fa-right-to-bracket"></i>
+        <span>ACESSAR O GESTÃO UNA</span>
+      </a>
     </nav>
 
     <!-- Mobile hamburger button -->
@@ -37,22 +70,48 @@
     <!-- Expanded mobile menu -->
     <div class="mobile-menu">
       <nav class="mobile-nav">
-        <a href="#inicio" class="mobile-link" (click)="closeMenu()">INÍCIO</a>
-        <a href="#quem-somos" class="mobile-link" (click)="closeMenu()">QUEM SOMOS</a>
-        <a href="#produto" class="mobile-link" (click)="closeMenu()">PRODUTO</a>
-        <a href="#outros-servicos" class="mobile-link" (click)="closeMenu()">OUTROS SERVIÇOS</a>
-        <a href="#contato" class="mobile-link" (click)="closeMenu()">CONTATO</a>
+        <a
+          href="/"
+          class="mobile-link"
+          (click)="setActiveSection('catec', $event)"
+          >CATEC</a
+        >
+        <a
+          href="#gestao-inicio"
+          class="mobile-link"
+          (click)="setActiveSection('gestao-inicio', $event)"
+          >INÍCIO</a
+        >
+        <a
+          href="#gestao-sobre"
+          class="mobile-link"
+          (click)="setActiveSection('gestao-sobre', $event)"
+          >SOBRE O GESTÃO UNA</a
+        >
+        <a
+          href="#gestao-modulos"
+          class="mobile-link"
+          (click)="setActiveSection('gestao-modulos', $event)"
+          >PRINCIPAIS EIXOS</a
+        >
+        <a
+          href="#gestao-contato"
+          class="mobile-link"
+          (click)="setActiveSection('gestao-contato', $event)"
+          >CONTATO</a
+        >
 
-        <div class="mobile-dropdown" [class.open]="isDropdownOpen()">
-          <button class="mobile-link mobile-dropdown-toggle" (click)="toggleDropdown($event)">
-            LINKS ÚTEIS <i class="fa-solid fa-chevron-down arrow-icon"></i>
-          </button>
-          <div class="mobile-dropdown-menu">
-            <a href="#portal" class="mobile-dropdown-item" (click)="closeMenu()">Portal do Cliente</a>
-            <a href="#suporte" class="mobile-dropdown-item" (click)="closeMenu()">Suporte Técnico</a>
-            <a href="#transparencia" class="mobile-dropdown-item" (click)="closeMenu()">Portal da Transparência</a>
-          </div>
-        </div>
+        <!-- Gestão Una login link (mobile, same style) -->
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mobile-link"
+          (click)="$event.preventDefault()"
+        >
+          <span>ACESSAR O GESTÃO UNA</span>
+          <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
       </nav>
     </div>
   </div>

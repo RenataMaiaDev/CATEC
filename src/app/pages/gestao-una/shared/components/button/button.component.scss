@@ -11,17 +11,17 @@
   transition: all 0.25s ease-in-out;
 
   &.primary {
-    background-color: var(--primary-catec);
+    background-color: var(--primary-gestao);
     color: var(--white);
 
     &:hover {
-      background-color: var(--primary-hover-catec);
+      background-color: var(--primary-hover-gestao);
       transform: translateY(-2px);
     }
   }
 
   &.secondary {
-    background-color: var(--secondary-catec);
+    background-color: var(--primary-dark-gestao);
     color: var(--white);
 
     &:hover {
@@ -33,11 +33,11 @@
   &.outline {
     background-color: transparent;
     border-color: #e2e8f0;
-    color: var(--secondary-catec);
+    color: var(--secondary-gestao);
 
     &:hover {
-      border-color: var(--primary-catec);
-      color: var(--primary-catec);
+      border-color: var(--primary-gestao);
+      color: var(--primary-gestao);
     }
   }
 }

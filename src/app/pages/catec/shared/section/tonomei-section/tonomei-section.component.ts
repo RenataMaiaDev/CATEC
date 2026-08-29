@@ -90,7 +90,7 @@ export class TonomeiSectionComponent {
       image: 'images/gestao.webp',
       logo: 'images/logo-gestao-una.webp',
       route: '/gestao-una',
-      clickable: false,
+      clickable: true,
     },
   ];
 

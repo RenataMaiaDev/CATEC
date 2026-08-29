@@ -1,0 +1,37 @@
+<section class="more-products-section" id="gestao-modulos">
+  <div class="section-container text-center">
+    <span class="section-badge section-badge--gestao">Principais Eixos</span>
+    <h2 class="section-title section-title--gestao">
+      Os eixos que sustentam <br />
+      <span class="highlight">a gestão da sua instituição</span>
+    </h2>
+    <p class="section-subtitle section-subtitle--gestao">
+      O Gestão Una atua nas frentes que mais importam para uma gestão
+      pública moderna, eficiente e conectada com a realidade de cada
+      município.
+    </p>
+    <p class="advantages-hint">
+      <span class="material-icons">touch_app</span>
+      Passe o mouse sobre cada cartão para ver os detalhes
+    </p>
+
+    <!-- Grade com revelação no hover, mesmo modelo do tônomei -->
+    <div class="advantages-grid">
+      @for (item of eixos; track item.title) {
+        <div class="advantage-tile">
+          <div class="advantage-tile-face">
+            <span class="advantage-icon material-icons">{{ item.icon }}</span>
+            <h3 class="advantage-title">{{ item.title }}</h3>
+          </div>
+          <div class="advantage-tile-detail">
+            <span class="advantage-icon advantage-icon--sm material-icons">{{
+              item.icon
+            }}</span>
+            <h3 class="advantage-title">{{ item.title }}</h3>
+            <p class="advantage-description">{{ item.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

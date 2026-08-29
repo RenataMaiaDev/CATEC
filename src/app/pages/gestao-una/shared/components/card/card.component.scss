@@ -1,4 +1,4 @@
-.catec-card {
+.gestao-card {
   background: var(--white);
   padding: 36px 28px;
   border-radius: var(--radius-lg);
@@ -8,8 +8,9 @@
     box-shadow 0.3s ease;
   text-align: center;
   border: 1px solid #b0b1b45e;
+  position: relative;
+  overflow: hidden;
 
-  // Ensures perfect alignment and equal height inside grids
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,7 +31,7 @@
   .icon-wrapper {
     width: 64px;
     height: 64px;
-    background-color: rgba(242, 101, 34, 0.1);
+    background-color: rgba(0, 191, 165, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -40,7 +41,7 @@
 
   .card-icon {
     font-size: 2rem;
-    color: var(--primary-catec);
+    color: var(--primary-gestao);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,7 +52,7 @@
   .card-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--secondary-catec);
+    color: var(--secondary-gestao);
     margin-bottom: 12px;
   }
 
@@ -61,7 +62,6 @@
     line-height: 1.5;
   }
 
-  /* Button area at the bottom of the card */
   .card-action {
     margin-top: 24px;
     padding-top: 20px;

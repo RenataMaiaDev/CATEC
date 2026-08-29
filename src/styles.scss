@@ -16,6 +16,7 @@
   // --- DESIGN TOKENS (GESTAO UNA)
   --primary-gestao: #00bfa5; // Teal/turquoise of the brand
   --primary-hover-gestao: #009d88;
+  --primary-dark-gestao: #00695c; // Deep green accent, used alongside teal + white instead of the purple/near-black tones below
   --secondary-gestao: #181328; // Deep purple used in the lettering
   --accent-gestao: #100b1e; // Dark background/contrast
 
@@ -183,7 +184,11 @@ body.theme-gestao,
 }
 
 .section-title--gestao {
-  color: var(--secondary-gestao);
+  color: var(--primary-dark-gestao);
+
+  .highlight {
+    color: var(--primary-gestao);
+  }
 }
 
 .section-subtitle--gestao {

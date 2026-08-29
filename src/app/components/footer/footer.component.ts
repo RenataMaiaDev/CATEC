@@ -10,7 +10,7 @@ export type FooterTheme = 'tonomei' | 'catec' | 'gestao' | 'sisamb';
 const FOOTER_TAGLINES: Record<FooterTheme, string> = {
   tonomei: '',
   catec: 'Gestão Inovadora para os Empreendedores do Brasil',
-  gestao: 'Gestão Inovadora para os Empreendedores do Brasil',
+  gestao: 'Fazendo gestão de maneira prática, inteligente, barata, inclusiva e moderna.',
   sisamb: 'Gestão ambiental pública, moderna e sem papel',
 };
 
@@ -43,6 +43,10 @@ export interface FooterBadge {
 // smaller than the wider ABES wordmark to look visually balanced next to it.
 const FOOTER_BADGES: Partial<Record<FooterTheme, FooterBadge[]>> = {
   tonomei: [
+    { src: 'images-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
+    { src: 'images-tonomei/ABES.webp', alt: 'Selo ABES' },
+  ],
+  gestao: [
     { src: 'images-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
     { src: 'images-tonomei/ABES.webp', alt: 'Selo ABES' },
   ],
@@ -82,7 +86,7 @@ const FOOTER_LOGOS: Record<
 const FOOTER_EMAILS: Record<FooterTheme, string> = {
   tonomei: 'tonomei@catecsolucoes.com.br',
   catec: 'contato@catecsolucoes.com.br',
-  gestao: 'contato@tonomei.com.br',
+  gestao: 'contato@catecsolucoes.com.br',
   sisamb: 'sisamb.eco@catecsolucoes.com.br',
 };
 

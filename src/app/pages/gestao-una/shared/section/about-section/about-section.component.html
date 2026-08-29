@@ -1,0 +1,61 @@
+<section class="about-section" id="gestao-sobre">
+  <div class="about-container">
+    <!-- TOP ROW: TEXT AND IMAGE SIDE BY SIDE -->
+    <div class="about-top">
+      <!-- LEFT CONTENT (TEXT) -->
+      <div class="about-content">
+        <span class="section-badge section-badge--gestao">Sobre o Gestão Una</span>
+        <h2 class="section-title section-title--gestao">
+          Tecnologia a serviço da
+          <span class="highlight">gestão institucional</span>
+        </h2>
+
+        <p class="about-description">
+          O principal propósito do <strong>Gestão Una</strong> é criar um
+          ambiente colaborativo e inclusivo, permitindo sempre o aprendizado
+          e a conexão com o futuro, gerando soluções adequadas à realidade
+          de cada município e potencializando o que há de melhor em cada
+          região. Isso melhora o relacionamento do governo com as pessoas da
+          comunidade, interagindo com respeito, ética, eficiência e,
+          sobretudo, respeitando o meio ambiente.
+        </p>
+      </div>
+
+      <!-- RIGHT CONTENT (IMAGE AND METRIC BADGE) -->
+      <div class="about-image-wrapper">
+        <div class="about-bg-shape"></div>
+
+        <img
+          src="Images-gu/gu.png"
+          alt="Equipe em reunião analisando o painel do Gestão Una"
+          class="about-img"
+          loading="lazy"
+          decoding="async"
+        />
+
+        <div class="metric-badge">
+          <span class="material-icons badge-icon">hub</span>
+          <div class="metric-text">
+            <span class="number">100% Centralizado</span>
+            <span class="label">Dados em um só lugar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM ROW: BENEFIT CARDS AS AN INFINITE TICKER -->
+    <div class="about-features-ticker">
+      <div class="features-track">
+        @for (item of features; track $index) {
+          <div class="feature-card">
+            <span class="material-icons feature-icon">{{ item.icon }}</span>
+            <div class="feature-text">
+              <strong>{{ item.title }}</strong>
+              <p>{{ item.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

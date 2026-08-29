@@ -15,7 +15,7 @@
   }
 
   &.footer--gestao {
-    background-color: var(--secondary-catec);
+    background-color: var(--primary-dark-gestao);
     --accent: var(--primary-gestao);
   }
 
@@ -42,7 +42,8 @@
   // specificity than a plain .footer-grid rule, which would otherwise win
   // even inside a max-width media query and break the mobile/tablet layouts.
   @media (min-width: 901px) {
-    .footer--tonomei & {
+    .footer--tonomei &,
+    .footer--gestao & {
       grid-template-columns: 1.2fr 1fr 1fr 1fr;
     }
   }

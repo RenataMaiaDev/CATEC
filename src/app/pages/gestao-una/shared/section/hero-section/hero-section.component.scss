@@ -1,0 +1,104 @@
+.hero-section {
+  width: 100%;
+  background: var(--primary-dark-gestao);
+  padding: 60px 24px 0;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  scroll-margin-top: 80px;
+
+  @media (max-width: 768px) {
+    padding: 48px 16px 0;
+  }
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  padding-bottom: 80px;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    padding-bottom: 100px;
+  }
+}
+
+.hero-content {
+  flex: 1;
+  width: 100%;
+  max-width: 560px;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+
+  .highlight {
+    color: var(--primary-gestao);
+  }
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.hero-actions {
+  display: flex;
+
+  @media (max-width: 968px) {
+    justify-content: center;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+
+    app-gestao-button {
+      width: 100%;
+      display: block;
+    }
+  }
+}
+
+/* PRODUCT SCREENSHOT */
+.hero-visual {
+  flex: 1.3;
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-visual-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ORGANIC WAVE TRANSITION */
+.hero-wave {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 70px;
+  display: block;
+
+  @media (max-width: 768px) {
+    height: 48px;
+  }
+}

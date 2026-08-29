@@ -1,25 +1,25 @@
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
 
-// Gestão Una main WhatsApp line (same number used in the footer/floating button).
 const GESTAO_WHATSAPP_PHONE = '5585996157126';
 
 @Component({
-  selector: 'app-hero-section',
+  selector: 'app-cta-final-section',
   standalone: true,
   imports: [ButtonComponent],
-  templateUrl: './hero-section.component.html',
-  styleUrl: './hero-section.component.scss',
+  templateUrl: './cta-final-section.component.html',
+  styleUrl: './cta-final-section.component.scss',
 })
-export class HeroSectionComponent {
-  // Opens WhatsApp with a pre-filled message to the Gestão Una line.
+// Final call-to-action, same WhatsApp pattern used across the rest of the site.
+export class CtaFinalSectionComponent {
   abrirWhatsApp(): void {
     const text = encodeURIComponent(
-      'Olá! Gostaria de saber mais sobre o Gestão Una.',
+      'Olá! Gostaria de saber como o Gestão Una pode ajudar minha instituição.',
     );
     window.open(
       `https://api.whatsapp.com/send/?phone=${GESTAO_WHATSAPP_PHONE}&text=${text}`,
       '_blank',
+      'noopener,noreferrer',
     );
   }
 }
