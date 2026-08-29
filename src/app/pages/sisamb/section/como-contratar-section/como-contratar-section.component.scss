@@ -9,6 +9,11 @@
 
   .section-title .highlight {
     color: var(--primary-sisamb-text);
+    background: linear-gradient(180deg, transparent 80%, rgba(0, 194, 157, 0.15) 55%);
+    padding: 0 1px;
+    border-radius: 1px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 
   @media (max-width: 768px) {
@@ -90,6 +95,20 @@
   border-radius: 14px;
   box-shadow: 0 10px 28px -14px rgba(20, 40, 35, 0.28);
 }
+
+.about-video {
+  position: relative;
+  width: 100%;
+  max-width: 380px; 
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px -14px rgba(20, 40, 35, 0.28);
+  z-index: 1;
+}
+
 
 /* ============ LEFT: VERTICAL TIMELINE ============ */
 .passos-timeline {
