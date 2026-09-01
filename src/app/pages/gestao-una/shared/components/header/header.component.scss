@@ -6,8 +6,8 @@
   width: 100%;
   z-index: 1000;
   background-color: var(--primary-dark-gestao);
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(24, 19, 40, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 
   .header-container {
     max-width: 1200px;
@@ -32,10 +32,12 @@
     height: 32px;
     width: auto;
     object-fit: contain;
-    // The Gestão Una logo asset has dark navy lettering; invert it to white
-    // so it reads on the header's dark background (same treatment SISAMB
-    // uses for its own dark-text logo).
-    filter: brightness(0) invert(1);
+
+    // The logo asset has dark navy/teal lettering; invert it to solid white
+    // so it reads on the header's dark background.
+    &--invert {
+      filter: brightness(0) invert(1);
+    }
   }
 }
 
@@ -133,7 +135,7 @@
 .mobile-menu {
   display: none;
   background-color: var(--primary-dark-gestao);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   position: fixed; // Fills the screen correctly while scrolling
   top: 60px;
   left: 0;
@@ -170,7 +172,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     cursor: pointer;
 
     &:hover {

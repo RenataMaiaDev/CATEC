@@ -10,7 +10,7 @@ export type FooterTheme = 'tonomei' | 'catec' | 'gestao' | 'sisamb';
 const FOOTER_TAGLINES: Record<FooterTheme, string> = {
   tonomei: '',
   catec: 'Gestão Inovadora para os Empreendedores do Brasil',
-  gestao: 'Fazendo gestão de maneira prática, inteligente, barata, inclusiva e moderna.',
+  gestao: 'Fazendo gestão de maneira prática, inteligente, inclusiva e moderna.',
   sisamb: 'Gestão ambiental pública, moderna e sem papel',
 };
 
@@ -46,18 +46,13 @@ const FOOTER_BADGES: Partial<Record<FooterTheme, FooterBadge[]>> = {
     { src: 'images-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
     { src: 'images-tonomei/ABES.webp', alt: 'Selo ABES' },
   ],
-  gestao: [
-    { src: 'images-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true },
-    { src: 'images-tonomei/ABES.webp', alt: 'Selo ABES' },
-  ],
   sisamb: [{ src: 'images-tonomei/selo-inpi.webp', alt: 'Selo INPI', small: true }],
 };
 
 // Per-brand logo shown in the footer, in place of the "CATEC Soluções" text.
-// The footer background is always dark, so each entry points at a
-// light/white-friendly logo asset. Gestão Una and SISAMB only have their
-// regular (dark-text) logo, so they're rendered with a CSS invert filter
-// to read well on the dark background.
+// The footer background is always dark. Gestão Una and SISAMB only have
+// their regular (dark-text) logo, so they're rendered with a CSS invert
+// filter to read well on the dark background.
 const FOOTER_LOGOS: Record<
   FooterTheme,
   { src: string; alt: string; invert: boolean }
@@ -80,13 +75,13 @@ const FOOTER_LOGOS: Record<
   },
 };
 
-// Contact e-mail shown in the footer, per brand. Only tônomei and SISAMB
-// have a confirmed brand-specific address so far; catec/gestão keep the
-// address that was already used here before per-brand emails existed.
+// Contact e-mail shown in the footer, per brand. tônomei, Gestão Una and
+// SISAMB have confirmed brand-specific addresses; catec keeps the address
+// that was already used here before per-brand emails existed.
 const FOOTER_EMAILS: Record<FooterTheme, string> = {
   tonomei: 'tonomei@catecsolucoes.com.br',
   catec: 'contato@catecsolucoes.com.br',
-  gestao: 'contato@catecsolucoes.com.br',
+  gestao: 'gestaouna@catecsolucoes.com.br',
   sisamb: 'sisamb.eco@catecsolucoes.com.br',
 };
 

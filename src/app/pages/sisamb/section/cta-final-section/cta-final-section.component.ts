@@ -14,7 +14,7 @@ const SISAMB_WHATSAPP_PHONE = '5585996157126';
 export class CtaFinalSectionComponent {
   abrirWhatsApp(): void {
     const text = encodeURIComponent(
-      'Olá! Gostaria de saber como implantar o SISAMB no meu município.',
+      'Olá! Gostaria de saber como implantar o Sisamb.eco no meu município.',
     );
     window.open(
       `https://api.whatsapp.com/send/?phone=${SISAMB_WHATSAPP_PHONE}&text=${text}`,

@@ -1,6 +1,6 @@
 .about-section {
   width: 100%;
-  background: #fffefe;
+  background: var(--bg-light);
   padding: 30px 0 0;
   position: relative;
   overflow: hidden;
@@ -47,25 +47,6 @@
     max-width: 100%;
   }
 
-  .section-title {
-    .highlight {
-      position: relative;
-      z-index: 0;
-
-      &::after {
-        content: "";
-        position: absolute;
-        left: -2px;
-        right: -2px;
-        bottom: 3px;
-        height: 9px;
-        background: rgba(0, 191, 165, 0.18);
-        border-radius: 4px;
-        z-index: -1;
-      }
-    }
-  }
-
   .about-description {
     font-size: 1.125rem;
     color: var(--text-muted);
@@ -91,6 +72,9 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  // Room for the cards' own box-shadow to show fully instead of getting
+  // clipped by overflow: hidden.
+  padding-bottom: 24px;
 
   &::before,
   &::after {
@@ -105,12 +89,12 @@
 
   &::before {
     left: 0;
-    background: linear-gradient(to right, #fffefe, transparent);
+    background: linear-gradient(to right, #f8fafc, transparent);
   }
 
   &::after {
     right: 0;
-    background: linear-gradient(to left, #fffefe, transparent);
+    background: linear-gradient(to left, #f8fafc, transparent);
   }
 }
 
@@ -143,16 +127,16 @@
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius-md, 12px);
   padding: 16px;
-  box-shadow: 0 10px 22px -10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 14px 32px -12px rgba(0, 0, 0, 0.2);
   transition:
     box-shadow 0.35s ease,
     border-color 0.35s ease;
 
   &:hover {
-    border-color: rgba(0, 191, 165, 0.35);
+    border-color: rgba(0, 186, 181, 0.35);
     box-shadow:
-      0 18px 28px -12px rgba(0, 191, 165, 0.25),
-      var(--shadow-md);
+      0 22px 38px -12px rgba(0, 186, 181, 0.32),
+      var(--shadow-lg);
   }
 
   .feature-icon {
@@ -189,6 +173,22 @@
 @media (prefers-reduced-motion: reduce) {
   .features-track {
     animation: none;
+  }
+}
+
+/* CTA below the ticker */
+.about-cta {
+  display: flex;
+  justify-content: center;
+  // Cancels out the ticker's own padding-bottom so the button doesn't end
+  // up sitting further away than before.
+  margin-top: -24px;
+
+  @media (max-width: 480px) {
+    app-gestao-button {
+      width: 100%;
+      display: block;
+    }
   }
 }
 

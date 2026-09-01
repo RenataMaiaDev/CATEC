@@ -64,7 +64,7 @@
 
 .footer-tagline {
   font-size: 0.85rem;
-  color: var(--accent);
+  color: var(--white);
   line-height: 1.55;
   max-width: 34ch;
   white-space: pre-line;
@@ -85,7 +85,7 @@
 
   li {
     font-size: 0.85rem;
-    color: var(--accent);
+    color: var(--white);
     line-height: 1.55;
 
     &:not(:last-child) {

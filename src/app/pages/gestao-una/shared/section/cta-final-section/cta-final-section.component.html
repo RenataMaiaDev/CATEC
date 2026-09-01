@@ -1,23 +1,60 @@
-<section class="cta-final-section" id="gestao-contato">
-  <div class="cta-final-content">
-    <h2 class="cta-final-title">
-      Pronto para centralizar a gestão da sua instituição?
-    </h2>
-    <p class="cta-final-subtitle">
-      Fale com a gente pelo WhatsApp e veja como o Gestão Una pode ajudar.
-    </p>
+<section class="contratar-section" id="gestao-contato">
+  <div class="contratar-container">
+    <!-- Badge sits above everything in the section -->
+    <span class="section-badge section-badge--gestao">Como contratar</span>
 
-    <app-gestao-button
-      variant="primary"
-      class="cta-final-button"
-      (click)="abrirWhatsApp()"
-    >
-      <i class="fa-brands fa-whatsapp"></i>
-      Conversar agora pelo WhatsApp
-    </app-gestao-button>
+    <div class="contratar-row">
+      <!-- Left: intro text + image -->
+      <div class="contratar-intro">
+        <h2 class="section-title section-title--gestao intro-title">
+          Pronto para
+          <span class="highlight">centralizar a gestão</span>
+          da sua instituição?
+        </h2>
 
-    <p class="cta-final-note">
-      Resposta rápida · Atendimento dedicado · Sem compromisso
-    </p>
+        <span class="intro-divider" aria-hidden="true"></span>
+
+        <p class="section-subtitle intro-subtitle">
+          Nossa equipe apresenta a plataforma e ajuda a planejar a
+          implantação, seja para uma instituição pública ou privada.
+        </p>
+
+        <div class="intro-image-frame">
+          <img
+            src="Images-gu/hero-gu.webp"
+            alt="Painel do Gestão Una em laptop e celular"
+            class="intro-image"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+
+      <!-- Right: vertical timeline — the real hiring process, one card per step -->
+      <div class="passos-timeline" #timeline>
+        @for (passo of passos; track passo.numero) {
+          <div class="passo-item">
+            <div class="passo-marker">
+              <span class="passo-icon material-icons">{{ passo.icon }}</span>
+            </div>
+
+            <div class="passo-card">
+              <span class="passo-card-numero">{{ passo.numero }}</span>
+              <h3 class="passo-title">{{ passo.title }}</h3>
+              <p class="passo-description">{{ passo.description }}</p>
+              @if (passo.numero === '01') {
+                <app-gestao-button
+                  variant="primary"
+                  class="passo-cta"
+                  (click)="abrirAgendamento()"
+                >
+                  Agende aqui
+                </app-gestao-button>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
   </div>
 </section>

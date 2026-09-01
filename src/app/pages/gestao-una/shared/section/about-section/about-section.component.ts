@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ButtonComponent } from '../../components/button/button.component';
+import { OrcamentoService } from '../../../../catec/shared/components/orcamento-modal/orcamento.service';
 
 interface FeatureItem {
   icon: string;
@@ -34,7 +36,7 @@ const FEATURES: FeatureItem[] = [
 
 @Component({
   selector: 'app-about-section',
-  imports: [],
+  imports: [ButtonComponent],
   templateUrl: './about-section.component.html',
   styleUrl: './about-section.component.scss',
 })
@@ -42,6 +44,13 @@ const FEATURES: FeatureItem[] = [
 // run as an infinite auto-scrolling ticker (same technique as the tônomei
 // hero's entrepreneurs ticker — duplicated track, looping translateX).
 export class AboutSectionComponent {
+  private readonly orcamentoService = inject(OrcamentoService);
+
   // Duplicated so the CSS marquee can loop seamlessly at -50%.
   readonly features = [...FEATURES, ...FEATURES];
+
+  // Opens the same quote-request form used by the hero's "Agende Aqui" CTA.
+  abrirAgendamento(): void {
+    this.orcamentoService.abrir('gestao');
+  }
 }

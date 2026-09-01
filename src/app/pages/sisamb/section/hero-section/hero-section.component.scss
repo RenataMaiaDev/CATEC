@@ -78,7 +78,6 @@
   padding: 8px 16px;
   border-radius: 50px;
   background: rgba(0, 194, 157, 0.08);
-  border: 1px solid rgba(0, 194, 157, 0.18);
   color: var(--primary-sisamb-text);
   font-size: 0.8rem;
   font-weight: 600;
@@ -99,19 +98,6 @@
 
   .highlight {
     color: var(--primary-sisamb-text);
-    position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      left: -2px;
-      right: -2px;
-      bottom: 6px;
-      height: 12px;
-      background: rgba(0, 194, 157, 0.18);
-      border-radius: 4px;
-      z-index: -1;
-    }
   }
 }
 

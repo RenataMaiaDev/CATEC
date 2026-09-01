@@ -2,6 +2,7 @@
 @if (isOpen()) {
 <div class="orcamento-overlay" (click)="fechar()">
   <div class="orcamento-dialog" [class.orcamento-dialog--sisamb]="marca() === 'sisamb'"
+    [class.orcamento-dialog--gestao]="marca() === 'gestao'"
     (click)="$event.stopPropagation()">
     <div class="orcamento-scroll">
       <header class="orcamento-header">

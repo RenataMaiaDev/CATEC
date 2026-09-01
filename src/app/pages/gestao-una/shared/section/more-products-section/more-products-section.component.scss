@@ -1,9 +1,13 @@
 .more-products-section {
   width: 100%;
-  background-color: var(--white);
+  background-color: var(--bg-light);
   padding: 60px 24px;
   box-sizing: border-box;
   scroll-margin-top: 80px;
+
+  .section-title .highlight {
+    color: var(--primary-gestao);
+  }
 
   .section-subtitle {
     max-width: 620px;
@@ -57,16 +61,16 @@
   overflow: hidden;
   text-align: left;
   box-shadow:
-    0 22px 40px -16px rgba(0, 105, 92, 0.32),
-    0 8px 16px -8px rgba(0, 105, 92, 0.2);
+    0 22px 40px -16px rgba(0, 82, 80, 0.32),
+    0 8px 16px -8px rgba(0, 82, 80, 0.2);
   cursor: default;
   transition: box-shadow 0.3s ease;
 
   @media (hover: hover) {
     &:hover {
       box-shadow:
-        0 28px 48px -14px rgba(0, 105, 92, 0.4),
-        0 10px 20px -8px rgba(0, 105, 92, 0.24);
+        0 28px 48px -14px rgba(0, 82, 80, 0.4),
+        0 10px 20px -8px rgba(0, 82, 80, 0.24);
     }
   }
 }

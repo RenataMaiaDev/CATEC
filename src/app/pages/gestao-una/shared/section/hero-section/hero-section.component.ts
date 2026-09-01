@@ -1,8 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
-
-// Gestão Una main WhatsApp line (same number used in the footer/floating button).
-const GESTAO_WHATSAPP_PHONE = '5585996157126';
+import { OrcamentoService } from '../../../../catec/shared/components/orcamento-modal/orcamento.service';
 
 @Component({
   selector: 'app-hero-section',
@@ -12,14 +10,10 @@ const GESTAO_WHATSAPP_PHONE = '5585996157126';
   styleUrl: './hero-section.component.scss',
 })
 export class HeroSectionComponent {
-  // Opens WhatsApp with a pre-filled message to the Gestão Una line.
-  abrirWhatsApp(): void {
-    const text = encodeURIComponent(
-      'Olá! Gostaria de saber mais sobre o Gestão Una.',
-    );
-    window.open(
-      `https://api.whatsapp.com/send/?phone=${GESTAO_WHATSAPP_PHONE}&text=${text}`,
-      '_blank',
-    );
+  private readonly orcamentoService = inject(OrcamentoService);
+
+  // Opens the same quote-request form used on the catec/SISAMB LPs.
+  abrirAgendamento(): void {
+    this.orcamentoService.abrir('gestao');
   }
 }

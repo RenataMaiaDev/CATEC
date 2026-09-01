@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 
-export type MarcaOrcamento = 'catec' | 'sisamb';
+export type MarcaOrcamento = 'catec' | 'sisamb' | 'gestao';
 
 // Shared open/close state for the quote request modal, usable from any brand's LP.
 // The `marca` picks which backend endpoint and email template the submission uses.

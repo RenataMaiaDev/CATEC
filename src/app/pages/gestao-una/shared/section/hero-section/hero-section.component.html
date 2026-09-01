@@ -3,28 +3,84 @@
     <!-- Left side: Text and CTA -->
     <div class="hero-content">
       <h1 class="hero-title">
-        Gestão eficiente para todas as suas instituições, <br />
-        <span class="highlight">em um só lugar</span>
+        Gestão Inteligente se faz com dados. <br />
+        As informações da sua instituição
+        <span class="highlight">pública e privada</span>, num só lugar.
       </h1>
       <p class="hero-subtitle">
-        Fazendo gestão de maneira prática, inteligente, barata, inclusiva e
-        moderna.
+        Num mercado globalizado e acelerado é necessário que seus dados
+        estejam na palma da mão. Faça isso da forma correta. O Gestão Una é
+        moderno e intuitivo e usa ciência de dados.
       </p>
 
       <div class="hero-actions">
-        <app-gestao-button variant="primary" (click)="abrirWhatsApp()">
-          Fale Conosco <i class="fa-solid fa-arrow-right"></i>
+        <app-gestao-button variant="primary" (click)="abrirAgendamento()">
+          Agende Aqui <i class="fa-solid fa-arrow-right"></i>
         </app-gestao-button>
       </div>
     </div>
 
-    <!-- Right side: real product screenshot -->
+    <!-- Right side: circular visual composition, same pattern as the SISAMB hero -->
     <div class="hero-visual">
-      <img
-        src="Images-gu/hero-gu.png"
-        alt="Painel do Gestão Una em laptop e celular"
-        class="hero-visual-img"
-      />
+      <div class="hero-circles">
+        <div class="circle-ring circle-ring--outer"></div>
+        <div class="circle-ring circle-ring--mid"></div>
+
+        <div class="hero-image-frame">
+          <img
+            src="Images-gu/logo-gu-icon.webp"
+            alt="Gestão Una"
+            class="hero-circle-img"
+          />
+        </div>
+
+        <!-- Floating sector cards -->
+        <div class="floating-card fc-educacao">
+          <span class="fc-icon material-icons">school</span>
+          <div class="fc-text">
+            <span class="fc-label">Educação</span>
+          </div>
+        </div>
+
+        <div class="floating-card fc-saude">
+          <span class="fc-icon material-icons">health_and_safety</span>
+          <div class="fc-text">
+            <span class="fc-label">Saúde</span>
+          </div>
+        </div>
+
+        <div class="floating-card fc-infraestrutura">
+          <span class="fc-icon material-icons">apartment</span>
+          <div class="fc-text">
+            <span class="fc-label">Infraestrutura</span>
+          </div>
+        </div>
+
+        <div class="floating-card fc-cultura">
+          <span class="fc-icon material-icons">theater_comedy</span>
+          <div class="fc-text">
+            <span class="fc-label">Cultura</span>
+          </div>
+        </div>
+
+        <div class="floating-card fc-assistencia">
+          <span class="fc-icon material-icons">volunteer_activism</span>
+          <div class="fc-text">
+            <span class="fc-label">Assistência Social</span>
+          </div>
+        </div>
+
+        <!-- Small floating icon bubbles — other sectors managed by the platform -->
+        <span class="floating-icon fi-juridico" aria-hidden="true" title="Jurídico">
+          <i class="material-icons">gavel</i>
+        </span>
+        <span class="floating-icon fi-meio-ambiente" aria-hidden="true" title="Meio Ambiente">
+          <i class="material-icons">eco</i>
+        </span>
+        <span class="floating-icon fi-arrecadacao" aria-hidden="true" title="Arrecadação">
+          <i class="material-icons">account_balance</i>
+        </span>
+      </div>
     </div>
   </div>
 
@@ -32,7 +88,7 @@
   <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
     <path
       d="M0,45 C320,90 480,0 800,40 C1080,74 1260,10 1440,45 L1440,90 L0,90 Z"
-      fill="#fffefe"
+      fill="#f8fafc"
     ></path>
   </svg>
 </section>

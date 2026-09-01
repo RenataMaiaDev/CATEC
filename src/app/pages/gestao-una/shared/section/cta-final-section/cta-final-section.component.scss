@@ -1,57 +1,281 @@
-.cta-final-section {
+.contratar-section {
+  position: relative;
   width: 100%;
-  background: var(--white);
-  padding: 0 24px 64px;
+  background: var(--bg-light);
+  padding: 30px 24px 64px;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
+  scroll-margin-top: 80px;
+  overflow: hidden;
+
+  .section-title .highlight {
+    color: var(--primary-gestao);
+  }
 
   @media (max-width: 768px) {
-    padding: 0 20px 48px;
+    padding: 30px 16px 48px;
   }
 }
 
-.cta-final-content {
+.contratar-container {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  max-width: 900px;
+
+  .section-badge {
+    margin-bottom: 32px;
+  }
+}
+
+.contratar-row {
   width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 32px;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
 }
 
-.cta-final-title {
-  font-size: clamp(2rem, 4.2vw, 3.2rem);
-  font-weight: 800;
-  color: var(--primary-dark-gestao);
-  line-height: 1.2;
-  margin-bottom: 16px;
+/* ============ LEFT: INTRO TEXT + IMAGE ============ */
+.contratar-intro {
+  position: relative;
+  flex: 0 0 420px;
+  text-align: center;
+
+  @media (max-width: 900px) {
+    flex: 1 1 auto;
+  }
 }
 
-.cta-final-subtitle {
-  font-size: 1rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 28px;
+.intro-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
 }
 
-.cta-final-button {
-  display: inline-block;
+.intro-divider {
+  display: block;
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--primary-gestao);
+  margin: 20px auto;
+}
 
-  ::ng-deep .btn {
-    background-color: var(--primary-gestao);
-    color: var(--white);
-    font-weight: 700;
+.intro-subtitle {
+  text-align: center;
+  margin: 0 auto 24px;
+  max-width: 380px;
 
-    &:hover {
-      background-color: var(--primary-hover-gestao);
+  @media (max-width: 900px) {
+    max-width: 480px;
+  }
+}
+
+// Crops in on the device mockup so the soft shadow/glow baked into the
+// image's transparent edges doesn't show. A shorter frame than the image's
+// own ratio lets object-fit: cover crop the top/bottom margin on its own —
+// no CSS transform involved, which caused rendering artifacts on the PNG's
+// translucent edges.
+.intro-image-frame {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 3 / 1.75;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.intro-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============ RIGHT: VERTICAL TIMELINE ============ */
+.passos-timeline {
+  flex: 1 1 400px;
+  min-width: 0;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+
+  &.in-view {
+    opacity: 1;
+  }
+}
+
+.passo-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 24px;
+  box-sizing: border-box;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+
+  .passos-timeline.in-view & {
+    opacity: 1;
+    transform: translateY(0);
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{($i - 1) * 0.12}s;
+      }
     }
   }
 
-  .fa-whatsapp {
-    margin-right: 4px;
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  // Dashed segment connecting this step's marker to the next one's — sized
+  // from the bottom of the circle to the bottom of the item's own box, so it
+  // always reaches the next marker regardless of how tall the card is.
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 44px;
+    left: 22px;
+    transform: translateX(-50%);
+    width: 2px;
+    height: calc(100% - 44px);
+    background: repeating-linear-gradient(
+      180deg,
+      rgba(0, 82, 80, 0.3) 0px,
+      rgba(0, 82, 80, 0.3) 6px,
+      transparent 6px,
+      transparent 13px
+    );
+
+    @media (max-width: 560px) {
+      left: 18px;
+      top: 36px;
+      height: calc(100% - 36px);
+    }
   }
 }
 
-.cta-final-note {
-  margin-top: 18px;
-  font-size: 0.82rem;
+.passo-marker {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary-dark-gestao);
+  box-shadow: 0 8px 20px -8px rgba(24, 19, 40, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 560px) {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.passo-icon {
+  color: var(--white);
+  font-size: 1.2rem;
+
+  @media (max-width: 560px) {
+    font-size: 1rem;
+  }
+}
+
+.passo-card {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: 0 14px 36px -14px rgba(24, 19, 40, 0.35);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+  // Short stub bridging the gap between the marker and the card.
+  &::before {
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: 21px;
+    width: 16px;
+    height: 2px;
+    background: rgba(0, 82, 80, 0.3);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 42px -14px rgba(24, 19, 40, 0.42);
+    border-color: rgba(0, 82, 80, 0.25);
+  }
+
+  @media (max-width: 560px) {
+    padding: 12px 14px;
+    border-radius: 12px;
+
+    &::before {
+      top: 17px;
+    }
+  }
+}
+
+.passo-card-numero {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--primary-dark-gestao);
+  margin-bottom: 4px;
+}
+
+.passo-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--secondary-gestao);
+  margin-bottom: 3px;
+}
+
+.passo-description {
+  font-size: 0.8rem;
   color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.passo-cta {
+  display: inline-block;
+  margin-top: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .passos-timeline,
+  .passo-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

@@ -6,7 +6,7 @@
       class="logo"
       (click)="setActiveSection('gestao-inicio', $event)"
     >
-      <img src="images/logo-gestao-una.webp" alt="Gestão Una" class="logo-img">
+      <img src="images/logo-gestao-una.webp" alt="Gestão Una" class="logo-img logo-img--invert">
     </a>
 
     <!-- Desktop navigation menu -->
@@ -47,13 +47,12 @@
         >CONTATO</a
       >
 
-      <!-- Gestão Una login link. TODO: replace "#" with the real platform login URL once available -->
+      <!-- Gestão Una login link -->
       <a
-        href="#"
+        href="https://catecsolucoes.com.br/gestaouna/login"
         target="_blank"
         rel="noopener noreferrer"
         class="nav-link"
-        (click)="$event.preventDefault()"
       >
         <i class="fa-solid fa-right-to-bracket"></i>
         <span>ACESSAR O GESTÃO UNA</span>
@@ -103,11 +102,10 @@
 
         <!-- Gestão Una login link (mobile, same style) -->
         <a
-          href="#"
+          href="https://catecsolucoes.com.br/gestaouna/login"
           target="_blank"
           rel="noopener noreferrer"
           class="mobile-link"
-          (click)="$event.preventDefault()"
         >
           <span>ACESSAR O GESTÃO UNA</span>
           <i class="fa-solid fa-right-to-bracket"></i>

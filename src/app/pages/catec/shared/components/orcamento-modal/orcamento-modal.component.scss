@@ -29,6 +29,15 @@
     --primary-hover-catec: var(--primary-hover-sisamb);
     --orcamento-icon-bg: rgba(0, 194, 157, 0.1);
   }
+
+  // Swaps every --primary-catec/--secondary-catec reference to Gestão Una's
+  // teal/navy palette when the form was opened from that LP.
+  &--gestao {
+    --primary-catec: var(--primary-gestao);
+    --primary-hover-catec: var(--primary-hover-gestao);
+    --secondary-catec: var(--secondary-gestao);
+    --orcamento-icon-bg: rgba(0, 191, 165, 0.1);
+  }
 }
 
 .orcamento-scroll {

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild, effect, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '../button/button.component';
-import { OrcamentoService } from './orcamento.service';
+import { MarcaOrcamento, OrcamentoService } from './orcamento.service';
 
 type TipoPessoa = 'fisica' | 'juridica';
 type StatusEnvio = 'idle' | 'enviando' | 'sucesso' | 'erro';
@@ -221,10 +221,12 @@ export class OrcamentoModalComponent {
         this.paraAnexo(this.documentoArquivo()),
       ]);
 
-      const endpoint =
-        this.orcamentoService.marca() === 'sisamb'
-          ? '/api/send-email-sisamb'
-          : '/api/send-email';
+      const endpoints: Record<MarcaOrcamento, string> = {
+        catec: '/api/send-email',
+        sisamb: '/api/send-email-sisamb',
+        gestao: '/api/send-email-gestao',
+      };
+      const endpoint = endpoints[this.orcamentoService.marca()];
 
       const resposta = await fetch(endpoint, {
         method: 'POST',
