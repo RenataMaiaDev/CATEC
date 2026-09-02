@@ -33,6 +33,7 @@
     // The SISAMB logo asset has dark text; invert it to white so it reads
     // on the header's dark background (same treatment as the footer).
     filter: brightness(0) invert(1);
+   
   }
 }
 
