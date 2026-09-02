@@ -39,7 +39,7 @@ export class TonomeiSectionComponent {
   private readonly destroyRef = inject(DestroyRef);
 
   // How often the carousel auto-advances when the user isn't interacting with it.
-  private static readonly AUTOPLAY_INTERVAL_MS = 6000;
+  private static readonly AUTOPLAY_INTERVAL_MS = 15000;
   private autoplayId: ReturnType<typeof setInterval> | null = null;
 
   constructor() {
