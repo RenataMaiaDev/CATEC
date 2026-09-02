@@ -57,7 +57,7 @@
 .advantage-tile {
   position: relative;
   height: 190px;
-  border-radius: var(--radius-lg);
+  border-radius: 18px;
   overflow: hidden;
   text-align: left;
   box-shadow:
@@ -165,8 +165,7 @@
     inset: auto;
     opacity: 1;
     transform: none;
-    padding-top: 0;
-    background: none;
+    background: rgba(0, 186, 181, 0.12);
     color: var(--primary-dark-gestao);
 
     .advantage-title,
@@ -175,7 +174,7 @@
     }
 
     .advantage-description {
-      color: var(--text-muted);
+      color: var(--primary-dark-gestao);
     }
   }
 }

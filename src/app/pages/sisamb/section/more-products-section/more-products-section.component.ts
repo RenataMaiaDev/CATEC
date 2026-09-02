@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ButtonComponent } from '../../shared/components/button/button.component';
 
 interface Modulo {
   icon: string;
@@ -11,7 +10,7 @@ interface Modulo {
 @Component({
   selector: 'app-more-products-section',
   standalone: true,
-  imports: [ButtonComponent],
+  imports: [],
   templateUrl: './more-products-section.component.html',
   styleUrl: './more-products-section.component.scss',
 })
@@ -124,9 +123,4 @@ export class MoreProductsSectionComponent {
         'O trabalho dos fiscais fica mais fácil, rápido e tempestivo — uma experiência nova e mais inteligente para o seu município.',
     },
   ];
-
-  // Opens the tônomei platform login in a new tab.
-  abrirLoginTonomei(): void {
-    window.open('https://tonomei.com.br/app/login-demo', '_blank', 'noopener,noreferrer');
-  }
 }
